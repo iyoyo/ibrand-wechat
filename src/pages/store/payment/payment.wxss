@@ -1,0 +1,59 @@
+#store-payment .order-item .title {
+  height: 35px;
+  line-height: 35px;
+  color: #888;
+  padding: 0 20px;
+  font-size: 14px;
+}
+#store-payment .order-item .info {
+  font-size: 14px;
+  background: #FFFFFF;
+  padding: 10px 20px;
+}
+#store-payment .order-item .goods {
+  background-image: none;
+  color: #8a8a8a;
+}
+#store-payment .order-item .goods .goods-item {
+  display: flex;
+}
+#store-payment .order-item .goods .goods-item .item-left {
+  overflow: hidden;
+}
+#store-payment .order-item .goods .goods-item .item-left image {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #e5e5e5;
+  display: block;
+}
+#store-payment .order-item .goods .goods-item .item-right {
+  flex: 1;
+  padding-left: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#store-payment .order-item .goods .goods-item .item-right .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#store-payment .order-item .goods .goods-item .item-right .item .name {
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 90%;
+}
+#store-payment .order-item .type label {
+  display: flex;
+  align-items: center;
+}
+#store-payment .order-item .money {
+  font-size: 17px;
+  color: #ed0000;
+}
+#store-payment button {
+  margin: 20px;
+}

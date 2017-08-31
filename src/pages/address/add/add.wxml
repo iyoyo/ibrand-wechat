@@ -1,0 +1,38 @@
+<view id="address-add">
+    <view class="address-info">
+        <view class="info-item mx-1px-bottom">
+            <label for="name">姓名:</label>
+            <view class="form-control">
+                <input type="text" id="name" />
+            </view>
+        </view>
+        <view class="info-item mx-1px-bottom">
+            <label for="phone">联系电话:</label>
+            <view class="form-control">
+                <input type="number" id="phone" />
+            </view>
+        </view>
+        <view class="info-item mx-1px-bottom">
+            <label>所在地:</label>
+            <view class="form-control select">
+                <input type="number" disabled="disabled" />
+            </view>
+        </view>
+        <view class="info-item mx-1px-bottom">
+            <label for="address">详细地址:</label>
+            <view class="form-control">
+                <input type="text" id="address" />
+            </view>
+        </view>
+        <view class="info-item mx-1px-bottom">
+            <label class="checkbox">
+                <checkbox />
+                <text>设为默认地址</text>
+            </label>
+        </view>
+    </view>
+    <view class="button-box">
+        <button type="primary" class="submit">保存</button>
+        <button type="warn" class="delete">删除</button>
+    </view>
+</view>

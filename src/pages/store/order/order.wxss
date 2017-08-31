@@ -1,0 +1,246 @@
+#store-order .border-box {
+  padding-bottom: 50px;
+}
+#store-order .border-box .order-item .title {
+  height: 35px;
+  line-height: 35px;
+  color: #888;
+  padding: 0 20px;
+  font-size: 14px;
+}
+#store-order .border-box .order-item .info {
+  font-size: 14px;
+  background: #FFFFFF;
+  padding: 10px 20px;
+  background-image: url("https://uto.ibrand.cc/m/static/img/ic_forward.png");
+  background-repeat: no-repeat;
+  background-position: 100%;
+  background-size: 20px;
+}
+#store-order .border-box .order-item .address .name {
+  font-size: 16px;
+}
+#store-order .border-box .order-item .goods {
+  background-image: none;
+  color: #8a8a8a;
+}
+#store-order .border-box .order-item .goods .goods-item {
+  display: flex;
+}
+#store-order .border-box .order-item .goods .goods-item .item-left {
+  overflow: hidden;
+}
+#store-order .border-box .order-item .goods .goods-item .item-left image {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #e5e5e5;
+  display: block;
+}
+#store-order .border-box .order-item .goods .goods-item .item-right {
+  flex: 1;
+  padding-left: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#store-order .border-box .order-item .goods .goods-item .item-right .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#store-order .border-box .order-item .goods .goods-item .item-right .item .name {
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 90%;
+}
+#store-order .border-box .order-item .total {
+  font-size: 14px;
+  text-align: right;
+  padding: 10px 20px;
+  background: #FFFFFF;
+}
+#store-order .border-box .order-item .coupon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#store-order .border-box .order-item .coupon .coupon-num {
+  color: #b2b2b2;
+  margin-right: 10px;
+}
+#store-order .border-box .order-item .point {
+  padding: 10px 0;
+  background-image: none;
+}
+#store-order .border-box .order-item .point .input-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 10px 20px;
+}
+#store-order .border-box .order-item .point .input-box .use-all {
+  color: #1aad19;
+}
+#store-order .border-box .order-item .point .offset {
+  margin-top: 10px;
+  text-align: right;
+  color: #f72b0c;
+  padding: 0 20px;
+}
+#store-order .border-box .order-item .activity {
+  background-image: none;
+  padding: 0;
+}
+#store-order .border-box .order-item .activity .input-box {
+  padding: 10px 20px;
+}
+#store-order .border-box .order-item .activity .input-box .radio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#store-order .border-box .order-item .activity .input-box .radio text {
+  flex: 1;
+}
+#store-order .border-box .order-info {
+  margin-top: 10px;
+  background: #FFFFFF;
+  padding: 10px 20px;
+  font-size: 14px;
+  line-height: 22px;
+}
+#store-order .border-box .order-info .info-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #000;
+}
+#store-order .border-box .order-info .info-item .item-left {
+  color: #8a8a8a;
+}
+#store-order .border-box .order-info .info-item .money {
+  font-size: 20px;
+  color: #ed0000;
+  font-weight: bold;
+  overflow: hidden;
+}
+#store-order .border-box .order-info .info-item .money-title {
+  font-weight: bold;
+  color: #000000;
+}
+#store-order .sbumit-order {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  background: #FFFFFF;
+  color: #000000;
+  text-align: center;
+}
+#store-order .sbumit-order .back {
+  flex: 1;
+  height: 100%;
+  width: 0%;
+  background: #f8f8f8;
+}
+#store-order .sbumit-order .sbumit {
+  flex: 1;
+  width: 0%;
+  height: 100%;
+  color: #FFFFFF;
+}
+.coupon-maks {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  transition: all .3s linear;
+  background: #EFEFF4;
+  z-index: 10;
+}
+.coupon-maks.cur {
+  height: 100%;
+}
+.coupon-maks .coupon-box {
+  padding: 0 15px;
+}
+.coupon-maks .coupon-box .coupon-item {
+  margin-top: 10px;
+}
+.coupon-maks .coupon-box .coupon-item radio {
+  display: none;
+}
+.coupon-maks .coupon-box .coupon-item label {
+  display: flex;
+  align-items: center;
+}
+.coupon-maks .coupon-box .coupon-item label .left {
+  width: 110px;
+  height: 110px;
+  background: url("http://ovef29y3v.bkt.clouddn.com/coupon-bg.png") no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.coupon-maks .coupon-box .coupon-item label .left .label {
+  color: #FFFFFF;
+}
+.coupon-maks .coupon-box .coupon-item label .right {
+  position: relative;
+  height: 110px;
+  flex: 1;
+  overflow: hidden;
+  background: #FFFFFF;
+  padding: 0 10px;
+  font-size: 14px;
+}
+.coupon-maks .coupon-box .coupon-item label .right .coupon-name {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.coupon-maks .coupon-box .coupon-item label .right .coupon-name .type {
+  color: #FFFFFF;
+  background: #fc5e3a;
+  border-radius: 10px;
+  padding: 1px 8px;
+  margin-right: 5px;
+}
+.coupon-maks .coupon-box .coupon-item label .right .coupon-name .name {
+  flex: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.coupon-maks .coupon-box .coupon-item label .right .coupon-tiem {
+  font-size: 12px;
+  color: #b5b5b5;
+}
+.coupon-maks .coupon-box .coupon-item label .right .select {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: url("http://ovef29y3v.bkt.clouddn.com/select.png") no-repeat;
+  background-size: 40px auto;
+  bottom: 0;
+  right: 0;
+}
+.coupon-maks .coupon-box .coupon-item label .right .select.activity {
+  background: url("http://ovef29y3v.bkt.clouddn.com/selected.png") no-repeat;
+  background-size: 40px auto;
+}
+.coupon-maks .button-box {
+  margin-top: 40px;
+}
+.coupon-maks .button-box button {
+  margin: 0 20px 15px 20px;
+}

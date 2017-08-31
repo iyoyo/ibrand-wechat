@@ -1,0 +1,48 @@
+<view id="store-list">
+    <view class="commodity-top">
+        <view class="sidebar mx-1px-bottom">
+            <view class="sidebar-left">
+                <span class="iconfont icon-fenzu">
+
+                </span>
+            </view>
+            <view class="sidebar-right">
+                <view class="right-seek iconfont icon-sousuo">
+
+                </view>
+                <view class="right-cart iconfont icon-gouwuche">
+
+                </view>
+            </view>
+        </view>
+        <view class="filter-box">
+            <view class="filter-item mx-1px-right">
+                最新
+            </view>
+            <view class="filter-item mx-1px-right">
+                价格
+            </view>
+            <view class="filter-item mx-1px-right">
+                销量
+            </view>
+            <view class="filter-item">
+                筛选
+            </view>
+        </view>
+    </view>
+    <view class="commodity-bottom">
+        <view class="commodity-out" data-id="{{item.id}}" wx:for="{{storeList.data}}" bindtap="jump">
+            <view class="commodity-box">
+                <view class="commodity-img">
+                    <image mode="widthFix" src="{{item.img}}" />
+                </view>
+                <view class="commodity-name">
+                    {{item.name}}
+                </view>
+                <view class="commodity-money">
+                    {{item.sell_price}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

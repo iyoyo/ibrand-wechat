@@ -1,0 +1,270 @@
+<view id="store-cart">
+    <view class="goods-box">
+        <checkbox-group>
+            <view class="goods-item mx-1px-bottom">
+                <view class="input">
+                    <label class="checkbox">
+                        <checkbox value="468" checked="true"/>{{item.value}}
+                    </label>
+                </view>
+                <view class="img-box">
+                    <image src="https://uto-admin-cdn.ibrand.cc/uploads/g2OetHhIUM.jpg" />
+                </view>
+                <view class="item-info">
+                    <view class="name">
+                        噶尔哈尔
+                    </view>
+                    <view class="money-box">
+                        <view class="model">
+                            黑灰色, M
+                        </view>
+                        <view class="money">
+                            ￥299.00
+                        </view>
+                    </view>
+                    <view class="mun-box">
+                        <view class="change-num">
+                            <ul>
+                                <li>-</li>
+                                <li><input type="number" value="10" /></li>
+                                <li>+</li>
+                            </ul>
+                        </view>
+                        <view class="remove">
+                            移除
+
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="goods-item mx-1px-bottom">
+                <view class="input">
+                    <label class="checkbox">
+                        <checkbox value="468" checked="true"/>{{item.value}}
+                    </label>
+                </view>
+                <view class="img-box">
+                    <image src="https://uto-admin-cdn.ibrand.cc/uploads/g2OetHhIUM.jpg" />
+                </view>
+                <view class="item-info">
+                    <view class="name">
+                        噶尔哈尔
+                    </view>
+                    <view class="money-box">
+                        <view class="model">
+                            黑灰色, M
+                        </view>
+                        <view class="money">
+                            ￥299.00
+                        </view>
+                    </view>
+                    <view class="mun-box">
+                        <view class="change-num">
+                            <ul>
+                                <li>-</li>
+                                <li><input type="number" value="10" /></li>
+                                <li>+</li>
+                            </ul>
+                        </view>
+                        <view class="remove">
+                            移除
+
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="goods-item mx-1px-bottom">
+                <view class="input">
+                    <label class="checkbox">
+                        <checkbox value="468" checked="true"/>{{item.value}}
+                    </label>
+                </view>
+                <view class="img-box">
+                    <image src="https://uto-admin-cdn.ibrand.cc/uploads/g2OetHhIUM.jpg" />
+                </view>
+                <view class="item-info">
+                    <view class="name">
+                        噶尔哈尔
+                    </view>
+                    <view class="money-box">
+                        <view class="model">
+                            黑灰色, M
+                        </view>
+                        <view class="money">
+                            ￥299.00
+                        </view>
+                    </view>
+                    <view class="mun-box">
+                        <view class="change-num">
+                            <ul>
+                                <li>-</li>
+                                <li><input type="number" value="10" /></li>
+                                <li>+</li>
+                            </ul>
+                        </view>
+                        <view class="remove">
+                            移除
+
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="goods-item mx-1px-bottom">
+                <view class="input">
+                    <label class="checkbox">
+                        <checkbox value="468" checked="true"/>{{item.value}}
+                    </label>
+                </view>
+                <view class="img-box">
+                    <image src="https://uto-admin-cdn.ibrand.cc/uploads/g2OetHhIUM.jpg" />
+                </view>
+                <view class="item-info">
+                    <view class="name">
+                        噶尔哈尔
+                    </view>
+                    <view class="money-box">
+                        <view class="model">
+                            黑灰色, M
+                        </view>
+                        <view class="money">
+                            ￥299.00
+                        </view>
+                    </view>
+                    <view class="mun-box">
+                        <view class="change-num">
+                            <ul>
+                                <li>-</li>
+                                <li><input type="number" value="10" /></li>
+                                <li>+</li>
+                            </ul>
+                        </view>
+                        <view class="remove">
+                            移除
+
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="goods-item mx-1px-bottom">
+                <view class="input">
+                    <label class="checkbox">
+                        <checkbox value="468" checked="true"/>{{item.value}}
+                    </label>
+                </view>
+                <view class="img-box">
+                    <image src="https://uto-admin-cdn.ibrand.cc/uploads/g2OetHhIUM.jpg" />
+                </view>
+                <view class="item-info">
+                    <view class="name">
+                        噶尔哈尔
+                    </view>
+                    <view class="money-box">
+                        <view class="model">
+                            黑灰色, M
+                        </view>
+                        <view class="money">
+                            ￥299.00
+                        </view>
+                    </view>
+                    <view class="mun-box">
+                        <view class="change-num">
+                            <ul>
+                                <li>-</li>
+                                <li><input type="number" value="10" /></li>
+                                <li>+</li>
+                            </ul>
+                        </view>
+                        <view class="remove">
+                            移除
+
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="goods-item mx-1px-bottom">
+                <view class="input">
+                    <label class="checkbox">
+                        <checkbox value="468" checked="true"/>{{item.value}}
+                    </label>
+                </view>
+                <view class="img-box">
+                    <image src="https://uto-admin-cdn.ibrand.cc/uploads/g2OetHhIUM.jpg" />
+                </view>
+                <view class="item-info">
+                    <view class="name">
+                        噶尔哈尔
+                    </view>
+                    <view class="money-box">
+                        <view class="model">
+                            黑灰色, M
+                        </view>
+                        <view class="money">
+                            ￥299.00
+                        </view>
+                    </view>
+                    <view class="mun-box">
+                        <view class="change-num">
+                            <ul>
+                                <li>-</li>
+                                <li><input type="number" value="10" /></li>
+                                <li>+</li>
+                            </ul>
+                        </view>
+                        <view class="remove">
+                            移除
+
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="goods-item mx-1px-bottom">
+                <view class="input">
+                    <label class="checkbox">
+                        <checkbox value="468" checked="true"/>{{item.value}}
+                    </label>
+                </view>
+                <view class="img-box">
+                    <image src="https://uto-admin-cdn.ibrand.cc/uploads/g2OetHhIUM.jpg" />
+                </view>
+                <view class="item-info">
+                    <view class="name">
+                        噶尔哈尔
+                    </view>
+                    <view class="money-box">
+                        <view class="model">
+                            黑灰色, M
+                        </view>
+                        <view class="money">
+                            ￥299.00
+                        </view>
+                    </view>
+                    <view class="mun-box">
+                        <view class="change-num">
+                            <ul>
+                                <li>-</li>
+                                <li><input type="number" value="10" /></li>
+                                <li>+</li>
+                            </ul>
+                        </view>
+                        <view class="remove">
+                            移除
+
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </checkbox-group>
+    </view>
+    <view class="buy-box">
+        <label class="checkbox">
+            <checkbox value="468" checked="true"/>
+            <text>全选</text>
+        </label>
+        <view class="money-box">
+            商品总计：<text>￥999.99</text>
+        </view>
+        <view class="num-box bgcolor">
+            结算<text>(2)</text>
+        </view>
+    </view>
+</view>

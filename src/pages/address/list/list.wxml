@@ -1,0 +1,124 @@
+<view id="address-list">
+    <view class="list-box">
+        <view class="list-item mx-1px-bottom">
+            <view class="user">
+                <view class="name">
+                    <text>PL</text>
+                    <text class="phone">13348673353</text>
+                </view>
+                <view class="default">
+                    默认
+                </view>
+            </view>
+            <view class="address">
+                天津市 天津市市辖区 和平区 哈哈哈嗯好
+            </view>
+        </view>
+        <view class="list-item mx-1px-bottom">
+            <view class="user">
+                <view class="name">
+                    <text>PL</text>
+                    <text class="phone">13348673353</text>
+                </view>
+                <view class="default">
+                    默认
+                </view>
+            </view>
+            <view class="address">
+                天津市 天津市市辖区 和平区 哈哈哈嗯好
+            </view>
+        </view>
+        <view class="list-item mx-1px-bottom">
+            <view class="user">
+                <view class="name">
+                    <text>PL</text>
+                    <text class="phone">13348673353</text>
+                </view>
+                <view class="default">
+                    默认
+                </view>
+            </view>
+            <view class="address">
+                天津市 天津市市辖区 和平区 哈哈哈嗯好
+            </view>
+        </view>
+        <view class="list-item mx-1px-bottom">
+            <view class="user">
+                <view class="name">
+                    <text>PL</text>
+                    <text class="phone">13348673353</text>
+                </view>
+                <view class="default">
+                    默认
+                </view>
+            </view>
+            <view class="address">
+                天津市 天津市市辖区 和平区 哈哈哈嗯好
+            </view>
+        </view>
+        <view class="list-item mx-1px-bottom">
+            <view class="user">
+                <view class="name">
+                    <text>PL</text>
+                    <text class="phone">13348673353</text>
+                </view>
+                <view class="default">
+                    默认
+                </view>
+            </view>
+            <view class="address">
+                天津市 天津市市辖区 和平区 哈哈哈嗯好
+            </view>
+        </view>
+        <view class="list-item mx-1px-bottom">
+            <view class="user">
+                <view class="name">
+                    <text>PL</text>
+                    <text class="phone">13348673353</text>
+                </view>
+                <view class="default">
+                    默认
+                </view>
+            </view>
+            <view class="address">
+                天津市 天津市市辖区 和平区 哈哈哈嗯好
+            </view>
+        </view>
+        <view class="list-item mx-1px-bottom">
+            <view class="user">
+                <view class="name">
+                    <text>PL</text>
+                    <text class="phone">13348673353</text>
+                </view>
+                <view class="default">
+                    默认
+                </view>
+            </view>
+            <view class="address">
+                天津市 天津市市辖区 和平区 哈哈哈嗯好
+            </view>
+        </view>
+        <view class="list-item mx-1px-bottom">
+            <view class="user">
+                <view class="name">
+                    <text>PL</text>
+                    <text class="phone">13348673353</text>
+                </view>
+                <view class="default">
+                    默认
+                </view>
+            </view>
+            <view class="address">
+                天津市 天津市市辖区 和平区 哈哈哈嗯好
+            </view>
+        </view>
+        <view class="list-item add-address">
+            <view class="icon iconfont icon-juxing">
+
+            </view>
+            <view>
+                新增收货地址
+            </view>
+        </view>
+    </view>
+</view>

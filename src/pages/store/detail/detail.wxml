@@ -1,0 +1,133 @@
+<import src="../../../wxParse/wxParse.wxml" />
+
+
+<view class="content">
+    <view class="top-img">
+        <swiper indicator-dots="true" autoplay="true" circular="true">
+            <swiper-item wx:for="{{detailData.data.photos}}">
+                <image src="{{item.url}}"  data-url="{{item.url}}" class="slide-image" bindtap="bigImg"/>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="basic-information">
+        <view class="basic-top">
+            {{detailData.data.name}}
+        </view>
+        <!--<view class="basic-middle">-->
+            <!--<view class="tag-box">-->
+                <!--<span class="tag" wx:for="{{detailData.data.tags}}">{{item}}</span>-->
+            <!--</view>-->
+            <!--<view class="rater-box">-->
+                <!--五星好评-->
+            <!--</view>-->
+        <!--</view>-->
+        <view class="basic-bottom">
+            <span class="price">￥{{detailData.data.sell_price}}</span>
+            <span>官网售价</span>
+        </view>
+        <!--<view class="old-box mx-1px-top">-->
+            <!--价格 ￥{{detailData.data.market_price}}-->
+        <!--</view>-->
+    </view>
+    <view class="detail-item-box">
+
+
+        <!--商品参数-->
+        <view>
+            <view class="title mx-1px-bottom" data-type="parameter" bindtap="change">
+                <view class="title-text">
+                    商品参数
+                </view>
+                <view class="{{expands.parameter ? 'arrow-up' : 'arrow-down'}}">
+
+                </view>
+            </view>
+            <view class="content" wx:if="{{expands.parameter}}">
+                <view class="argument-box">
+                    <view class="argument-top">
+                       <span wx:for="{{attributesList.top}}" wx:for-item="top">
+                           {{top.name}} : {{top.attribute_value}}
+                       </span>
+                    </view>
+                    <view class="argument-bottom" wx:if="{{attributesList.bottom.length}}">
+                        <view class="argument-item" wx:for="{{attributesList.bottom}}" wx:for-item="bottom">
+                            <view class="index-title">{{bottom.name}} ：</view>
+                            <view class="index-box">
+                                <ul>
+                                    <li class="{{bottom.attribute_value_id == list.id ? 'red-dot' : ''}}" wx:for="{{bottom.values}}" wx:for-item="list">
+                                        {{list.name}}
+                                    </li>
+                                </ul>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <!--商品详情-->
+        <view>
+            <view class="title mx-1px-bottom" data-type="commodity" bindtap="change">
+                <view class="title-text">
+                    商品详情
+                </view>
+                <view class="{{expands.commodity ? 'arrow-up' : 'arrow-down'}}">
+
+                </view>
+            </view>
+            <view class="content" wx:if="{{expands.commodity}}">
+                <template is="wxParse" data="{{wxParseData:detailI.nodes}}"/>
+            </view>
+        </view>
+
+        <!--猜你喜欢-->
+        <view>
+            <view class="title mx-1px-bottom" data-type="like" bindtap="change">
+                <view class="title-text">
+                    猜你喜欢
+                </view>
+                <view class="{{expands.like ? 'arrow-up' : 'arrow-down'}}">
+
+                </view>
+            </view>
+            <view class="content" wx:if="{{expands.like}}">
+                <view class="like_list">
+                    <view class="like_box" data-id="{{item.id}}" wx:for="{{detailData.data.guessYouLike}}" bindtap="jump">
+                        <view>
+                            <view class="like_img">
+                                <image class="responsive" src="{{item.img}}" alt="" />
+                            </view>
+                            <view class="like_name">
+                                {{item.name}}
+                            </view>
+                            <view class="like_money">
+                                ￥{{item.sell_price}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--<view class="to-top" hidden="{{!showToTop}}" bindtap="goTop">-->
+        <!--<i class="iconfont icon-xiangshang"></i>-->
+    <!--</view>-->
+
+    <view class="tabbar">
+        <view class="tabbar-item item_0">
+            <i class="iconfont icon-shangcheng"></i>
+            <span>商城</span>
+        </view>
+        <view class="tabbar-item item_1">
+            <i class="iconfont icon-gouwuche"></i>
+            <span>购物车</span>
+        </view>
+        <view class="tabbar-item item_2">
+            <i class="iconfont icon-favor"></i>
+            <span>收藏</span>
+        </view>
+        <view class="tabbar-item item_3 bgcolor">
+            加入购物车
+        </view>
+    </view>
+</view>

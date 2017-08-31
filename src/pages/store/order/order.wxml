@@ -1,0 +1,405 @@
+<view id="store-order">
+    <view class="border-box">
+        <view class="order-item">
+            <view class="title">
+                收货信息
+            </view>
+            <view class="address info">
+                <view class="name">
+                    毛老大 13348673353
+                </view>
+                <view>
+                    上海市长宁区天山路789号天山上主力2号楼1403
+                </view>
+            </view>
+        </view>
+        <view class="order-item">
+            <view class="title">
+                发票信息
+            </view>
+            <view class="invoice info">
+                <view>
+                    上海艾游文化传播有限公司
+                </view>
+            </view>
+        </view>
+        <view class="order-item">
+            <view class="title">
+                备注
+            </view>
+            <view class="remarks info">
+                <view>
+                    <input type="text" placeholder="备注信息" />
+                </view>
+
+            </view>
+        </view>
+        <view class="order-item">
+            <view class="title">
+                商品清单
+            </view>
+            <view class="goods info mx-1px-bottom">
+                <view class="goods-item">
+                    <view class="item-left">
+                        <image  src="https://uto-admin.ibrand.cc/uploads/phGtmoGjOp.jpg" />
+                    </view>
+                    <view class="item-right">
+                        <view class="goods-name item">
+                            <view class="name">
+                                悠途运动止汗头带
+                            </view>
+                            <view>
+                                2件
+                            </view>
+                        </view>
+                        <view class="goods-money item">
+                            <view>
+                                黑色 M
+                            </view>
+                            <view>
+                                $43.00
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="goods info mx-1px-bottom">
+                <view class="goods-item">
+                    <view class="item-left">
+                        <image  src="https://uto-admin.ibrand.cc/uploads/phGtmoGjOp.jpg" />
+                    </view>
+                    <view class="item-right">
+                        <view class="goods-name item">
+                            <view class="name">
+                                悠途运动止汗头带
+                            </view>
+                            <view>
+                                2件
+                            </view>
+                        </view>
+                        <view class="goods-money item">
+                            <view>
+                                黑色 M
+                            </view>
+                            <view>
+                                $43.00
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="goods info mx-1px-bottom">
+                <view class="goods-item">
+                    <view class="item-left">
+                        <image  src="https://uto-admin.ibrand.cc/uploads/phGtmoGjOp.jpg" />
+                    </view>
+                    <view class="item-right">
+                        <view class="goods-name item">
+                            <view class="name">
+                                悠途运动止汗头带
+                            </view>
+                            <view>
+                                2件
+                            </view>
+                        </view>
+                        <view class="goods-money item">
+                            <view>
+                                黑色 M
+                            </view>
+                            <view>
+                                $43.00
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="total">
+                3件商品，合计￥999.99
+            </view>
+        </view>
+        <view class="order-item">
+            <view class="title">
+                优惠券
+            </view>
+            <view class="coupon info" bindtap="select">
+                <view>
+                    3件7折
+                </view>
+                <view class="coupon-num">
+                    3张可用
+                </view>
+            </view>
+        </view>
+        <view class="order-item">
+            <view class="title">
+                积分抵扣
+            </view>
+            <view class="point info">
+                <view class="input-box mx-1px-bottom">
+                    <view>
+                        <input placeholder="可使用积分33333" type="number" />
+                    </view>
+                    <view class="use-all">
+                        全部使用
+                    </view>
+                </view>
+                <view class="offset">
+                    抵扣￥99.99
+                </view>
+            </view>
+        </view>
+        <view class="order-item">
+            <view class="title">
+                店内活动
+            </view>
+            <view class="activity info">
+                <radio-group>
+                    <view class="input-box mx-1px-bottom">
+                        <view>
+                            <label class="radio">
+                                <text>满100减10元</text>
+                                <radio/>
+                            </label>
+                        </view>
+                    </view>
+                    <view class="input-box mx-1px-bottom">
+                        <view>
+                            <label class="radio">
+                                <text>满100减100元</text>
+                                <radio/>
+                            </label>
+                        </view>
+                    </view>
+                    <view class="input-box mx-1px-bottom">
+                        <view>
+                            <label class="radio">
+                                <text>满100减1000元</text>
+                                <radio/>
+                            </label>
+                        </view>
+                    </view>
+                    <view class="input-box mx-1px-bottom">
+                        <view>
+                            <label class="radio">
+                                <text>不使用优惠</text>
+                                <radio/>
+                            </label>
+                        </view>
+                    </view>
+                </radio-group>
+            </view>
+        </view>
+        <view class="order-info">
+            <view class="info-item">
+                <view class="item-left">
+                    商品件数
+                </view>
+                <view class="item-right">
+                    3件
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="item-left">
+                    金额合计
+                </view>
+                <view class="item-right">
+                    ￥999.99
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="item-left">
+                    积分抵扣
+                </view>
+                <view class="item-right">
+                    -￥99.99
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="item-left">
+                    优惠券
+                </view>
+                <view class="item-right">
+                    -￥99.99
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="item-left">
+                    优惠活动
+                </view>
+                <view class="item-right">
+                    -￥99.99
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="item-left">
+                    运费
+                </view>
+                <view class="item-right">
+                    -￥99.99
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="item-left money-title">
+                    积分抵扣
+                </view>
+                <view class="item-right money">
+                    -￥99.99
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="sbumit-order">
+        <view class="back">
+            返回购物车
+        </view>
+        <view class="sbumit bgcolor">
+            提交订单
+        </view>
+    </view>
+</view>
+
+<view class="coupon-maks {{show ? 'cur' : ''}}">
+    <view class="coupon-box">
+        <radio-group bindchange="change">
+            <view class="coupon-item">
+                <radio id="index-1" value="0" />
+                <label for="index-1">
+                    <view class="left">
+                        <span class="label">
+                            我是优惠券
+                        </span>
+                    </view>
+                    <view class="right">
+                        <view class="coupon-name">
+                            <view class="type">
+                                官网
+                            </view>
+                            <view class="name">
+                                2016 冬季 FUSEFORM系列
+                            </view>
+                        </view>
+                        <view class="coupon-tiem">
+                            2016－02-22至2016-03-31
+                        </view>
+
+                        <view class="select {{checked[0] ? 'activity' : ''}}">
+
+                        </view>
+                    </view>
+                </label>
+            </view>
+            <view class="coupon-item">
+                <radio id="index-2" value="1" />
+                <label for="index-2">
+                    <view class="left">
+                        <span class="label">
+                            我是优惠券
+                        </span>
+                    </view>
+                    <view class="right">
+                        <view class="coupon-name">
+                            <view class="type">
+                                官网
+                            </view>
+                            <view class="name">
+                                2016 冬季 FUSEFORM系列
+                            </view>
+                        </view>
+                        <view class="coupon-tiem">
+                            2016－02-22至2016-03-31
+                        </view>
+
+                        <view class="select {{checked[1] ? 'activity' : ''}}">
+
+                        </view>
+                    </view>
+                </label>
+            </view>
+            <view class="coupon-item">
+                <radio id="index-3" value="2" />
+                <label for="index-3">
+                    <view class="left">
+                        <span class="label">
+                            我是优惠券
+                        </span>
+                    </view>
+                    <view class="right">
+                        <view class="coupon-name">
+                            <view class="type">
+                                官网
+                            </view>
+                            <view class="name">
+                                2016 冬季 FUSEFORM系列
+                            </view>
+                        </view>
+                        <view class="coupon-tiem">
+                            2016－02-22至2016-03-31
+                        </view>
+
+                        <view class="select {{checked[2] ? 'activity' : ''}}">
+
+                        </view>
+                    </view>
+                </label>
+            </view>
+            <view class="coupon-item">
+                <radio id="index-4" value="3" />
+                <label for="index-4">
+                    <view class="left">
+                        <span class="label">
+                            我是优惠券
+                        </span>
+                    </view>
+                    <view class="right">
+                        <view class="coupon-name">
+                            <view class="type">
+                                官网
+                            </view>
+                            <view class="name">
+                                2016 冬季 FUSEFORM系列
+                            </view>
+                        </view>
+                        <view class="coupon-tiem">
+                            2016－02-22至2016-03-31
+                        </view>
+
+                        <view class="select {{checked[3] ? 'activity' : ''}}">
+
+                        </view>
+                    </view>
+                </label>
+            </view>
+            <view class="coupon-item">
+                <radio id="index-5" value="4" />
+                <label for="index-5">
+                    <view class="left">
+                        <span class="label">
+                            我是优惠券
+                        </span>
+                    </view>
+                    <view class="right">
+                        <view class="coupon-name">
+                            <view class="type">
+                                官网
+                            </view>
+                            <view class="name">
+                                2016 冬季 FUSEFORM系列
+                            </view>
+                        </view>
+                        <view class="coupon-tiem">
+                            2016－02-22至2016-03-31
+                        </view>
+
+                        <view class="select {{checked[4] ? 'activity' : ''}}">
+
+                        </view>
+                    </view>
+                </label>
+            </view>
+        </radio-group>
+    </view>
+    <view class="button-box">
+        <button type="primary">确定</button>
+        <button type="default" bindtap="cancel">取消</button>
+    </view>
+</view>

@@ -1,0 +1,306 @@
+.content {
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.content .top-img swiper {
+  height: 730rpx;
+  background: #ffffff;
+}
+.content .basic-information {
+  padding-top: 10px;
+  font-size: 12px;
+  background: #ffffff;
+}
+.content .basic-information .basic-top {
+  font-size: 14px;
+  color: #000000;
+  padding: 0 10px;
+}
+.content .basic-information .basic-middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.content .basic-information .basic-middle .tag-box .tag {
+  font-size: 10px;
+  color: #9f9f9f;
+  background: #e4e4e4;
+  border-radius: 4px;
+  padding: 3px 5px;
+  margin-right: 5px;
+}
+.content .basic-information .basic-bottom {
+  padding: 10px;
+  color: #ee2b1d;
+}
+.content .basic-information .basic-bottom .price {
+  font-size: 20px;
+  color: #ee3428;
+}
+.content .basic-information .old-box {
+  padding: 10px;
+  color: #959595;
+  text-decoration: line-through;
+}
+.content .detail-item-box {
+  padding-bottom: 55px;
+}
+.content .detail-item-box .title {
+  padding: 10px 0 10px 10px;
+  font-size: 14px;
+  line-height: 18px;
+  display: flex;
+  background-color: #FFFFFF;
+  margin-top: 10px;
+}
+.content .detail-item-box .title .title-text {
+  flex: 1;
+}
+.content .detail-item-box .title .arrow-up {
+  width: 30px;
+  height: 10px;
+  margin-top: 3px;
+  background: url("https://www.jackwolfskin.cn/m/static/img/down.png") no-repeat center;
+  transform: rotate(180deg);
+  background-size: 10px;
+}
+.content .detail-item-box .title .arrow-down {
+  width: 20px;
+  background: url("https://www.jackwolfskin.cn/m/static/img/down.png") no-repeat center;
+  background-size: 10px;
+  margin-right: 5px;
+}
+.content .detail-item-box .title .icon-right {
+  width: 20px;
+  background: url("https://www.jackwolfskin.cn/m/static/img/right.png") no-repeat center;
+  background-size: 5px;
+  margin-right: 5px;
+}
+.content .detail-item-box .content {
+  background: #FFFFFF;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 0;
+}
+.content .detail-item-box .content .argument-box {
+  color: #000000;
+}
+.content .detail-item-box .content .argument-box .argument-top {
+  line-height: 20px;
+}
+.content .detail-item-box .content .argument-box .argument-top span {
+  display: inline-block;
+  font-size: 10px;
+  width: 50%;
+  box-sizing: border-box;
+  background: url("https://www.jackwolfskin.cn/m/static/img/goods-list.png") no-repeat left;
+  padding-left: 15px;
+}
+.content .detail-item-box .content .argument-box .argument-bottom {
+  font-size: 10px;
+  margin-top: 35px;
+}
+.content .detail-item-box .content .argument-box .argument-bottom .argument-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+.content .detail-item-box .content .argument-box .argument-bottom .argument-item .index-box {
+  flex: 1;
+}
+.content .detail-item-box .content .argument-box .argument-bottom .argument-item .index-box ul {
+  display: flex;
+  background: url("https://www.jackwolfskin.cn/m/static/img/lvl-bg.png") repeat-x top;
+}
+.content .detail-item-box .content .argument-box .argument-bottom .argument-item .index-box ul .red-dot {
+  background: url("https://www.jackwolfskin.cn/m/static/img/red-dot.png") no-repeat top;
+}
+.content .detail-item-box .content .argument-box .argument-bottom .argument-item .index-box ul li {
+  flex: 1;
+  display: inline-block;
+  text-align: center;
+  padding-top: 15px;
+  background: url("https://www.jackwolfskin.cn/m/static/img/dot.png") no-repeat top;
+}
+.content .detail-item-box .content .small_title {
+  padding: 10px 0;
+  font-size: 14px;
+  background-size: 15px;
+  background-color: #FFFFFF;
+}
+.content .detail-item-box .content .responsive {
+  width: 100% !important;
+  height: auto !important;
+}
+.content .detail-item-box .content .commodity_description table,
+.content .detail-item-box .content .commodity_description img {
+  width: 100% !important;
+  height: auto !important;
+}
+.content .detail-item-box .content .story_list {
+  margin: -5px;
+}
+.content .detail-item-box .content .story_list .bg_green {
+  background: #d88a3b;
+}
+.content .detail-item-box .content .story_list .bg_aqua {
+  background: #00c1d8;
+}
+.content .detail-item-box .content .story_list .bg_orange {
+  background: #00b46e;
+}
+.content .detail-item-box .content .story_list .story_box {
+  padding: 5px;
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+  position: relative;
+}
+.content .detail-item-box .content .story_list .story_box .story_tag {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  color: #FFFFFF;
+  padding: 2px 5px;
+  border-radius: 2px;
+  font-size: 10px;
+}
+.content .detail-item-box .content .story_list .story_box .story_title {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+.content .detail-item-box .content .comment_list {
+  font-size: 12px;
+  line-height: 20px;
+}
+.content .detail-item-box .content .comment_list .comment_user .user_name {
+  margin-right: 15px;
+  display: inline-block;
+  color: #0079ff;
+}
+.content .detail-item-box .content .comment_list .comment_content {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.content .detail-item-box .content .comment_list .comment_time {
+  color: #838282;
+}
+.content .detail-item-box .content .user_list {
+  text-align: center;
+  display: flex;
+}
+.content .detail-item-box .content .user_list .user_box {
+  padding: 0 10px;
+  display: block;
+  width: 25%;
+  box-sizing: border-box;
+}
+.content .detail-item-box .content .user_list .user_box .user_avatar {
+  width: 100%;
+  border-radius: 50%;
+}
+.content .detail-item-box .content .user_list .user_box .user_avatar .user-avatar {
+  border-radius: 50%;
+}
+.content .detail-item-box .content .user_list .user_box .user_name_box {
+  font-size: 12px;
+  margin-top: 5px;
+  display: flex;
+}
+.content .detail-item-box .content .user_list .user_box .user_name_box .user-name {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.content .detail-item-box .content .user_list .user_box .user_name_box .user-grade {
+  background: url("/static/img/TNF_v2_r2_c2.png") no-repeat center;
+  display: inline-block;
+  border-radius: 50%;
+  width: 18px;
+  padding-left: 10px;
+  color: #ffffff;
+  font-style: italic;
+}
+.content .detail-item-box .content .like_list {
+  margin: 0 -5px;
+  font-size: 10px;
+}
+.content .detail-item-box .content .like_list .like_box {
+  padding: 0 10px;
+  display: inline-block;
+  width: 33.333%;
+  box-sizing: border-box;
+}
+.content .detail-item-box .content .like_list .like_box .like_inner {
+  border: 1px solid #e5e5e5;
+  padding: 5px;
+}
+.content .detail-item-box .content .like_list .like_box .like_name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.content .detail-item-box .content .like_list .like_box .like_img {
+  width: 100%;
+}
+.content .detail-item-box .content .like_list .like_box .like_img image {
+  height: 200rpx !important;
+}
+.content .detail-item-box .content .like_list .like_box .like_money {
+  color: #ED3327;
+}
+.content .wxParse-p image {
+  width: 100% !important;
+}
+.content .to-top {
+  position: fixed;
+  bottom: 80px;
+  right: 13px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 100%;
+  background-color: #f9be00;
+  padding: 5px;
+  overflow: hidden;
+}
+.content .tabbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  z-index: 50;
+  color: #5e5e5e;
+  font-size: 13px;
+  background: #2e2e2e;
+  display: flex;
+}
+.content .tabbar .tabbar-item {
+  display: flex;
+  flex: 1;
+  width: 0%;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  flex-direction: column;
+}
+.content .tabbar .tabbar-item i {
+  font-size: 20px;
+}
+.content .tabbar .tabbar-item.item_3 {
+  line-height: 55px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  flex: 2;
+}

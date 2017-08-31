@@ -1,0 +1,76 @@
+#order-index{
+  .order-box{
+    .order-item{
+      margin-bottom: 10px;
+      background: #FFFFFF;
+      font-size: 15px;
+
+      .item-top{
+        .indent{
+          line-height: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 10px;
+
+          .order-num{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            flex: 1;
+            padding-right: 10px;
+
+            span{
+              font-weight: bold;
+            }
+          }
+          .order-type{
+            color: #1aad19;
+          }
+        }
+      }
+      .item-middle{
+        .middle-item{
+          display: flex;
+          padding: 10px;
+          color: #959595;
+
+          image{
+            width: 60px;
+            height: 60px;
+            border: 1px solid #e5e5e5;
+          }
+          .text{
+            flex: 1;
+            padding-left: 10px;
+            overflow: hidden;
+
+            .names{
+              color: #000000;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+          }
+          .money-box{
+            text-align: right;
+          }
+        }
+      }
+      .item-bottom{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+
+        .button-box{
+          font-size: 13px;
+          color: #1aad19;
+          padding: 8px 12px;
+          border: 1px solid #1aad19;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+}

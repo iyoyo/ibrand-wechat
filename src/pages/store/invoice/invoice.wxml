@@ -1,0 +1,37 @@
+<view id="store-invoice">
+    <view class="invoice-info">
+        <view class="title">
+            发票抬头
+        </view>
+        <view class="type">
+            <radio-group bindchange="change">
+                <view class="type-item">
+                    <label class="checkbox">
+                        <radio checked="true" value="solo" />
+                        <text>个人</text>
+                    </label>
+                </view>
+                <view class="type-item">
+                    <label class="checkbox">
+                        <radio  value="company"/>
+                        <text>单位</text>
+                    </label>
+                </view>
+            </radio-group>
+            <view class="name-info mx-1px-top" wx:if="{{type == 'company'}}">
+                <label>
+                    抬头
+                </label>
+                <input placeholder="请输入公司名称" />
+            </view>
+        </view>
+    </view>
+    <view class="tips">
+        <text class="title">发票须知：</text>
+        <text>
+            开票金额为用户实际支付金额（不含礼品卡、优惠券、积分抵扣）
+        </text>
+    </view>
+
+    <button type="primary">确定</button>
+</view>
