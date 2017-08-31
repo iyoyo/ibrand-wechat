@@ -29,6 +29,7 @@ const page = connect.Page(
     store(),
     (state) => ({projects: state.projects}),
     (dispatch) => {
+
         return {
             loadProjects: bindActionCreators(actions.loadProjects, dispatch)
         }
