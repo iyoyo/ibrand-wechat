@@ -2,47 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27a5ae94-db3a-44a3-a5e0-27265ac71194" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/image/a.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.babelrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ibrand-wechat.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app.wxss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/css/common/reset.wxss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/css/page/index.wxss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/component/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/component/rater/rater.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/component/rater/rater.wxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/component/rater/rater.wxss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/component/slide/slide.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/component/slide/slide.wxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/component/slide/slide.wxss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/component/vlc.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/es6/action-types.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/es6/actions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/es6/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/es6/myapp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/es6/reducers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/es6/sandBox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/es6/store.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/index/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/index/index.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/index/index.wxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/index/index.wxss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/test/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/test/test.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/test/test.wxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/test/test.wxss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utils/animation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack.dev.config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack.prod.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -87,8 +47,8 @@
           <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="115">
-                  <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+                <state relative-caret-position="138">
+                  <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
                   <folding />
                 </state>
               </provider>
@@ -593,12 +553,12 @@
       <workItem from="1503970854417" duration="13515000" />
       <workItem from="1504057857135" duration="6956000" />
       <workItem from="1504073789670" duration="13967000" />
-      <workItem from="1504143687324" duration="11670000" />
+      <workItem from="1504143687324" duration="11814000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192110000" />
+    <option name="totallyTimeSpent" value="192254000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1005,8 +965,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        <state relative-caret-position="138">
+          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
           <folding />
         </state>
       </provider>
