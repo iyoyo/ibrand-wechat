@@ -1,0 +1,21 @@
+{
+  "pages":[
+    "src/pages/index/index",
+    "src/pages/test/test"
+  ],
+
+  "window":{
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "主页",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+
+  "networkTimeout":{
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug":false
+}

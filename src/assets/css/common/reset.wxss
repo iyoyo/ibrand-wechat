@@ -1,0 +1,21 @@
+page {
+    background-color:#F8F8F8 ;
+    font-size:14rpx;
+    height:100%;
+    line-height: 0.7;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-user-select: none;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+view {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+form {
+    width:100%;
+}
