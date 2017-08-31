@@ -86,23 +86,16 @@ module.exports = {
         new CopyWebpackPlugin(getDir(path.resolve(__dirname)),{
                 ignore: [
                     'es6/*.js',
+                    'pages/**/*.less',
+                    'pages/**/**/*.less',
+
                 ],
                 copyUnmodified: true
-            }
-        ),
-        new CopyWebpackPlugin(getDir(path.resolve(__dirname)),{
-                ignore: [
-                    'es6/*.js',
-                    'pages/**/*.less'
-                ],
-                copyUnmodified: true
-            }
-        )
+        }),
     ],
     resolve: {
         extensions: ['.js']
     },
-
 }
 
 
