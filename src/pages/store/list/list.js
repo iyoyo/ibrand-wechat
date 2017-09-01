@@ -1,4 +1,4 @@
-var app = getApp();
+import {config} from '../../../lib/myapp.js'
 Page({
 	data: {
 		storeList: {
@@ -11,7 +11,7 @@ Page({
 			mask: true
 		});
 		wx.request({
-		    url:app.data.url + "store/list",
+		    url:config.GLOBAL.baseUrl + "store/list",
 		    success:res=>{
 		    	res = res.data;
 		    	this.setData({

@@ -1,16 +1,17 @@
 {
   "pages": [
+    "pages/store/list/list",
+    "pages/address/list/list",
+    "pages/store/detail/detail",
     "pages/order/index/index",
     "pages/store/invoice/invoice",
     "pages/address/add/add",
-    "pages/address/list/list",
     "pages/store/order/order",
     "pages/store/payment/payment",
-    "pages/store/list/list",
+
     "pages/store/success/success",
-    "pages/store/cart/cart",
-    "pages/store/detail/detail",
-    "pages/index/index"
+    "pages/store/cart/cart"
+
   ],
   "window": {
     "backgroundTextStyle": "dark",

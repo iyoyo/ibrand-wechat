@@ -3,3 +3,5 @@
  */
 
 export const PROJECTS_LOADED = 'PROJECTS_LOADED';
+
+export const GOODS_DETAIL = 'GOODS_DETAIL'

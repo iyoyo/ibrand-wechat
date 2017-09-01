@@ -2,13 +2,22 @@
  * Created by admin on 2017/8/30.
  */
 import { combineReducers } from 'redux'
-import { PROJECTS_LOADED } from './action-types'
+import { PROJECTS_LOADED ,GOODS_DETAIL} from './action-types'
 
 const projects = (state = [], action) => {
     switch (action.type) {
         case PROJECTS_LOADED:
             return state.concat[action.payload]
+    }
 
+    return state
+}
+
+const goods_detail = (state = {},action) => {
+
+    switch (action.type) {
+        case GOODS_DETAIL:
+            return {...action.payload,state}
     }
 
     return state
@@ -16,6 +25,7 @@ const projects = (state = [], action) => {
 
 
 export default combineReducers({
-    projects
+    projects,
+    goods_detail
 })
 

@@ -11,6 +11,7 @@ export const sandBox = {
         return new Promise((resolve, reject) => {
             http.get(api, data)
                 .then((response) => {
+                console.log(response)
                     resolve(response)
                 })
                 .catch((error) => {
@@ -32,7 +33,7 @@ export const sandBox = {
     APIs: {
         PROJECT: {
             load(obj, ...params){
-
+               
                 obj.api = `org/octokit/repos`;
                 sandBox.get(obj)
                     .then(res => params.dispatch({
@@ -40,6 +41,22 @@ export const sandBox = {
                         payload:res
                     }))
                     .catch(err => console.log(err))
+            }
+        },
+        STORE:{
+            DETAIL:{
+                get (obj,action){
+
+                    sandBox.get(obj)
+                        .then(res => {
+                           return action.dispatch({
+                                type:action.action_type,
+                                payload:res.data
+                            })
+                        })
+                        .catch(err => console.log(err))
+
+                }
             }
         }
     }

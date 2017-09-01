@@ -6,11 +6,13 @@ import weapp from 'weapp-next'
 import connect from 'redux-weapp'
 import store from './store'
 import actions  from './actions'
+import config from './config'
 
 export {
     weapp,
     connect,
     bindActionCreators,
     store,
-    actions
+    actions,
+    config
 }

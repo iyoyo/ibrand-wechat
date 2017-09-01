@@ -5,5 +5,6 @@
 @import "component/wxParse/wxParse.wxss";
 
 .bgcolor{
+
     background: #1aad19;
 }
