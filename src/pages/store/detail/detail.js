@@ -1,6 +1,6 @@
 var app = getApp();
 var page = getCurrentPages();
-var Wxparse = require('../../../wxParse/wxParse.js');
+var Wxparse = require('../../../component/wxParse/wxParse');
 Page({
 	data: {
 		detailData: '',

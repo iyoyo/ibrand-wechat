@@ -1,6 +1,5 @@
 {
   "pages": [
-    "navbar/navbar",
     "pages/order/index/index",
     "pages/store/invoice/invoice",
     "pages/address/add/add",
@@ -19,36 +18,5 @@
     "navigationBarTitleText": "商城首页",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#000000"
-  },
-  "tabBar": {
-    "color": "#5e5e5e",
-    "selectedColor": "red",
-    "backgroundColor": "#000",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "商城",
-        "iconPath": "static/img/tb_icon_0.png",
-        "selectedIconPath": "static/img/tb_icon_0_a.png"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "资讯",
-        "iconPath": "static/img/tb_icon_1.png",
-        "selectedIconPath": "static/img/tb_icon_1_a.png"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "门店",
-        "iconPath": "static/img/tb_icon_3.png",
-        "selectedIconPath": "static/img/iconfont-location.png"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "我",
-        "iconPath": "static/img/tb_icon_4.png",
-        "selectedIconPath": "static/img/tb_icon_4_a.png"
-      }
-    ]
   }
 }
