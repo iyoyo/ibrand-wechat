@@ -1,9 +1,13 @@
 @import "assets/css/reset.wxss";
 @import "assets/css/1px.wxss";
 @import "assets/css/font.wxss";
-@import "assets/css/weui.wxss";
+/*@import "assets/css/weui.wxss";*/
 @import "component/wxParse/wxParse.wxss";
 
 .bgcolor{
     background: #1aad19;
 }
+view{
+    box-sizing: border-box;
+    overflow: hidden;
+ }

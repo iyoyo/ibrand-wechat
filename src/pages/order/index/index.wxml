@@ -1,122 +1,987 @@
+
 <view id="order-index">
-    <view class="order-box">
-        <view class="order-item">
-            <view class="item-top">
-                <view class="indent mx-1px-bottom">
-                    <view class="order-num">
-                        <span>官方商城</span> | 订单编号：O2017082959124373928
-                    </view>
-                    <view class="order-type">
-                        付款成功
-                    </view>
-                </view>
+    <view class="navbar mx-1px-bottom">
+        <block wx:for="{{tabs}}" wx:key="*this">
+            <view id="{{index}}" class="navbar-item {{activeIndex == index ? 'activity' : ''}}" bindtap="tabClick">
+                <view class="navbar-title">{{item}}</view>
             </view>
-            <view class="item-middle">
-                <view class="middle-item mx-1px-bottom">
-                    <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
-                    <view class="text">
-                        <view class="names">
-                            16秋冬新品女款防水透气全压胶冲锋衣2U8U
-                        </view>
-                        <view class="model">
-                            月光白/128 S
+        </block>
+        <view class="navbar-slider" style="width: {{width}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="tab-panel">
+        <view class="tab-content" hidden="{{activeIndex != 0}}">
+            <view class="order-box">
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
                         </view>
                     </view>
-                    <view class="money-box">
-                        <view>
-                            1件
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
                         </view>
-                        <view>
-                            ￥99.999
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
                         </view>
                     </view>
                 </view>
-                <view class="middle-item mx-1px-bottom">
-                    <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
-                    <view class="text">
-                        <view class="names">
-                            16秋冬新品女款防水透气全压胶冲锋衣2U8U
-                        </view>
-                        <view class="model">
-                            月光白/128 S
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
                         </view>
                     </view>
-                    <view class="money-box">
-                        <view>
-                            1件
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
                         </view>
-                        <view>
-                            ￥99.999
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
                         </view>
                     </view>
                 </view>
-            </view>
-            <view class="item-bottom">
-                <view class="all-money">
-                    1件, 共计 ￥99.99
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
+                        </view>
+                    </view>
                 </view>
-                <view class="button-box">
-                    立即付款
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
+                        </view>
+                    </view>
                 </view>
             </view>
         </view>
-        <view class="order-item">
-            <view class="item-top">
-                <view class="indent mx-1px-bottom">
-                    <view class="order-num">
-                        <span>官方商城</span> | 订单编号：O2017082959124373928
+        <view class="tab-content" hidden="{{activeIndex != 1}}">
+            <view class="order-box">
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
+                        </view>
                     </view>
-                    <view class="order-type">
-                        付款成功
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
+                        </view>
+                    </view>
+                </view>
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
+                        </view>
+                    </view>
+                </view>
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
+                        </view>
+                    </view>
+                </view>
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
+                        </view>
                     </view>
                 </view>
             </view>
-            <view class="item-middle">
-                <view class="middle-item mx-1px-bottom">
-                    <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
-                    <view class="text">
-                        <view class="names">
-                            16秋冬新品女款防水透气全压胶冲锋衣2U8U
-                        </view>
-                        <view class="model">
-                            月光白/128 S
+        </view>
+        <view class="tab-content" hidden="{{activeIndex != 2}}">
+            <view class="order-box">
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
                         </view>
                     </view>
-                    <view class="money-box">
-                        <view>
-                            1件
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
                         </view>
-                        <view>
-                            ￥99.999
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
                         </view>
                     </view>
                 </view>
-                <view class="middle-item mx-1px-bottom">
-                    <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
-                    <view class="text">
-                        <view class="names">
-                            16秋冬新品女款防水透气全压胶冲锋衣2U8U
-                        </view>
-                        <view class="model">
-                            月光白/128 S
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
                         </view>
                     </view>
-                    <view class="money-box">
-                        <view>
-                            1件
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
                         </view>
-                        <view>
-                            ￥99.999
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
+                        </view>
+                    </view>
+                </view>
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
+                        </view>
+                    </view>
+                </view>
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
                         </view>
                     </view>
                 </view>
             </view>
-            <view class="item-bottom">
-                <view class="all-money">
-                    1件, 共计 ￥99.99
+        </view>
+        <view class="tab-content" hidden="{{activeIndex != 3}}">
+            <view class="order-box">
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
+                        </view>
+                    </view>
                 </view>
-                <view class="button-box">
-                    立即付款
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
+                        </view>
+                    </view>
+                </view>
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
+                        </view>
+                    </view>
+                </view>
+                <view class="order-item">
+                    <view class="item-top">
+                        <view class="indent mx-1px-bottom">
+                            <view class="order-num">
+                                <span>官方商城</span> | 订单编号：O2017082959124373928
+                            </view>
+                            <view class="order-type">
+                                付款成功
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-middle">
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                        <view class="middle-item mx-1px-bottom">
+                            <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                            <view class="text">
+                                <view class="names">
+                                    16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                                </view>
+                                <view class="model">
+                                    月光白/128 S
+                                </view>
+                            </view>
+                            <view class="money-box">
+                                <view>
+                                    1件
+                                </view>
+                                <view>
+                                    ￥99.999
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-bottom">
+                        <view class="all-money">
+                            1件, 共计 ￥99.99
+                        </view>
+                        <view class="button-box">
+                            立即付款
+                        </view>
+                    </view>
                 </view>
             </view>
         </view>
