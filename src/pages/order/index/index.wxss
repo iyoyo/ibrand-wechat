@@ -1,3 +1,39 @@
+#order-index .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  z-index: 20;
+  height: 50px;
+  line-height: 50px;
+  background: #FFFFFF;
+  font-size: 14px;
+  color: #353535;
+}
+#order-index .navbar .navbar-item {
+  flex: 1;
+  width: 0%;
+  text-align: center;
+}
+#order-index .navbar .navbar-item.activity {
+  color: #1aad19;
+}
+#order-index .navbar .navbar-slider {
+  position: absolute;
+  content: " ";
+  left: 0;
+  bottom: 0;
+  width: 4em;
+  height: 3px;
+  background-color: #1aad19;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform .3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+#order-index .tab-panel {
+  padding-top: 50px;
+}
 #order-index .order-box .order-item {
   margin-bottom: 10px;
   background: #FFFFFF;
