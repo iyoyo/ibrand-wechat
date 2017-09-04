@@ -1,4 +1,5 @@
-import {config} from '../../../lib/myapp.js'
+var app = getApp();
+import config from '../../../lib/myapp.js'
 Page({
 	data: {
 		storeList: {
@@ -6,12 +7,13 @@ Page({
 		}
 	},
 	onReady() {
+		console.log(config)
 		wx.showLoading({
 			title: '加载中',
 			mask: true
 		});
 		wx.request({
-		    url:config.GLOBAL.baseUrl + "store/list",
+		    url: "http://api.dev.tnf.ibrand.cc/api/store/list",
 		    success:res=>{
 		    	res = res.data;
 		    	this.setData({
@@ -22,7 +24,7 @@ Page({
 			fail: err => {
 				wx.hideLoading()
 			}
-		})
+		});
 	},
 	jump(e) {
 		var id = e.currentTarget.dataset.id;

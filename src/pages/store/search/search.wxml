@@ -1,0 +1,29 @@
+<view id="store-search">
+    <view class="search-box">
+        <view class="input-box">
+            <input type="text" value="{{text}}" bindinput="search" />
+
+            <icon type="search" size="20" class="search" />
+            <icon type="clear" size="20" class="clear" />
+        </view>
+        <view class="text">
+            搜索
+
+        </view>
+    </view>
+    <view class="goods-list">
+        <view class="commodity-out" data-id="{{item.id}}" wx:for="{{storeList.data}}" bindtap="jump">
+            <view class="commodity-box">
+                <view class="commodity-img">
+                    <image mode="widthFix" src="{{item.img}}" />
+                </view>
+                <view class="commodity-name">
+                    {{item.name}}
+                </view>
+                <view class="commodity-money">
+                    {{item.sell_price}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,207 @@
+<view id="order-detail">
+    <view class="border-box">
+        <view class="order-item">
+            <view class="title">
+                <view class="name">
+                    订单状态
+                </view>
+                <view class="type">
+                    待付款
+                </view>
+            </view>
+            <view class="goods-item">
+                <view class="item-middle">
+                    <view class="middle-item mx-1px-bottom">
+                        <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                        <view class="text">
+                            <view class="names">
+                                16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                            </view>
+                            <view class="model">
+                                月光白/128 S
+                            </view>
+                        </view>
+                        <view class="money-box">
+                            <view>
+                                1件
+                            </view>
+                            <view>
+                                ￥99.999
+                            </view>
+                            <view class="retreat-box">
+                                申请售后
+                            </view>
+                        </view>
+                    </view>
+                    <view class="middle-item mx-1px-bottom">
+                        <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                        <view class="text">
+                            <view class="names">
+                                16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                            </view>
+                            <view class="model">
+                                月光白/128 S
+                            </view>
+                        </view>
+                        <view class="money-box">
+                            <view>
+                                1件
+                            </view>
+                            <view>
+                                ￥99.999
+                            </view>
+                            <view class="retreat-box">
+                                申请售后
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="item-bottom">
+                    <view class="all-money">
+                        1件, 共计 ￥99.99
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="order-item">
+            <view class="title">
+                订单信息
+            </view>
+            <view class="order-info">
+                <view class="info-item">
+                    <view class="name">
+                        订单编号 :
+                    </view>
+                    <view class="text">
+                        21443543646457
+                    </view>
+                </view>
+                <view class="info-item">
+                    <view class="name">
+                        订单来源 :
+                    </view>
+                    <view class="text">
+                        官方商城
+                    </view>
+                </view>
+                <view class="info-item">
+                    <view class="name">
+                        下单时间 :
+                    </view>
+                    <view class="text">
+                        2016/04/05 12:12:12
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="order-item">
+            <view class="title">
+                收货信息
+            </view>
+            <view class="order-info">
+                <view class="info-item">
+                    <view class="name">
+                        地址 :
+                    </view>
+                    <view class="text">
+                        上海市 长宁区 天山路789号天山商厦
+                        商住楼2号楼1403
+                    </view>
+                </view>
+                <view class="info-item">
+                    <view class="name">
+                        姓名 :
+                    </view>
+                    <view class="text">
+                        大毛
+                    </view>
+                </view>
+                <view class="info-item">
+                    <view class="name">
+                        电话 :
+                    </view>
+                    <view class="text">
+                        13647583905
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="order-item">
+            <view class="title">
+                发票信息
+            </view>
+            <view class="order-info">
+                哈哈公司
+            </view>
+        </view>
+        <view class="order-item">
+            <view class="title">
+                备注
+            </view>
+            <view class="order-info">
+                无
+            </view>
+        </view>
+        <view class="order-detail-info">
+            <view class="item">
+                <view class="name">
+                    商品件数：
+                </view>
+                <view class="num">
+                    99件
+                </view>
+            </view>
+            <view class="item">
+                <view class="name">
+                    商品金额：
+                </view>
+                <view class="num">
+                    ￥0.00
+                </view>
+            </view>
+            <view class="item">
+                <view class="name">
+                    优惠抵扣：
+                </view>
+                <view class="num">
+                    ￥0.00
+                </view>
+            </view>
+            <view class="item">
+                <view class="name">
+                    运费：
+                </view>
+                <view class="num">
+                    ￥0.00
+                </view>
+            </view>
+            <view class="item">
+                <view class="name big">
+                    实付金额：
+                </view>
+                <view class="num big-money">
+                    ￥2000.00
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="button-type">
+        <!--<view class="type-submit">-->
+            <!--<view class="cancel">-->
+                <!--取消-->
+            <!--</view>-->
+            <!--<view class="submit">-->
+                <!--立即付款-->
+            <!--</view>-->
+        <!--</view>-->
+
+
+        <!--<view class="type-cancel">-->
+            <!--取消订单-->
+        <!--</view>-->
+
+        <view class="sbumit-cancel">
+            确认收货
+        </view>
+    </view>
+</view>

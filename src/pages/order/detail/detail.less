@@ -1,0 +1,140 @@
+#order-detail{
+  font-size: 15px;
+  .border-box{
+    padding-bottom: 50px;
+    .order-item{
+      .title{
+        height:35px;
+        line-height:35px;
+        color:#888;
+        padding:0 20px;
+        font-size:14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .type{
+          color: #1aad19;
+        }
+      }
+      .goods-item{
+        background: #FFFFFF;
+        .item-middle {
+          .middle-item {
+            display: flex;
+            padding: 10px;
+            color: #959595;
+
+            image {
+              width: 60px;
+              height: 60px;
+              border: 1px solid #e5e5e5;
+            }
+            .text {
+              flex: 1;
+              padding-left: 10px;
+              overflow: hidden;
+
+              .names {
+                color: #000000;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+              }
+            }
+            .money-box {
+              text-align: right;
+              .retreat-box{
+                font-size: 13px;
+                background: #f8f8f8;
+                border: 1px solid #e4e4e4;
+                border-radius: 3px;
+                padding: 8px 12px;
+                text-align: center;
+                margin-top: 6px;
+              }
+            }
+          }
+        }
+        .item-bottom {
+          text-align: right;
+          padding: 10px;
+
+          .all-money{
+            color: #ee2336;
+          }
+        }
+      }
+      .order-info{
+        padding: 10px 20px;
+        background: #FFFFFF;
+
+        .info-item{
+          display: flex;
+          padding: 2px 0;
+          .name{
+            width:80px;
+            color: #959595;
+          }
+          .text{
+            flex: 1;
+          }
+        }
+      }
+    }
+    .order-detail-info{
+      padding: 10px 20px;
+      font-size: 14px;
+
+      .item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .name{
+          color: #8a8a8a;
+          width: 80px;
+          text-align: right;
+
+          &.big{
+            color: #000000;
+            font-weight: bold;
+          }
+        }
+        .big-money{
+          color: #ed0000;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .button-type{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    .type-submit{
+      display: flex;
+      view{
+        flex: 1;
+        width: 0%;
+      }
+      .cancel{
+        background: #f8f8f8;
+      }
+      .submit{
+        background: #1aad19;
+        color: #FFFFFF;
+      }
+    }
+    .type-cancel{
+      background: #f8f8f8;
+    }
+    .sbumit-cancel{
+      background: #1aad19;
+      color: #FFFFFF;
+    }
+  }
+}

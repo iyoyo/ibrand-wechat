@@ -1,0 +1,128 @@
+#order-detail {
+  font-size: 15px;
+}
+#order-detail .border-box {
+  padding-bottom: 50px;
+}
+#order-detail .border-box .order-item .title {
+  height: 35px;
+  line-height: 35px;
+  color: #888;
+  padding: 0 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#order-detail .border-box .order-item .title .type {
+  color: #1aad19;
+}
+#order-detail .border-box .order-item .goods-item {
+  background: #FFFFFF;
+}
+#order-detail .border-box .order-item .goods-item .item-middle .middle-item {
+  display: flex;
+  padding: 10px;
+  color: #959595;
+}
+#order-detail .border-box .order-item .goods-item .item-middle .middle-item image {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #e5e5e5;
+}
+#order-detail .border-box .order-item .goods-item .item-middle .middle-item .text {
+  flex: 1;
+  padding-left: 10px;
+  overflow: hidden;
+}
+#order-detail .border-box .order-item .goods-item .item-middle .middle-item .text .names {
+  color: #000000;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+#order-detail .border-box .order-item .goods-item .item-middle .middle-item .money-box {
+  text-align: right;
+}
+#order-detail .border-box .order-item .goods-item .item-middle .middle-item .money-box .retreat-box {
+  font-size: 13px;
+  background: #f8f8f8;
+  border: 1px solid #e4e4e4;
+  border-radius: 3px;
+  padding: 8px 12px;
+  text-align: center;
+  margin-top: 6px;
+}
+#order-detail .border-box .order-item .goods-item .item-bottom {
+  text-align: right;
+  padding: 10px;
+}
+#order-detail .border-box .order-item .goods-item .item-bottom .all-money {
+  color: #ee2336;
+}
+#order-detail .border-box .order-item .order-info {
+  padding: 10px 20px;
+  background: #FFFFFF;
+}
+#order-detail .border-box .order-item .order-info .info-item {
+  display: flex;
+  padding: 2px 0;
+}
+#order-detail .border-box .order-item .order-info .info-item .name {
+  width: 80px;
+  color: #959595;
+}
+#order-detail .border-box .order-item .order-info .info-item .text {
+  flex: 1;
+}
+#order-detail .border-box .order-detail-info {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+#order-detail .border-box .order-detail-info .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#order-detail .border-box .order-detail-info .item .name {
+  color: #8a8a8a;
+  width: 80px;
+  text-align: right;
+}
+#order-detail .border-box .order-detail-info .item .name.big {
+  color: #000000;
+  font-weight: bold;
+}
+#order-detail .border-box .order-detail-info .item .big-money {
+  color: #ed0000;
+  font-weight: bold;
+}
+#order-detail .button-type {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+#order-detail .button-type .type-submit {
+  display: flex;
+}
+#order-detail .button-type .type-submit view {
+  flex: 1;
+  width: 0%;
+}
+#order-detail .button-type .type-submit .cancel {
+  background: #f8f8f8;
+}
+#order-detail .button-type .type-submit .submit {
+  background: #1aad19;
+  color: #FFFFFF;
+}
+#order-detail .button-type .type-cancel {
+  background: #f8f8f8;
+}
+#order-detail .button-type .sbumit-cancel {
+  background: #1aad19;
+  color: #FFFFFF;
+}
