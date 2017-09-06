@@ -1,0 +1,22 @@
+<view id="user-setting">
+    <view class="headImg">
+        <imag src="" alt="" />
+    </view>
+    <view class="user_setting">
+        <view class="code">
+            <view class="detail">昵称</view>
+            <input type="text" placeholder="填写您的昵称"/>
+        </view>
+        <view class="code">
+            <view class="detail">性别</view>
+            <picker value="{{selectedIndex}}" range="{{list}}" bindchange="change">
+                <!--<view class="picker">{{list[selectedIndex]}}</view>-->
+                <input type="text" placeholder="选择你的性别" disabled  value="{{list[selectedIndex]}}"/>
+            </picker>
+            <!--<input type="text" placeholder="选择你的性别"/>-->
+        </view>
+    </view>
+    <view class="submit">
+        <button type="primary">确定</button>
+    </view>
+</view>

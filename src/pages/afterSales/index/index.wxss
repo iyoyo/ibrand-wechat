@@ -1,0 +1,103 @@
+#afterSales-center .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  z-index: 20;
+  height: 50px;
+  line-height: 50px;
+  background: #FFFFFF;
+  font-size: 14px;
+  color: #353535;
+}
+#afterSales-center .navbar .navbar-item {
+  flex: 1;
+  width: 0%;
+  text-align: center;
+}
+#afterSales-center .navbar .navbar-item.activity {
+  color: #1aad19;
+}
+#afterSales-center .navbar .navbar-slider {
+  position: absolute;
+  content: " ";
+  left: 0;
+  bottom: 0;
+  width: 4em;
+  height: 3px;
+  background-color: #1aad19;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform .3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+#afterSales-center .tab-panel {
+  padding-top: 50px;
+}
+#afterSales-center .order-box .order-item {
+  margin-bottom: 10px;
+  background: #FFFFFF;
+  font-size: 15px;
+}
+#afterSales-center .order-box .order-item .item-top .indent {
+  line-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+#afterSales-center .order-box .order-item .item-top .indent .order-num {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex: 1;
+  padding-right: 10px;
+}
+#afterSales-center .order-box .order-item .item-top .indent .order-num span {
+  font-weight: bold;
+}
+#afterSales-center .order-box .order-item .item-top .indent .order-type {
+  color: #1aad19;
+}
+#afterSales-center .order-box .order-item .item-middle .middle-item {
+  display: flex;
+  padding: 10px;
+  color: #959595;
+}
+#afterSales-center .order-box .order-item .item-middle .middle-item image {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #e5e5e5;
+}
+#afterSales-center .order-box .order-item .item-middle .middle-item .text {
+  flex: 1;
+  padding-left: 10px;
+  overflow: hidden;
+}
+#afterSales-center .order-box .order-item .item-middle .middle-item .text .names {
+  color: #000000;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+#afterSales-center .order-box .order-item .item-middle .middle-item .money-box {
+  text-align: right;
+}
+#afterSales-center .order-box .order-item .item-middle .middle-item .money-box .button-box {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+}
+#afterSales-center .order-box .order-item .item-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+#afterSales-center .order-box .order-item .item-bottom .button-box {
+  font-size: 13px;
+  color: #1aad19;
+  padding: 8px 12px;
+  border: 1px solid #1aad19;
+  border-radius: 3px;
+}

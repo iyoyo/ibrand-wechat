@@ -1,0 +1,91 @@
+<view id="personal">
+    <view class="banner">
+        <view class="title">
+            <image src="http://ovef29y3v.bkt.clouddn.com/seting.png" />
+            <image src="http://ovef29y3v.bkt.clouddn.com/volume.png"></image>
+        </view>
+        <view class="adapter">
+            <view class="adapter-img">
+                <image></image>
+                <view class="justify">V2</view>
+            </view>
+            <text>Huderson</text>
+        </view>
+    </view>
+    <view class="allOrder">
+        <view class="allOrderTitle">
+            <text>全部订单</text>
+            <image src="http://ovef29y3v.bkt.clouddn.com/arrowRight.png"></image>
+        </view>
+        <view class="orderStatus">
+            <view class="status">
+                <view class="img">
+                    <i class="iconfont icon-pay"></i>
+                </view>
+                <text>
+                    待付款
+                </text>
+            </view>
+            <view class="status">
+                <view class="img">
+                    <i class="iconfont icon-shangcheng"></i>
+                </view>
+                <text>
+                    待发货
+                </text>
+            </view>
+            <view class="status">
+                <view class="img">
+                    <i class="iconfont icon-deliver"></i>
+                </view>
+                <text>
+                    待收货
+                </text>
+            </view>
+            <view class="status">
+                <view class="img">
+                    <i class="iconfont icon-appreciate"></i>
+                </view>
+                <text>
+                    待评价
+                </text>
+            </view>
+
+        </view>
+    </view>
+    <view class="menu_list">
+         <view class="menu_list_item">
+            <view class="text">
+                <view class="icon">
+                    <i class="iconfont icon-favor"></i>
+                </view>
+               <view>
+                   我的收藏
+               </view>
+            </view>
+             <image src="http://ovef29y3v.bkt.clouddn.com/arrowRight.png"></image>
+         </view>
+        <view class="menu_list_item">
+            <view class="text">
+                <view class="icon">
+                    <i class="iconfont icon-service"></i>
+                </view>
+                <view>
+                    售后中心
+                </view>
+            </view>
+            <image src="http://ovef29y3v.bkt.clouddn.com/arrowRight.png"></image>
+        </view>
+        <view class="menu_list_item">
+            <view class="text">
+                <view class="icon">
+                    <i class="iconfont icon-home"></i>
+                </view>
+                <view>
+                    收货地址
+                </view>
+            </view>
+            <image src="http://ovef29y3v.bkt.clouddn.com/arrowRight.png"></image>
+        </view>
+    </view>
+</view>

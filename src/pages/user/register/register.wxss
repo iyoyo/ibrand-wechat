@@ -1,0 +1,45 @@
+#user-register {
+  font-size: 16px;
+}
+#user-register .register_input {
+  background-color: #ffffff;
+  margin-top: 35px;
+}
+#user-register .register_input .tellphone {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px 0 10px 0;
+  display: flex;
+  align-items: center;
+}
+#user-register .register_input .tellphone .detail {
+  padding-left: 10px;
+  padding-right: 16px;
+}
+#user-register .register_input .tellphone .getCode {
+  flex: 1;
+  text-align: center;
+  color: #1aad19;
+  border-left: 1px solid #e5e5e5;
+}
+#user-register .register_input .code {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px 0 10px 0;
+  display: flex;
+  align-items: center;
+}
+#user-register .register_input .code .detail {
+  padding-left: 10px;
+  padding-right: 16px;
+}
+#user-register .register_input .code input {
+  flex: 1;
+}
+#user-register .select {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+#user-register .submit {
+  margin-top: 16px;
+}

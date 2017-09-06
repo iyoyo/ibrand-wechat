@@ -1,5 +1,12 @@
 {
   "pages": [
+    "pages/user/register/register",
+    "pages/user/usersetting/usersetting",
+    "pages/user/personal/personal",
+    "pages/afterSales/index/index",
+    "pages/afterSales/apply/apply",
+    "pages/afterSales/detail/detail",
+    "pages/afterSales/retreat/retreat",
     "pages/store/search/search",
     "pages/order/detail/detail",
     "pages/order/index/index",

@@ -1,0 +1,57 @@
+<view id="order-detail">
+    <view class="detail_title">
+       <icon type="success" size="40"></icon>
+        <text>退款成功</text>
+    </view>
+    <view class="detail_content">
+       <view class="store_title">
+          <view class="img"></view>
+           <text class="name">Aura Series光环系列</text>
+           <text class="num">1件</text>
+       </view>
+        <view class="store_content">
+            <view class="store_content_title">
+                <view>售后编号</view>
+                <view>31349494181</view>
+            </view>
+            <view class="store_content_title">
+                <view>申请时间</view>
+                <view>2015-09-14 01：02：21</view>
+            </view>
+            <view class="store_content_title">
+                <view>服务类型</view>
+                <view>退货退款</view>
+            </view>
+            <view class="store_content_title">
+                <view>服务状态</view>
+                <view>申请已通过</view>
+            </view>
+            <view class="store_content_title">
+                <view>退款金额</view>
+                <view>￥890.00</view>
+            </view>
+            <view class="store_content_title">
+                <view>退还积分</view>
+                <view>0</view>
+            </view>
+            <view class="store_content_title">
+                <view>退款原因</view>
+                <view>大小不合适</view>
+            </view>
+        </view>
+    </view>
+    <view class="status_content">
+         <view class="status_title">
+             请退货
+         </view>
+         <view class="content">
+             官方商城同意了您的退货申请。退货地址：上海市静
+             安区南阳路20号（xx收）18734567685。请点击“退
+             货”填写物流信息，逾期未填写，退货申请将关闭。
+         </view>
+    </view>
+    <view class="submit">
+        <button type="primary">立即退货</button>
+        <button>取消申请</button>
+    </view>
+</view>

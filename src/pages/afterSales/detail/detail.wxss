@@ -1,0 +1,58 @@
+#order-detail .detail_title {
+  margin-top: 5px;
+  height: 71px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+#order-detail .detail_title icon {
+  margin-left: 10px;
+}
+#order-detail .detail_title text {
+  margin-left: 30px;
+  font-size: 20px;
+}
+#order-detail .detail_content {
+  background-color: #ffffff;
+  margin-top: 10px;
+  padding: 10px 10px 0 10px;
+}
+#order-detail .detail_content .store_title {
+  display: flex;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 10px;
+}
+#order-detail .detail_content .store_title .img {
+  background-color: rebeccapurple;
+  width: 50px;
+  height: 50px;
+}
+#order-detail .detail_content .store_title .name {
+  margin-left: 20px;
+}
+#order-detail .detail_content .store_title .num {
+  flex: 1;
+  color: #959595;
+  text-align: right;
+}
+#order-detail .detail_content .store_content .store_content_title {
+  color: #888888;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+#order-detail .status_content {
+  background-color: #3a3a3a;
+  padding: 12px 24px;
+  color: #ffffff;
+}
+#order-detail .status_content .status_title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ffffff;
+}
+#order-detail .status_content .content {
+  margin-top: 10px;
+}
+#order-detail .submit {
+  margin-top: 16px;
+}
