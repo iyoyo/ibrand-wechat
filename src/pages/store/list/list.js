@@ -11,7 +11,7 @@ Page({
 			mask: true
 		});
 		wx.request({
-		    url:config.GLOBAL.baseUrl + "store/list",
+		    url:config.GLOBAL.baseUrl + "api/store/list",
 		    success:res=>{
 		    	res = res.data;
 		    	this.setData({

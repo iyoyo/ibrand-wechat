@@ -15,15 +15,15 @@
         </view>
         <!--<view class="basic-middle">-->
             <!--<view class="tag-box">-->
-                <!--<span class="tag" wx:for="{{detailData.data.tags}}">{{item}}</span>-->
+                <!--<text class="tag" wx:for="{{detailData.data.tags}}">{{item}}</text>-->
             <!--</view>-->
             <!--<view class="rater-box">-->
                 <!--五星好评-->
             <!--</view>-->
         <!--</view>-->
         <view class="basic-bottom">
-            <span class="price">￥{{detailData.data.sell_price}}</span>
-            <span>官网售价</span>
+            <text class="price">￥{{detailData.data.sell_price}}</text>
+            <text>官网售价</text>
         </view>
         <!--<view class="old-box mx-1px-top">-->
             <!--价格 ￥{{detailData.data.market_price}}-->
@@ -45,9 +45,9 @@
             <view class="content" wx:if="{{expands.parameter}}">
                 <view class="argument-box">
                     <view class="argument-top">
-                       <span wx:for="{{attributesList.top}}" wx:for-item="top">
+                       <text wx:for="{{attributesList.top}}" wx:for-item="top">
                            {{top.name}} : {{top.attribute_value}}
-                       </span>
+                       </text>
                     </view>
                     <view class="argument-bottom" wx:if="{{attributesList.bottom.length}}">
                         <view class="argument-item" wx:for="{{attributesList.bottom}}" wx:for-item="bottom">
@@ -116,20 +116,73 @@
     <view class="tabbar">
         <view class="tabbar-item item_0">
             <i class="iconfont icon-shangcheng"></i>
-            <span>商城</span>
+            <text>商城</text>
         </view>
         <view class="tabbar-item item_1">
             <i class="iconfont icon-gouwuche"></i>
-            <span>购物车</span>
+            <text>购物车</text>
         </view>
         <view class="tabbar-item item_2">
             <i class="iconfont icon-favor"></i>
-            <span>收藏</span>
+            <text>收藏</text>
         </view>
-        <view class="tabbar-item item_3 bgcolor">
+        <view class="tabbar-item item_3 bgcolor" bindtap="showSelect">
             加入购物车
         </view>
     </view>
 </view>
 
-<view class="detail-popup"></view>
+<view class="detail-popup" hidden="{{show_select}}"  animation="{{show.animation}}">
+    <view class="select_goods_container">
+        <!--关闭按钮-->
+        <view class="select_goods_cloese" bindtap="closeSelect"></view>
+        <view class="select_goods_header" >
+
+            <view class="img_box">
+
+                <image wx:if="{{select_product}}" src="{{select_product.img}}" alt="{{select_product.sku}}"></image>
+                    <image wx:else src="{{photos[0].image}}" alt=""></image>
+            </view>
+            <view class="img_box" :style="{ backgroundColor: select_product.color }"  wx:if="{{!select_product.img && !!select_product.color}}"></view>
+            <view class="price_item">
+                <text wx:if="{{select_product}}">{{select_product.price}}</text>
+                <text wx:else>{{ detailData.data.sell_price }}</text>
+                <text wx:if="{{detailData.data.shop_show_store == 1}}">库存{{store_count}}</text>
+            </view>
+
+        </view>
+
+        <view class="select_spec">
+            <view class="spec_line" wx:for="{{specs}}" wx:for-item="spec">
+                <view class="spec_title">{{spec.label}}</view>
+                <view class="spec_value">
+                    <view  class="spec_block {{ !!item.active ? 'active' : '' }} {{ !!item.disabled ? 'disabled' : '' }}" wx:for="{{spec.values}}" data-key="{{index}}" data-index="{{item.index}}" data-disabled="{{item.disabled ? 1 : 0}}" data-id="{{item.id}}" data-active="{{item.active ? 1 : 0}}" bindtap="selectSpec">
+                                <view class="spec_icon spec_text" wx:if="{{item.spec_img}}">
+                                    <image src="{{item.spec_img}}" data-alt="{{item.alias || item.value}}"></image>
+                                </view>
+                        <text class="spec_icon" style="background-color:{{item.color}}" wx:if="{{!item.spec_img && item.color}}"></text>
+                        <text wx:if="{{!item.spec_img && !item.color}}">{{item.alias || item.value}}</text>
+                    </view>
+                    <view class="spec_list" wx:if="{{spec.id != 2}}">尺码表</view>
+                </view>
+            </view>
+
+            <view class="spec_line">
+                <view class="num_title">数量</view>
+                <view class="num_value">
+                    <text bindtap="changeCount">-</text>
+                    <view class="none_border">
+                        <input bindinput="modifyCount" focus  type="text" confirm-type="done"/>
+                    </view>
+                    <text bindinput="changeCount">+</text>
+
+                </view>
+            </view>
+
+            <view  class="button {{ canBuy ? 'disabled' : '' }}" bindtap="confirm">
+                <!--<submit-button v-ref:button bindsubmit="confirm" :status="disallow_cart ? 'disabled' : 'normal'">确定</submit-button>-->
+            </view>
+        </view>
+    </view>
+</view>
+

@@ -26,6 +26,8 @@ export default class Animation {
             [`${this.id}.${this.name}`] : this.animate.export()
         })
 
+        return new Promise((resolve,reject) => {setTimeout(() => {resolve()},350)})
+
     }
 
 

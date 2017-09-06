@@ -7,6 +7,7 @@ import connect from 'redux-weapp'
 import store from './store'
 import actions  from './actions'
 import config from './config'
+import {sandBox} from './sandBox'
 
 export {
     weapp,
@@ -14,5 +15,6 @@ export {
     bindActionCreators,
     store,
     actions,
-    config
+    config,
+    sandBox
 }
