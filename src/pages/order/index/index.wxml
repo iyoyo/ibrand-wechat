@@ -11,7 +11,7 @@
     <view class="tab-panel">
         <view class="tab-content" hidden="{{activeIndex != 0}}">
             <view class="order-box">
-                <view class="order-item" wx:for="{{dataList[0]}}" wx:for-item="order">
+                <view class="order-item" data-no="{{order.order_no}}" wx:for="{{dataList[0]}}" wx:for-item="order" bindtap="jump">
                     <view class="item-top">
                         <view class="indent mx-1px-bottom">
                             <view class="order-num">
@@ -47,13 +47,13 @@
                         <view class="all-money">
                             {{order.count}}件, 共计 ￥{{order.total}}
                         </view>
-                        <view class="button-box" wx:if="{{order.status === 1}}" data-no="{{order.order_no}}" bindtap="submit">
+                        <view class="button-box" wx:if="{{order.status === 1}}" data-no="{{order.order_no}}" catchtap="pay">
                             立即付款
                         </view>
-                        <view class="button-box" wx:if="{{order.status === 3}}" data-no="{{order.order_no}}">
+                        <view class="button-box" wx:if="{{order.status === 3}}" data-no="{{order.order_no}}" catchtap="submit">
                             确认收货
                         </view>
-                        <view class="button-box" wx:if="{{order.status === 6}}" data-no="{{order.order_no}}" bindtap="delete">
+                        <view class="button-box" wx:if="{{order.status === 6}}" data-no="{{order.order_no}}" catchtap="delete">
                             删除订单
                         </view>
                     </view>
@@ -65,14 +65,14 @@
         </view>
         <view class="tab-content" hidden="{{activeIndex != 1}}">
             <view class="order-box">
-                <view class="order-item" wx:for="{{dataList[1]}}" wx:for-item="order">
+                <view class="order-item" data-no="{{order.order_no}}" wx:for="{{dataList[1]}}" wx:for-item="order" bindtap="jump">
                     <view class="item-top">
                         <view class="indent mx-1px-bottom">
                             <view class="order-num">
                                 <span>{{order.from}}</span> | 订单编号：{{order.order_no}}
                             </view>
                             <view class="order-type">
-                                {{order.status}}
+                                {{typeList[order.status]}}
                             </view>
                         </view>
                     </view>
@@ -101,13 +101,13 @@
                         <view class="all-money">
                             {{order.count}}件, 共计 ￥{{order.total}}
                         </view>
-                        <view class="button-box" wx:if="{{order.status === 1}}">
+                        <view class="button-box" wx:if="{{order.status === 1}}" data-no="{{order.order_no}}" catchtap="pay">
                             立即付款
                         </view>
-                        <view class="button-box" wx:if="{{order.status === 3}}">
+                        <view class="button-box" wx:if="{{order.status === 3}}" data-no="{{order.order_no}}" catchtap="submit">
                             确认收货
                         </view>
-                        <view class="button-box" wx:if="{{order.status === 6}}">
+                        <view class="button-box" wx:if="{{order.status === 6}}" data-no="{{order.order_no}}" catchtap="delete">
                             删除订单
                         </view>
                     </view>
@@ -119,14 +119,14 @@
         </view>
         <view class="tab-content" hidden="{{activeIndex != 2}}">
             <view class="order-box">
-                <view class="order-item" wx:for="{{dataList[2]}}" wx:for-item="order">
+                <view class="order-item" data-no="{{order.order_no}}" wx:for="{{dataList[2]}}" wx:for-item="order" bindtap="jump">
                     <view class="item-top">
                         <view class="indent mx-1px-bottom">
                             <view class="order-num">
                                 <span>{{order.from}}</span> | 订单编号：{{order.order_no}}
                             </view>
                             <view class="order-type">
-                                {{order.status}}
+                                {{typeList[order.status]}}
                             </view>
                         </view>
                     </view>
@@ -155,32 +155,32 @@
                         <view class="all-money">
                             {{order.count}}件, 共计 ￥{{order.total}}
                         </view>
-                        <view class="button-box" wx:if="{{order.status === 1}}">
+                        <view class="button-box" wx:if="{{order.status === 1}}" data-no="{{order.order_no}}" catchtap="pay">
                             立即付款
                         </view>
-                        <view class="button-box" wx:if="{{order.status === 3}}">
+                        <view class="button-box" wx:if="{{order.status === 3}}" data-no="{{order.order_no}}" catchtap="submit">
                             确认收货
                         </view>
-                        <view class="button-box" wx:if="{{order.status === 6}}">
+                        <view class="button-box" wx:if="{{order.status === 6}}" data-no="{{order.order_no}}" catchtap="delete">
                             删除订单
                         </view>
                     </view>
                 </view>
-            </view>
-            <view class="loadingbox" hidden="{{!tabList[2].show}}">
-                {{showText}}
+                <view class="loadingbox" hidden="{{!tabList[2].show}}">
+                    {{showText}}
+                </view>
             </view>
         </view>
         <view class="tab-content" hidden="{{activeIndex != 3}}">
             <view class="order-box">
-                <view class="order-item" wx:for="{{dataList[3]}}" wx:for-item="order">
+                <view class="order-item" data-no="{{order.order_no}}" wx:for="{{dataList[3]}}" wx:for-item="order" bindtap="jump">
                     <view class="item-top">
                         <view class="indent mx-1px-bottom">
                             <view class="order-num">
                                 <span>{{order.from}}</span> | 订单编号：{{order.order_no}}
                             </view>
                             <view class="order-type">
-                                {{order.status}}
+                                {{typeList[order.status]}}
                             </view>
                         </view>
                     </view>
@@ -209,13 +209,13 @@
                         <view class="all-money">
                             {{order.count}}件, 共计 ￥{{order.total}}
                         </view>
-                        <view class="button-box" wx:if="{{order.status === 1}}">
+                        <view class="button-box" wx:if="{{order.status === 1}}" data-no="{{order.order_no}}" catchtap="pay">
                             立即付款
                         </view>
-                        <view class="button-box" wx:if="{{order.status === 3}}">
+                        <view class="button-box" wx:if="{{order.status === 3}}" data-no="{{order.order_no}}" catchtap="submit">
                             确认收货
                         </view>
-                        <view class="button-box" wx:if="{{order.status === 6}}">
+                        <view class="button-box" wx:if="{{order.status === 6}}" data-no="{{order.order_no}}" catchtap="delete">
                             删除订单
                         </view>
                     </view>
