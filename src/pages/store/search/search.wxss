@@ -40,6 +40,27 @@
   text-align: center;
   color: #00c203;
 }
+#store-search .history-box {
+  padding-top: 45px;
+}
+#store-search .history-box .keywords {
+  padding: 0 8px 0 8px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#store-search .history-box .keywords .clear {
+  width: 50px;
+  text-align: center;
+}
+#store-search .history-box .clear-all {
+  background-color: #f0f0f1;
+  text-align: center;
+  color: #6baccf;
+  height: 40px;
+  line-height: 40px;
+}
 #store-search .goods-list {
   font-size: 0;
   box-sizing: border-box;

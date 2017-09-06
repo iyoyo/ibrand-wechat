@@ -17,7 +17,7 @@ import { sandBox } from './sandBox'
 
     return (dispatch) => {
 
-        sandBox.APIs.STORE.DETAIL.get({api:`store/detail/${id}`,data:{include: 'photos,products,oneComment,guessYouLike,whoLike,point'}},{dispatch:dispatch,action_type:GOODS_DETAIL})
+        sandBox.APIs.STORE.DETAIL.get({api:`api/store/detail/${id}`,data:{include: 'photos,products,oneComment,guessYouLike,whoLike,point'}},{dispatch:dispatch,action_type:GOODS_DETAIL})
     }
 }
 
