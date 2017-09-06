@@ -282,7 +282,7 @@
                             2016－02-22至2016-03-31
                         </view>
 
-                        <view class="select {{checked[0] ? 'activity' : ''}}">
+                        <view class="select {{0 == checked ? 'activity' : ''}}">
 
                         </view>
                     </view>
@@ -309,7 +309,7 @@
                             2016－02-22至2016-03-31
                         </view>
 
-                        <view class="select {{checked[1] ? 'activity' : ''}}">
+                        <view class="select {{1 == checked ? 'activity' : ''}}">
 
                         </view>
                     </view>
@@ -336,7 +336,7 @@
                             2016－02-22至2016-03-31
                         </view>
 
-                        <view class="select {{checked[2] ? 'activity' : ''}}">
+                        <view class="select {{2 == checked ? 'activity' : ''}}">
 
                         </view>
                     </view>
@@ -363,7 +363,7 @@
                             2016－02-22至2016-03-31
                         </view>
 
-                        <view class="select {{checked[3] ? 'activity' : ''}}">
+                        <view class="select {{3 == checked ? 'activity' : ''}}">
 
                         </view>
                     </view>
@@ -390,7 +390,7 @@
                             2016－02-22至2016-03-31
                         </view>
 
-                        <view class="select {{checked[4] ? 'activity' : ''}}">
+                        <view class="select {{4 == checked ? 'activity' : ''}}">
 
                         </view>
                     </view>

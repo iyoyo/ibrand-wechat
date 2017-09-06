@@ -2,14 +2,12 @@ var app = getApp();
 Page({
 	data: {
 		show: false,
-		checked: []
+		checked: null
 	},
 	change(e) {
 		this.setData({
-			checked: [],
-			[`checked.${e.detail.value}`]: true
+			checked: e.detail.value
 		})
-		console.log(e.detail.value)
 	},
 	select() {
 		this.setData({
@@ -18,6 +16,7 @@ Page({
 	},
 	cancel() {
 		this.setData({
+			checked: null,
 			show: false
 		})
 	}
