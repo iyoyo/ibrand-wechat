@@ -1,19 +1,18 @@
 var app = getApp();
-import config from '../../../lib/myapp.js'
+import {config} from '../../../lib/myapp.js'
 Page({
 	data: {
-		storeList: {
-
-		}
+		page: 1,
+		storeList: {}
 	},
 	onReady() {
-		console.log(config)
+		console.log(config.GLOBAL.baseUrl)
 		wx.showLoading({
 			title: '加载中',
 			mask: true
 		});
 		wx.request({
-		    url: "http://api.dev.tnf.ibrand.cc/api/store/list",
+		    url: config.GLOBAL.baseUrl + "api/store/list",
 		    success:res=>{
 		    	res = res.data;
 		    	this.setData({
@@ -30,6 +29,13 @@ Page({
 		var id = e.currentTarget.dataset.id;
 		wx.navigateTo({
 			url: '/pages/store/detail/detail?id=' + id
+		})
+	},
+	onReachBottom() {
+	},
+	loadMore() {
+		wx.request({
+			url: config.GLOBAL.baseUrl + "api/store/list?page=" + (this.data.page + 1),
 		})
 	}
 })

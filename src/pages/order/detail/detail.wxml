@@ -6,51 +6,29 @@
                     订单状态
                 </view>
                 <view class="type">
-                    待付款
+                    {{typeList[order.status]}}
                 </view>
             </view>
             <view class="goods-item">
                 <view class="item-middle">
-                    <view class="middle-item mx-1px-bottom">
-                        <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
+                    <view class="middle-item mx-1px-bottom" wx:for="{{order.items}}">
+                        <image src="{{item.item_meta.image}}" />
                         <view class="text">
                             <view class="names">
-                                16秋冬新品女款防水透气全压胶冲锋衣2U8U
+                               {{item.item_name}}
                             </view>
                             <view class="model">
-                                月光白/128 S
+                                {{item.item_meta.specs_text}}
                             </view>
                         </view>
                         <view class="money-box">
                             <view>
-                                1件
+                                {{item.quantity}}件
                             </view>
                             <view>
-                                ￥99.999
+                                ￥{{item.units_total}}
                             </view>
-                            <view class="retreat-box">
-                                申请售后
-                            </view>
-                        </view>
-                    </view>
-                    <view class="middle-item mx-1px-bottom">
-                        <image src="https://tnf-equipment.b0.upaiyun.com/2016/07/14684833700862.jpg" />
-                        <view class="text">
-                            <view class="names">
-                                16秋冬新品女款防水透气全压胶冲锋衣2U8U
-                            </view>
-                            <view class="model">
-                                月光白/128 S
-                            </view>
-                        </view>
-                        <view class="money-box">
-                            <view>
-                                1件
-                            </view>
-                            <view>
-                                ￥99.999
-                            </view>
-                            <view class="retreat-box">
+                            <view class="retreat-box" wx:if="{{(item.total != 0 && order.can_refund) || (item.total != 0 && item.is_refunded)}}">
                                 申请售后
                             </view>
                         </view>
@@ -58,7 +36,7 @@
                 </view>
                 <view class="item-bottom">
                     <view class="all-money">
-                        1件, 共计 ￥99.99
+                        {{order.count}}件, 共计 ￥{{order.items_total}}
                     </view>
                 </view>
             </view>
@@ -73,7 +51,7 @@
                         订单编号 :
                     </view>
                     <view class="text">
-                        21443543646457
+                        {{order.order_no}}
                     </view>
                 </view>
                 <view class="info-item">
@@ -81,7 +59,15 @@
                         订单来源 :
                     </view>
                     <view class="text">
-                        官方商城
+                        {{order.from}}
+                    </view>
+                </view>
+                <view class="info-item">
+                    <view class="name">
+                        支付方式 :
+                    </view>
+                    <view class="text">
+                        {{order.payment_text}}
                     </view>
                 </view>
                 <view class="info-item">
@@ -89,7 +75,23 @@
                         下单时间 :
                     </view>
                     <view class="text">
-                        2016/04/05 12:12:12
+                        {{order.submit_time}}
+                    </view>
+                </view>
+                <view class="info-item" wx:if="{{order.status==6}}">
+                    <view class="name">
+                        取消原因 :
+                    </view>
+                    <view class="text">
+                        {{order.cancel_reason}}
+                    </view>
+                </view>
+                <view class="info-item" wx:if="{{order.status==6}}">
+                    <view class="name">
+                        取消时间 :
+                    </view>
+                    <view class="text">
+                        {{order.updated_at}}
                     </view>
                 </view>
             </view>
@@ -104,8 +106,7 @@
                         地址 :
                     </view>
                     <view class="text">
-                        上海市 长宁区 天山路789号天山商厦
-                        商住楼2号楼1403
+                        {{order.address_name}} {{order.address}}
                     </view>
                 </view>
                 <view class="info-item">
@@ -113,7 +114,7 @@
                         姓名 :
                     </view>
                     <view class="text">
-                        大毛
+                        {{order.accept_name}}
                     </view>
                 </view>
                 <view class="info-item">
@@ -121,7 +122,7 @@
                         电话 :
                     </view>
                     <view class="text">
-                        13647583905
+                        {{order.mobile}}
                     </view>
                 </view>
             </view>
@@ -131,7 +132,7 @@
                 发票信息
             </view>
             <view class="order-info">
-                哈哈公司
+                {{order.invoices[0]?order.invoices[0].content:"暂无发票信息"}}
             </view>
         </view>
         <view class="order-item">
@@ -139,7 +140,7 @@
                 备注
             </view>
             <view class="order-info">
-                无
+                {{order.note || order.message || '暂无备注'}}
             </view>
         </view>
         <view class="order-detail-info">
@@ -148,7 +149,7 @@
                     商品件数：
                 </view>
                 <view class="num">
-                    99件
+                    {{order.count}}件
                 </view>
             </view>
             <view class="item">
@@ -156,7 +157,15 @@
                     商品金额：
                 </view>
                 <view class="num">
-                    ￥0.00
+                    ￥{{order.items_total}}
+                </view>
+            </view>
+            <view class="item">
+                <view class="name">
+                    积分抵扣：
+                </view>
+                <view class="num">
+                    {{order.adjustment_point}}积分
                 </view>
             </view>
             <view class="item">
@@ -164,7 +173,7 @@
                     优惠抵扣：
                 </view>
                 <view class="num">
-                    ￥0.00
+                    {{order.adjustments_total}}
                 </view>
             </view>
             <view class="item">
@@ -172,7 +181,7 @@
                     运费：
                 </view>
                 <view class="num">
-                    ￥0.00
+                    {{order.payable_freight}}
                 </view>
             </view>
             <view class="item">
@@ -180,27 +189,22 @@
                     实付金额：
                 </view>
                 <view class="num big-money">
-                    ￥2000.00
+                    ￥{{order.total}}
                 </view>
             </view>
         </view>
     </view>
     <view class="button-type">
-        <!--<view class="type-submit">-->
-            <!--<view class="cancel">-->
-                <!--取消-->
-            <!--</view>-->
-            <!--<view class="submit">-->
-                <!--立即付款-->
-            <!--</view>-->
-        <!--</view>-->
+        <view class="type-submit" wx:if="{{order.status==1}}">
+            <view class="cancel" bindtap="cancel">
+                取消订单
+            </view>
+            <view class="submit">
+                立即付款
+            </view>
+        </view>
 
-
-        <!--<view class="type-cancel">-->
-            <!--取消订单-->
-        <!--</view>-->
-
-        <view class="sbumit-cancel">
+        <view class="sbumit-cancel" wx:if="{{order.status==3}}" bindtap="receive">
             确认收货
         </view>
     </view>

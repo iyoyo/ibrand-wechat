@@ -1,17 +1,27 @@
 <view id="store-search">
     <view class="search-box">
         <view class="input-box">
-            <input type="text" value="{{text}}" bindinput="search" />
+            <input type="text" value="{{text}}" bindinput="search" confirm-type="search" bindconfirm="searchKeywords" />
 
             <icon type="search" size="20" class="search" />
-            <icon type="clear" size="20" class="clear" />
+            <icon type="clear" size="20" class="clear" hidden="{{clear}}" bindtap="clear" />
         </view>
-        <view class="text">
+        <view class="text" bindtap="searchKeywords">
             搜索
-
         </view>
     </view>
-    <view class="goods-list">
+    <view class="history-box" wx:if="{{searches.length && show}}">
+        <view class="keywords mx-1px-bottom" wx:for="{{searches}}">
+            <view class="name" data-index="{{index}}" bindtap="searchHistory">{{item}}</view>
+            <view class="clear" data-index="{{index}}" bindtap="removeSearchHistory">
+                <icon type="clear" size="20" />
+            </view>
+        </view>
+        <view class="clear-all" bindtap="clearSearchHistory">
+            清空历史记录
+        </view>
+    </view>
+    <view class="goods-list" wx:if="{{!show}}">
         <view class="commodity-out" data-id="{{item.id}}" wx:for="{{storeList.data}}" bindtap="jump">
             <view class="commodity-box">
                 <view class="commodity-img">

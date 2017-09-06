@@ -92,7 +92,12 @@
 #order-index .order-box .order-item .item-bottom .button-box {
   font-size: 13px;
   color: #1aad19;
-  padding: 8px 12px;
+  padding: 5px 10px;
   border: 1px solid #1aad19;
   border-radius: 3px;
+}
+#order-index .order-box .loadingbox {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
 }
