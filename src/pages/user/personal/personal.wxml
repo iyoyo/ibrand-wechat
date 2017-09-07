@@ -1,19 +1,19 @@
 <view id="personal">
     <view class="banner">
         <view class="title">
-            <image src="http://ovef29y3v.bkt.clouddn.com/seting.png" />
+            <image src="http://ovef29y3v.bkt.clouddn.com/seting.png" bindtap="jumpSetting"/>
             <image src="http://ovef29y3v.bkt.clouddn.com/volume.png"></image>
         </view>
         <view class="adapter">
             <view class="adapter-img">
-                <image></image>
-                <view class="justify">V2</view>
+                <image src="{{detail.avatar}}"></image>
+                <view class="justify">V{{detail.grade}}</view>
             </view>
-            <text>Huderson</text>
+            <text>{{detail.nick_name}}</text>
         </view>
     </view>
     <view class="allOrder">
-        <view class="allOrderTitle">
+        <view class="allOrderTitle" bindtap="jump">
             <text>全部订单</text>
             <image src="http://ovef29y3v.bkt.clouddn.com/arrowRight.png"></image>
         </view>
@@ -42,14 +42,6 @@
                     待收货
                 </text>
             </view>
-            <view class="status">
-                <view class="img">
-                    <i class="iconfont icon-appreciate"></i>
-                </view>
-                <text>
-                    待评价
-                </text>
-            </view>
 
         </view>
     </view>
@@ -65,7 +57,7 @@
             </view>
              <image src="http://ovef29y3v.bkt.clouddn.com/arrowRight.png"></image>
          </view>
-        <view class="menu_list_item">
+        <view class="menu_list_item" bindtap="jumpAfterSales">
             <view class="text">
                 <view class="icon">
                     <i class="iconfont icon-service"></i>

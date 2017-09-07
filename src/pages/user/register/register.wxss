@@ -15,8 +15,11 @@
   padding-left: 10px;
   padding-right: 16px;
 }
-#user-register .register_input .tellphone .getCode {
+#user-register .register_input .tellphone input {
   flex: 1;
+}
+#user-register .register_input .tellphone .getCode {
+  padding: 0 10px;
   text-align: center;
   color: #1aad19;
   border-left: 1px solid #e5e5e5;

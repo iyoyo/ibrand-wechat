@@ -1,3 +1,6 @@
+#user-setting view {
+  overflow: visible;
+}
 #user-setting .headImg {
   position: relative;
   width: 90px;
@@ -17,7 +20,7 @@
   right: 0px;
   background-size: 100% 100%;
 }
-#user-setting .headImg imag {
+#user-setting .headImg image {
   width: 90px;
   height: 90px;
   border-radius: 50%;

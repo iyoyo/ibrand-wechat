@@ -1,0 +1,111 @@
+#personal .banner {
+  background: #3e3f43;
+  height: 190px;
+}
+#personal .banner .title {
+  padding: 19px 14px 0 14px;
+  display: flex;
+  justify-content: space-between;
+}
+#personal .banner .title image {
+  width: 21px;
+  height: 20px;
+}
+#personal .banner .adapter {
+  text-align: center;
+}
+#personal .banner .adapter .adapter-img {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  display: inline-block;
+  overflow: visible;
+  border-radius: 100%;
+  border: 2px solid #FFFFFF;
+}
+#personal .banner .adapter .adapter-img image {
+  display: inline-block;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+}
+#personal .banner .adapter .adapter-img .justify {
+  color: #FFFFFF;
+  font-size: 12px;
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  content: "";
+  right: 0;
+  bottom: 0;
+  border-radius: 100%;
+  background-color: #1aad19;
+}
+#personal .banner .adapter text {
+  display: block;
+  color: #FFFFFF;
+  text-align: center;
+}
+#personal .allOrder {
+  background-color: #FFFFFF;
+}
+#personal .allOrder .allOrderTitle {
+  align-items: center;
+  padding-left: 15px;
+  padding-top: 11px;
+  padding-right: 10px;
+  padding-bottom: 11px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+}
+#personal .allOrder .allOrderTitle image {
+  width: 16px;
+  height: 26px;
+}
+#personal .allOrder .orderStatus {
+  display: flex;
+}
+#personal .allOrder .orderStatus .status {
+  margin-top: 10px;
+  flex: 1;
+  text-align: center;
+}
+#personal .allOrder .orderStatus .status .img {
+  display: inline-block;
+  line-height: 29px;
+  text-align: center;
+  width: 29px;
+  height: 29px;
+  color: #FFFFFF;
+  border-radius: 100%;
+  background: #3e3f43;
+}
+#personal .menu_list {
+  background-color: #FFFFFF;
+  margin-top: 12px;
+}
+#personal .menu_list .menu_list_item {
+  padding: 12px;
+  display: flex;
+  border-bottom: 1px solid #e5e5e5;
+  justify-content: space-between;
+  align-items: center;
+}
+#personal .menu_list .menu_list_item image {
+  width: 16px;
+  height: 26px;
+}
+#personal .menu_list .menu_list_item .text {
+  display: flex;
+  align-items: center;
+}
+#personal .menu_list .menu_list_item .text .icon {
+  margin-right: 8px;
+  color: #FFFFFF;
+  line-height: 29px;
+  text-align: center;
+  width: 29px;
+  height: 29px;
+  background: #e5e5e5;
+}

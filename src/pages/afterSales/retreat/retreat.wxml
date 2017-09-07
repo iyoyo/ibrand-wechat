@@ -1,4 +1,4 @@
-<view class="retreat">
+<view id="retreat">
    <view class="company">
        <view class="detail">物流公司</view>
        <picker value="{{selectedIndex}}" range="{{list}}" bindchange="change">

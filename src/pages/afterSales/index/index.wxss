@@ -84,9 +84,11 @@
   text-align: right;
 }
 #afterSales-center .order-box .order-item .item-middle .middle-item .money-box .button-box {
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #e5e5e5;
+  font-size: 13px;
+  color: #1aad19;
+  padding: 5px 10px;
+  border: 1px solid #1aad19;
+  border-radius: 3px;
 }
 #afterSales-center .order-box .order-item .item-bottom {
   display: flex;
@@ -97,7 +99,12 @@
 #afterSales-center .order-box .order-item .item-bottom .button-box {
   font-size: 13px;
   color: #1aad19;
-  padding: 8px 12px;
+  padding: 5px 10px;
   border: 1px solid #1aad19;
   border-radius: 3px;
+}
+#afterSales-center .order-box .loadingbox {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
 }

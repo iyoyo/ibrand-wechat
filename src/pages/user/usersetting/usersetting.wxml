@@ -1,6 +1,6 @@
 <view id="user-setting">
-    <view class="headImg">
-        <imag src="" alt="" />
+    <view class="headImg" bindtap="changeImage">
+        <image src="{{img}}" alt="" />
     </view>
     <view class="user_setting">
         <view class="code">
