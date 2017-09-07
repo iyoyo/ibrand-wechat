@@ -33,6 +33,12 @@
   background-position: 100%;
   background-size: 20px;
 }
+#address-add .address-info .info-item .form-control.select picker {
+  height: 100%;
+}
+#address-add .address-info .info-item .form-control.select picker .picker {
+  height: 40px;
+}
 #address-add .address-info .info-item .checkbox {
   width: 100%;
   display: flex;

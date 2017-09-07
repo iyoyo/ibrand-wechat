@@ -22,7 +22,7 @@
                 <label>
                     抬头
                 </label>
-                <input placeholder="请输入公司名称" />
+                <input placeholder="请输入公司名称" bindinput="input" />
             </view>
         </view>
     </view>
@@ -33,5 +33,5 @@
         </text>
     </view>
 
-    <button type="primary">确定</button>
+    <button type="primary" bindtap="submit">确定</button>
 </view>

@@ -50,6 +50,9 @@
   align-items: center;
   justify-content: space-between;
 }
+#store-search .history-box .keywords .name {
+  flex: 1;
+}
 #store-search .history-box .keywords .clear {
   width: 50px;
   text-align: center;
@@ -94,4 +97,11 @@
 }
 #store-search .goods-list .commodity-out .commodity-box .commodity-money {
   color: #e42b1e;
+}
+#store-search .goods-list .loadingbox {
+  margin-top: 10px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
 }
