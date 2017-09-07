@@ -74,7 +74,7 @@
     </view>
 
     <view class="button-box">
-        <button type="primary">查看订单</button>
+        <button type="primary" type>查看订单</button>
         <button type="default">查看积分</button>
     </view>
 

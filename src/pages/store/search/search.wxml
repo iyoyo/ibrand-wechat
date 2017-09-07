@@ -22,18 +22,21 @@
         </view>
     </view>
     <view class="goods-list" wx:if="{{!show}}">
-        <view class="commodity-out" data-id="{{item.id}}" wx:for="{{storeList.data}}" bindtap="jump">
-            <view class="commodity-box">
-                <view class="commodity-img">
-                    <image mode="widthFix" src="{{item.img}}" />
-                </view>
-                <view class="commodity-name">
-                    {{item.name}}
-                </view>
-                <view class="commodity-money">
-                    {{item.sell_price}}
+        <view wx:for="{{storeList}}" wx:for-index="idx">
+            <view class="commodity-out" data-id="{{item.id}}" wx:for="{{storeList[idx]}}" bindtap="jump">
+                <view class="commodity-box">
+                    <view class="commodity-img">
+                        <image mode="widthFix" src="{{item.img}}" />
+                    </view>
+                    <view class="commodity-name">
+                        {{item.name}}
+                    </view>
+                    <view class="commodity-money">
+                        {{item.sell_price}}
+                    </view>
                 </view>
             </view>
         </view>
+
     </view>
 </view>

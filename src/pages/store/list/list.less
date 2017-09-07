@@ -26,6 +26,7 @@
       .sidebar-right{
         width: 90px;
         height: 100%;
+        overflow: hidden;
 
         view{
           display: inline-block;
@@ -42,6 +43,7 @@
       justify-content: space-between;
       align-items: center;
       font-size: 14px;
+      background: #FFFFFF;
 
       .filter-item{
         display: flex;
@@ -50,7 +52,32 @@
         justify-content: center;
         align-items: center;
         line-height: 40px;
-        background: #FFFFFF;
+        height: 40px;
+
+        .left{
+          flex: 1;
+          margin-left: 20px;
+          text-align: center;
+
+          &.active {
+            color: #099FFF;
+          }
+        }
+        .right{
+          width: 20px;
+          height: 100%;
+          margin-right: 5px;
+          background: url("http://ovef29y3v.bkt.clouddn.com/ico-filter.png") no-repeat center;
+          background-size: 8px 12px;
+
+          &.asc {
+            background-image: url("http://ovef29y3v.bkt.clouddn.com/ico-filter1.png");
+            transform: rotate(180deg);
+          }
+          &.desc {
+            background-image: url("http://ovef29y3v.bkt.clouddn.com/ico-filter1.png");
+          }
+        }
       }
     }
   }
@@ -88,6 +115,13 @@
           color: #e42b1e;
         }
       }
+    }
+    .loadingbox{
+      margin-top: 10px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      font-size:14px;
     }
   }
 }
