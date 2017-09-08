@@ -121,7 +121,7 @@ Page({
         }
     },
     onReachBottom(e) {
-        var status = this.data.activeIndex
+        var status = this.data.activeIndex;
         var page = this.data.tabList[status].page + 1;
         var tabList = `tabList[${status}]`;
         if (this.data.tabList[status].more) {
@@ -142,7 +142,7 @@ Page({
         }
     },
 
-    operabale(status=0,page=1,type=[0,1,2]){
+    operabale(status=0,pages=1,type=[0,1,2]){
         var token = this.data.token;
         wx.request({
             url: config.GLOBAL.baseUrl + 'api/order/refund/list',
@@ -150,26 +150,19 @@ Page({
                 Authorization: token
             },
             data: {
-                page,
+                pages,
                 type
             },
             success: res => {
                 res = res.data;
-                var list;
                 var page = res.meta.pagination;
-                var current_page = page.current_page;
                 var total_pages = page.total_pages;
-                if (current_page === 1) {
-                    list = res.data;
-                } else {
-                    list = this.data.dataList[status].concat(res.data);
-                }
                 var tabList = `tabList[${status}]`;
                 this.setData({
-                    [`dataList.${status}`]: list,
+                    [`dataList.${status}[${pages-1}]`]:res.data,
                     [`${tabList}.init`]: true,
-                    [`${tabList}.page`]: current_page,
-                    [`${tabList}.more`]: current_page < total_pages
+                    [`${tabList}.page`]: pages,
+                    [`${tabList}.more`]: pages < total_pages
                 })
             },
             complete: err => {
@@ -178,12 +171,12 @@ Page({
         })
     },
     // 获取订单列表
-    orderList(offline = 0, status =1, page = 1, type = 0) {
+    orderList(offline = 0, status =1, pages = 1, type = 0) {
         var token = this.data.token;
         // var token = wx.getStorageSync('token');
             var state=this.data.tabList[status].name;
             var params = status ? { status  } : {  };
-            params.page = page;
+            params.page = pages;
             params.status = state;
 
         // params.offline = offline;
@@ -198,18 +191,12 @@ Page({
             data: params,
             success: res => {
                 res = res.data;
-                var list;
                 var page = res.meta.pagination;
                 var current_page = page.current_page;
                 var total_pages = page.total_pages;
-                if (current_page === 1) {
-                    list = res.data;
-                } else {
-                    list = this.data.dataList[status].concat(res.data);
-                }
                 var tabList = `tabList[${status}]`;
                 this.setData({
-                    [`dataList.${status}`]: list,
+                    [`dataList.${status}[${pages-1}]`] : res.data,
                     [`${tabList}.init`]: true,
                     [`${tabList}.page`]: current_page,
                     [`${tabList}.more`]: current_page < total_pages

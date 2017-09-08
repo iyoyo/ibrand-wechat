@@ -7,7 +7,7 @@ Page({
          detail:""
     },
     onLoad(){
-        var token=wx.getStorageSync('iBrand_user_token');
+        var token=wx.getStorageSync('user_token');
         wx.request({
             url:"http://api.dev.tnf.ibrand.cc/api/me",
             header:{
@@ -23,9 +23,10 @@ Page({
             }
         })
     },
-    jump(){
+    jump(e){
+        var status=e.currentTarget.dataset.status;
         wx.navigateTo({
-            url: '/pages/order/index/index'
+            url: '/pages/order/index/index?type='+status
         })
     },
     jumpAfterSales(){

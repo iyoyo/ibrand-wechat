@@ -99,11 +99,13 @@ Page({
                 if(res.data.status){
                      wx.showToast({
                          title:"取消成功",
-                         duration: 2000,
+                         duration: 1500,
                          success:()=>{
-                             wx.navigateTo({
-                                 url: '/pages/afterSales/index/index'
-                             })
+                             setTimeout(()=>{
+                                 wx.navigateTo({
+                                     url: '/pages/afterSales/index/index'
+                                 })
+                             },1500);
                          }
                      })
                 }

@@ -13,12 +13,12 @@
         </view>
     </view>
     <view class="allOrder">
-        <view class="allOrderTitle" bindtap="jump">
+        <view class="allOrderTitle" data-status="0" bindtap="jump">
             <text>全部订单</text>
             <image src="http://ovef29y3v.bkt.clouddn.com/arrowRight.png"></image>
         </view>
         <view class="orderStatus">
-            <view class="status">
+            <view class="status" data-status="1" bindtap="jump">
                 <view class="img">
                     <i class="iconfont icon-pay"></i>
                 </view>
@@ -26,7 +26,7 @@
                     待付款
                 </text>
             </view>
-            <view class="status">
+            <view class="status" data-status="2" bindtap="jump">
                 <view class="img">
                     <i class="iconfont icon-shangcheng"></i>
                 </view>
@@ -34,7 +34,7 @@
                     待发货
                 </text>
             </view>
-            <view class="status">
+            <view class="status" data-status="3" bindtap="jump">
                 <view class="img">
                     <i class="iconfont icon-deliver"></i>
                 </view>

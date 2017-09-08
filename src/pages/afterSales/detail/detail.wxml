@@ -49,7 +49,7 @@
          </view>
     </view>
     <view class="submit">
-        <button type="primary" data-refundNo="{{detail.data.refund_no}}" bindtap="viewExpress" wx:if="{{(detail.data.status == 1 && detail.data.order.distribution_status == 1) || (detail.data.status == 5 && detail.data.order.distribution_status == 1)}}">立即退货</button>
+        <button type="primary" data-refund-no="{{detail.data.refund_no}}" bindtap="viewExpress" wx:if="{{(detail.data.status == 1 && detail.data.order.distribution_status == 1) || (detail.data.status == 5 && detail.data.order.distribution_status == 1)}}">立即退货</button>
         <button bindtap="close" wx:if="{{detail.data.status == 0 || detail.data.status == 1 || detail.data.status == 5}}">取消申请</button>
     </view>
 

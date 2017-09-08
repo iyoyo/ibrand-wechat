@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/afterSales/index/index",
     "pages/user/personal/personal",
+    "pages/afterSales/index/index",
     "pages/user/usersetting/usersetting",
     "pages/afterSales/detail/detail",
     "pages/user/register/register",

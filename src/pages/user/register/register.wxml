@@ -18,6 +18,6 @@
 
     </view>
     <view class="submit">
-        <button type="primary" bindtap="submit">下一步</button>
+        <button type="primary" bindtap="submit">确定</button>
     </view>
 </view>

@@ -10,7 +10,8 @@ Page({
         tellphone:"",
         identifyingcode:"",
         sending:false,
-        checked:false
+        checked:false,
+        orginUrl:""
     },
     submit() {
         wx.chooseImage({
@@ -38,6 +39,11 @@ Page({
     },
     random(){
         return Math.random().toString(36).substr(2,24);
+    },
+    onLoad(e){
+         this.setData({
+             orginUrl:e.url
+         })
     },
     getCode(){
         if(this.data.sending) return;
@@ -161,17 +167,18 @@ Page({
                        var result=res.data;
                        if(result.access_token){
                            result.access_token =result.token_type + ' ' + result.access_token;
-                           wx.setStorageSync("iBrand_user_token",result.access_token);
-                           if(!result.is_new_user){
+                           wx.setStorageSync("user_token",result.access_token);
+                           if(this.data.orginUrl){
                                wx.redirectTo({
-                                   url: '/pages/user/usersetting/usersetting'
+                                   url:"/"+this.data.orginUrl
                                })
                            }
                            else{
                                wx.redirectTo({
-                                   url: '/pages/user/personal/personal'
+                                       url: '/pages/user/personal/personal'
                                })
                            }
+
                        }
                  }
                  // else if(){

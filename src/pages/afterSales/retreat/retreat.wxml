@@ -2,7 +2,6 @@
    <view class="company">
        <view class="detail">物流公司</view>
        <picker value="{{selectedIndex}}" range="{{list}}" bindchange="change">
-           <!--<view class="picker">{{list[selectedIndex]}}</view>-->
            <input type="text" placeholder="选择物流公司" disabled  value="{{list[selectedIndex]}}"/>
        </picker>
    </view>
@@ -10,9 +9,9 @@
        <view class="air_way">
            运单号
        </view>
-        <input type="text" placeholder="填写运单号的条形码数字" />
+        <input type="number" placeholder="填写运单号的条形码数字" bindinput="changeCodeNumber"/>
     </view>
     <view class="submit">
-        <button type="primary">完成</button>
+        <button type="primary" bindtap="submit">完成</button>
     </view>
 </view>
