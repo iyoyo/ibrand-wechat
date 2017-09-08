@@ -94,6 +94,11 @@ Page({
                 message:message
             });
             reject();
+            setTimeout(()=>{
+                this.setData({
+                    message:""
+                });
+            },3000)
             return
         }
         wx.request({
@@ -130,6 +135,11 @@ Page({
             this.setData({
                 message:message
             });
+            setTimeout(()=>{
+                this.setData({
+                    message:""
+                });
+            },3000)
             return
         }
         this.setData({
