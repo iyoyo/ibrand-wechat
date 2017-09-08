@@ -12,6 +12,7 @@
   align-items: center;
 }
 #user-register .register_input .tellphone .detail {
+  width: 90px;
   padding-left: 10px;
   padding-right: 16px;
 }
@@ -31,11 +32,13 @@
   align-items: center;
 }
 #user-register .register_input .code .detail {
+  width: 90px;
   padding-left: 10px;
   padding-right: 16px;
 }
 #user-register .register_input .code input {
   flex: 1;
+  padding-right: 10px;
 }
 #user-register .select {
   display: flex;
@@ -44,5 +47,5 @@
   margin-top: 20px;
 }
 #user-register .submit {
-  margin-top: 16px;
+  margin: 20px;
 }

@@ -11,7 +11,8 @@ Page({
         identifyingcode:"",
         sending:false,
         checked:false,
-        orginUrl:""
+        orginUrl:"",
+        showLoading: false
     },
     submit() {
         wx.chooseImage({
@@ -42,7 +43,7 @@ Page({
     },
     onLoad(e){
          this.setData({
-             orginUrl:e.url
+             orginUrl:decodeURIComponent(e.url)
          })
     },
     getCode(){
@@ -132,6 +133,9 @@ Page({
             });
             return;
         }
+        this.setData({
+            showLoading: true
+        })
          this.quickLogin();
         // wx.login({
         //     success:res=>{
@@ -142,15 +146,12 @@ Page({
     quickLogin(){
         var that=this;
         var data={
-            0:"{",
-            1:"}",
             grant_type: 'sms_token',
             access_token:that.data.code.access_token,
             mobile:that.data.tellphone,
             code:that.data.identifyingcode,
             type:'direct'
         };
-        // console.log(data);
          wx.request({
              url:"http://api.dev.tnf.ibrand.cc/api/oauth/sms",
              method:"POST",
@@ -190,6 +191,11 @@ Page({
                      title:"提示",
                      content:"验证码不正确",
                  });
+             },
+	         complete: err => {
+	             this.setData({
+		             showLoading: false
+	             })
              }
          })
     }

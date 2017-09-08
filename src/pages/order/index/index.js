@@ -132,6 +132,7 @@ Page({
 			this.orderList(0,status,page);
 		} else {
 			wx.showToast({
+				image: '../../../assets/image/error.png',
 				title: '再拉也没有啦'
 			});
 		}
@@ -154,15 +155,30 @@ Page({
 			data: params,
 			success: res => {
 				res = res.data;
-				var pages = res.meta.pagination;
-				var current_page = pages.current_page;
-				var total_pages = pages.total_pages;
-				var tabList = `tabList[${status}]`;
-				this.setData({
-					[`dataList.${status}[${page - 1}]`] : res.data,
-					[`${tabList}.init`]: true,
-					[`${tabList}.page`]: current_page,
-					[`${tabList}.more`]: current_page < total_pages
+				if (res.status) {
+					var pages = res.meta.pagination;
+					var current_page = pages.current_page;
+					var total_pages = pages.total_pages;
+					var tabList = `tabList[${status}]`;
+					this.setData({
+						[`dataList.${status}[${page - 1}]`] : res.data,
+						[`${tabList}.init`]: true,
+						[`${tabList}.page`]: current_page,
+						[`${tabList}.more`]: current_page < total_pages,
+						[`${tabList}.show`]: false
+					})
+				} else {
+					wx.showToast({
+						title: res.message,
+						image: '../../../assets/image/error.png'
+					})
+				}
+
+			},
+			fail: err => {
+				wx.showToast({
+					title: '请求失败',
+					image: '../../../assets/image/error.png'
 				})
 			},
 			complete: err => {

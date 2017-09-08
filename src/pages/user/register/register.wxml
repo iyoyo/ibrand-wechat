@@ -18,6 +18,6 @@
 
     </view>
     <view class="submit">
-        <button type="primary" bindtap="submit">确定</button>
+        <button type="primary" bindtap="submit" disabled="{{showLoading}}" loading="{{showLoading}}">确定</button>
     </view>
 </view>

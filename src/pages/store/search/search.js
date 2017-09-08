@@ -26,6 +26,7 @@ Page({
 			this.querySearchList(query,page);
 		} else {
 			wx.showToast({
+				image: '../../../assets/image/error.png',
 				title: '再拉也没有啦'
 			});
 		}

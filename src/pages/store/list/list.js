@@ -67,6 +67,11 @@ Page({
 			url: '/pages/store/search/search'
 		})
 	},
+	cart() {
+		wx.navigateTo({
+			url: '/pages/store/cart/cart'
+		})
+	},
 	onReachBottom() {
 		var hasMore = this.data.meta.pagination.total_pages > this.data.meta.pagination.current_page;
 		if (hasMore) {
@@ -82,6 +87,7 @@ Page({
 			this.queryCommodityList(query,page);
 		} else {
 			wx.showToast({
+				image: '../../../assets/image/error.png',
 				title: '再拉也没有啦'
 			});
 		}

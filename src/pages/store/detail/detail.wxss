@@ -308,3 +308,9 @@
   font-weight: bold;
   flex: 2;
 }
+.content .tabbar .tabbar-item.favorite {
+  color: #1aad19;
+}
+.content .tabbar .tabbar-item.favorite i {
+  color: #1aad19;
+}

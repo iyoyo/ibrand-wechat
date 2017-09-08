@@ -10,7 +10,7 @@
                 <view class="right-seek iconfont icon-sousuo" bindtap="search">
 
                 </view>
-                <view class="right-cart iconfont icon-gouwuche">
+                <view class="right-cart iconfont icon-gouwuche" bindtap="cart">
 
                 </view>
             </view>
