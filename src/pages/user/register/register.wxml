@@ -1,4 +1,5 @@
 <view id="user-register">
+    <view class="tips" hidden="{{!message}}">{{message}}</view>
     <view class="register_input">
         <view class="tellphone">
             <view class="detail">手机号码</view>

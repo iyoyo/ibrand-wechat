@@ -12,7 +12,8 @@ Page({
         sending:false,
         checked:false,
         orginUrl:"",
-        showLoading: false
+        showLoading: false,
+        message:""
     },
     submit() {
         wx.chooseImage({
@@ -89,9 +90,8 @@ Page({
             message = '手机号格式不正确，请重新输入';
         }
         if(message){
-            wx.showModal({
-                title:"提示",
-                content:message,
+            this.setData({
+                message:message
             });
             reject();
             return
@@ -127,11 +127,10 @@ Page({
             message="请同意此协议";
         }
         if(message){
-            wx.showModal({
-                title:"提示",
-                content:message,
+            this.setData({
+                message:message
             });
-            return;
+            return
         }
         this.setData({
             showLoading: true

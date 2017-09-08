@@ -1,9 +1,15 @@
 #user-register {
   font-size: 16px;
 }
+#user-register .tips {
+  text-align: center;
+  line-height: 35px;
+  background-color: #e64340;
+  height: 35px;
+  color: #FFFFFF;
+}
 #user-register .register_input {
   background-color: #ffffff;
-  margin-top: 35px;
 }
 #user-register .register_input .tellphone {
   border-bottom: 1px solid #e5e5e5;
