@@ -178,12 +178,11 @@ Page({
                        if(result.access_token){
                            result.access_token =result.token_type + ' ' + result.access_token;
                            wx.setStorageSync("user_token",result.access_token);
-                           if(this.data.orginUrl){
+                           if(this.data.orginUrl != 'undefined'){
                                wx.redirectTo({
                                    url:"/"+this.data.orginUrl
                                })
-                           }
-                           else{
+                           } else {
                                wx.redirectTo({
                                        url: '/pages/user/personal/personal'
                                })
