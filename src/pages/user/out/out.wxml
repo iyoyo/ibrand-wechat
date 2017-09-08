@@ -1,0 +1,11 @@
+<view id="out">
+    <view class="person" bindtap="jump">
+        <view class="text">个人资料</view>
+        <view class="img">
+            <i class="iconfont icon-Chevron"></i>
+        </view>
+    </view>
+    <view class="logout" bindtap="logout">
+        <button type="primary">退出当前账户</button>
+    </view>
+</view>

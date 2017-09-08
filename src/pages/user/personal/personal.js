@@ -36,7 +36,7 @@ Page({
     },
     jumpSetting(){
         wx.navigateTo({
-            url: '/pages/user/usersetting/usersetting'
+            url: '/pages/user/out/out'
         })
     }
 })

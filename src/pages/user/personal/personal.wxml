@@ -15,7 +15,7 @@
     <view class="allOrder">
         <view class="allOrderTitle" data-status="0" bindtap="jump">
             <text>全部订单</text>
-            <image src="http://ovef29y3v.bkt.clouddn.com/arrowRight.png"></image>
+            <i class="iconfont icon-Chevron"></i>
         </view>
         <view class="orderStatus">
             <view class="status" data-status="1" bindtap="jump">
@@ -55,7 +55,7 @@
                    我的收藏
                </view>
             </view>
-             <image src="http://ovef29y3v.bkt.clouddn.com/arrowRight.png"></image>
+             <i class="iconfont icon-Chevron"></i>
          </view>
         <view class="menu_list_item" bindtap="jumpAfterSales">
             <view class="text">
@@ -66,7 +66,7 @@
                     售后中心
                 </view>
             </view>
-            <image src="http://ovef29y3v.bkt.clouddn.com/arrowRight.png"></image>
+            <i class="iconfont icon-Chevron"></i>
         </view>
         <view class="menu_list_item">
             <view class="text">
@@ -77,7 +77,7 @@
                     收货地址
                 </view>
             </view>
-            <image src="http://ovef29y3v.bkt.clouddn.com/arrowRight.png"></image>
+            <i class="iconfont icon-Chevron"></i>
         </view>
     </view>
 </view>

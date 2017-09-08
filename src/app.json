@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/user/personal/personal",
-    "pages/afterSales/index/index",
-    "pages/user/usersetting/usersetting",
-    "pages/afterSales/detail/detail",
     "pages/user/register/register",
+    "pages/user/usersetting/usersetting",
+    "pages/afterSales/index/index",
+    "pages/afterSales/detail/detail",
     "pages/afterSales/apply/apply",
+    "pages/user/out/out",
     "pages/afterSales/retreat/retreat",
     "pages/store/search/search",
     "pages/order/detail/detail",
