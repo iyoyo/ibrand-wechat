@@ -9,6 +9,9 @@
   justify-content: space-between;
   padding: 0 12px;
 }
+#out .person .img i {
+  color: #c7c7cc;
+}
 #out .logout {
   position: fixed;
   left: 10px;

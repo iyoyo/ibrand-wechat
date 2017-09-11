@@ -1,4 +1,4 @@
-import {config,is} from '../../../lib/myapp.js';
+import {config,is,pageLogin,getUrl} from '../../../lib/myapp.js';
 Page({
 	data: {
 		detail: {
@@ -16,6 +16,7 @@ Page({
 	},
 
 	onLoad(e) {
+		pageLogin(getUrl());
 		this.setData({
 			id: e.id
 		})
@@ -88,10 +89,11 @@ Page({
 	},
 	// 获取收货地址详情
 	queryAddress(id) {
+		var token = wx.getStorageSync('user_token');
 		wx.request({
 			url: config.GLOBAL.baseUrl + 'api/address/' + id,
 			header: {
-				Authorization: this.data.token
+				Authorization: token
 			},
 			success: res => {
 				res = res.data;
@@ -130,12 +132,12 @@ Page({
 			address: data.address,
 			is_default: data.is_default ? 1 : 0
 		};
-
+		var token = wx.getStorageSync('user_token');
 		wx.request({
 			url: config.GLOBAL.baseUrl + 'api/address/create',
 			method: 'POST',
 			header: {
-				Authorization: this.data.token
+				Authorization: token
 			},
 			data: address,
 			success: res => {
@@ -194,12 +196,12 @@ Page({
 			address: data.address,
 			is_default: data.is_default ? 1 : 0
 		};
-
+		var token = wx.getStorageSync('user_token');
 		wx.request({
 			url: config.GLOBAL.baseUrl + 'api/address/update',
 			method: 'PUT',
 			header: {
-				Authorization: this.data.token
+				Authorization: token
 			},
 			data: address,
 			success: res => {
@@ -247,10 +249,11 @@ Page({
 	},
 	// 删除收货地址
 	removeAddress(id) {
+		var token = wx.getStorageSync('user_token');
 		wx.request({
 			url: config.GLOBAL.baseUrl + 'api/address/' + id,
 			header: {
-				Authorization: this.data.token
+				Authorization: token
 			},
 			method: 'DELETE',
 			success: res => {
