@@ -1,11 +1,11 @@
+import {config,getUrl,pageLogin} from '../../../lib/myapp.js';
 Page({
     data:{
         list:"",
         codeList:"",
         selectedIndex:"",
         codeNumber:"",
-        refundNo:"",
-        token:""
+        refundNo:""
     },
     change:function(e){
         // console.log(e);
@@ -16,13 +16,17 @@ Page({
     },
     onLoad(e){
         this.setData({
-           refundNo:e.no,
-           token:wx.getStorageSync('user_token')
+           refundNo:e.no
         });
+        pageLogin(getUrl(),()=>{
+            this.showlogistics();
+        });
+    },
+    showlogistics(){
         wx.request({
             url:"http://api.dev.tnf.ibrand.cc/api/shipping/methods",
             header:{
-                Authorization:this.data.token
+                Authorization:wx.getStorageSync('user_token')
             },
             success:res=>{
                 var arr=[];
@@ -63,16 +67,18 @@ Page({
             shipping_code:this.data.codeList[this.data.selectedIndex].code
         }
         // console.log(applyItem);
-        var token=this.data.token;
+        this.return(applyItem);
+    },
+    return(data){
         wx.request({
-           url:"http://api.dev.tnf.ibrand.cc/api/refund/user/return",
+            url:"http://api.dev.tnf.ibrand.cc/api/refund/user/return",
             header:{
-                Authorization:token
+                Authorization:wx.getStorageSync('user_token')
             },
             method:"POST",
-            data:applyItem,
+            data:data,
             success:res=>{
-               // if(re)
+                // if(re)
 
                 if(res.data.status){
                     wx.showToast({

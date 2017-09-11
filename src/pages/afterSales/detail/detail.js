@@ -1,6 +1,8 @@
 /**
  * Created by admin on 2017/8/31.
  */
+import {config,getUrl,pageLogin} from '../../../lib/myapp.js';
+
 Page({
     data:{
         showReason:false,
@@ -30,13 +32,23 @@ Page({
     },
     onLoad(e){
         var id=e.no;
-        this.setData({
-            token:wx.getStorageSync('user_token')
+        pageLogin(getUrl(),()=>{
+            this.queryAfterSalesDetail(id)
+        });
+    },
+    viewExpress(e){
+        var refund_no=e.currentTarget.dataset.refundNo;
+        wx.navigateTo({
+            url: '/pages/afterSales/retreat/retreat?no='+refund_no
         })
+    },
+
+    // 查询售后订单详情
+    queryAfterSalesDetail(id){
         wx.request({
             url:"http://api.dev.tnf.ibrand.cc/api/refund/show/"+id,
             header:{
-                Authorization:this.data.token
+                Authorization:wx.getStorageSync('user_token')
             },
             success: res => {
                 var tips=res.data.data.tips;
@@ -48,12 +60,6 @@ Page({
                     });
                 }
             }
-        })
-    },
-    viewExpress(e){
-        var refund_no=e.currentTarget.dataset.refundNo;
-        wx.navigateTo({
-            url: '/pages/afterSales/retreat/retreat?no='+refund_no
         })
     },
     close(){
@@ -84,13 +90,13 @@ Page({
          var that=this;
         this.setData({
             showReason:false,
-            cacelReason:""
+            cancelReason:""
         });
          // 退款
         wx.request({
             url:"http://api.dev.tnf.ibrand.cc/api/refund/user/close",
             header:{
-                Authorization:this.data.token
+                Authorization:wx.getStorageSync('user_token')
             },
             method:"POST",
             data:{

@@ -111,6 +111,19 @@ function getCurrentPageUrlWithArgs(){
 
 	return encodeURIComponent(urlWithArgs)
 };
+
+// 页面登陆
+function pageLogin(url,callback){
+    var token=wx.getStorageSync('user_token');
+    if(!token){
+        wx.redirectTo({
+            url: '/pages/user/register/register?url=' + url
+        })
+    } else {
+    	callback && callback();
+    }
+}
 module.exports = {
-	getUrl: getCurrentPageUrlWithArgs
+	getUrl: getCurrentPageUrlWithArgs,
+	pageLogin:pageLogin
 }

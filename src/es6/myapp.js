@@ -7,7 +7,7 @@ import connect from 'redux-weapp'
 import store from './store'
 import actions  from './actions'
 import config from './config'
-import {is,getUrl} from './utils';
+import {is,getUrl,pageLogin} from './utils';
 
 export {
     weapp,
@@ -17,5 +17,6 @@ export {
     actions,
     config,
 	is,
-	getUrl
+	getUrl,
+    pageLogin
 }

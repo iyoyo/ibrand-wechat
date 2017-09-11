@@ -1,5 +1,5 @@
 // pages/order/index/index.js
-import {config} from '../../../lib/myapp.js'
+import {config,getUrl,pageLogin} from '../../../lib/myapp.js';
 Page({
     data: {
         activeIndex: 0,
@@ -66,9 +66,6 @@ Page({
         token:''
     },
     onShow(e) {
-        this.setData({
-            token:wx.getStorageSync('user_token')
-        });
         wx.showLoading({
             title: "加载中",
             mask: true
@@ -81,7 +78,9 @@ Page({
                 })
             }
         });
-        this.operabale(0,1);
+        pageLogin(getUrl(),()=>{
+            this.operabale(0,1);
+        });
         // this.orderList(0, this.data.activeIndex);
     },
     jump(e) {
@@ -146,7 +145,7 @@ Page({
     },
 
     operabale(status=0,pages=1,type=[0,1,2]){
-        var token = this.data.token;
+        var token = wx.getStorageSync('user_token');
         wx.request({
             url: config.GLOBAL.baseUrl + 'api/order/refund/list',
             header: {
@@ -175,7 +174,7 @@ Page({
     },
     // 获取订单列表
     orderList(offline = 0, status =1, pages = 1, type = 0) {
-        var token = this.data.token;
+        var token = wx.getStorageSync('user_token');
         // var token = wx.getStorageSync('token');
             var state=this.data.tabList[status].name;
             var params = status ? { status  } : {  };

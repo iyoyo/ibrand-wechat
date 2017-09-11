@@ -1,26 +1,35 @@
 /**
  * Created by admin on 2017/9/1.
  */
-var app = getApp();
+import {config,getUrl,pageLogin} from '../../../lib/myapp.js';
 Page({
     data:{
          detail:""
     },
     onLoad(){
-        var token=wx.getStorageSync('user_token');
+        // var that=this;
+        pageLogin(getUrl(),()=>{
+            this.gitUserInfo()
+        });
+    },
+    gitUserInfo() {
         wx.request({
-            url:"http://api.dev.tnf.ibrand.cc/api/me",
+            url: config.GLOBAL.baseUrl + 'api/me',
             header:{
-                Authorization:token
+                Authorization:wx.getStorageSync('user_token')
             },
             success: res => {
-                // console.log(res.data);
                 if(res.data.status){
                     this.setData({
                         detail:res.data.data
                     })
                 }
             }
+        })
+    },
+    jumpImg() {
+        wx.navigateTo({
+            url: '/pages/user/usersetting/usersetting'
         })
     },
     jump(e){

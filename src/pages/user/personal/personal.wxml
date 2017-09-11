@@ -5,7 +5,7 @@
             <image src="http://ovef29y3v.bkt.clouddn.com/volume.png"></image>
         </view>
         <view class="adapter">
-            <view class="adapter-img">
+            <view class="adapter-img" bindtap="jumpImg">
                 <image src="{{detail.avatar}}"></image>
                 <view class="justify">V{{detail.grade}}</view>
             </view>
