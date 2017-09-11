@@ -6,8 +6,9 @@ Page({
     data:{
          detail:""
     },
-    onLoad(){
+    onShow(){
         // var that=this;
+
         pageLogin(getUrl(),()=>{
             this.gitUserInfo()
         });

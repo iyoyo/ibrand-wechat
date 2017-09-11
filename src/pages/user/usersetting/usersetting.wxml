@@ -1,11 +1,11 @@
 <view id="user-setting">
     <view class="headImg" bindtap="changeImage">
-        <image src="{{img}}" alt="" />
+        <image src="{{detail.avatar}}" alt="" />
     </view>
     <view class="user_setting">
         <view class="code">
             <view class="detail">昵称</view>
-            <input type="text" placeholder="填写您的昵称"/>
+            <input type="text" placeholder="填写您的昵称" bindinput="changeName" value="{{detail.nick_name}}"/>
         </view>
         <view class="code">
             <view class="detail">性别</view>
@@ -16,7 +16,8 @@
             <!--<input type="text" placeholder="选择你的性别"/>-->
         </view>
     </view>
-    <view class="submit">
+
+    <view class="submit" bindtap="updateUserInfo">
         <button type="primary">确定</button>
     </view>
 </view>
