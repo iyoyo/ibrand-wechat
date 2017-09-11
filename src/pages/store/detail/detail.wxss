@@ -7,7 +7,7 @@
   height: 730rpx;
   background: #ffffff;
 }
-.content .top-img swiper .slide-image {
+.content .top-image swiper .slide-image {
   width: 100%;
   height: 100%;
 }
