@@ -1,6 +1,8 @@
 /**
  * Created by admin on 2017/8/30.
  */
+import {config,getUrl,pageLogin} from '../../../lib/myapp.js';
+
 Page({
     data:{
        list:[
@@ -8,7 +10,7 @@ Page({
            '女',
        ],
         selectedIndex:"",
-        img:""
+        detail:""
     },
     change:function(e){
         // console.log(e);
@@ -17,12 +19,41 @@ Page({
             selectedIndex:e.detail.value
         })
     },
+    changeName(e){
+        this.setData({
+            'detail.nick_name':e.detail.value
+        })
+    },
+    onShow(){
+        pageLogin(getUrl(),()=>{
+            this.gitUserInfo()
+        });
+    },
+    gitUserInfo(){
+        wx.request({
+            url: config.GLOBAL.baseUrl + 'api/me',
+            header:{
+                Authorization:wx.getStorageSync('user_token')
+            },
+            success: res => {
+                if(res.data.status){
+                    var sex=res.data.data.sex;
+                    var index=this.data.list.findIndex((val)=>{ return val==sex});
+                    if(index==-1) index="";
+                    this.setData({
+                        detail:res.data.data,
+                        selectedIndex:index
+                    })
+                }
+            }
+        })
+    },
     changeImage:function(){
         wx.chooseImage({
             count:1,
             success: res => {
                 var tempFilePaths = res.tempFilePaths;
-                var token=wx.getStorageSync('iBrand_user_token');
+                var token=wx.getStorageSync('user_token');
                  wx.uploadFile({
                     header: {
                         'content-type':'multipart/form-data',
@@ -36,7 +67,7 @@ Page({
                         var result = JSON.parse(res.data);
                         console.log(result);
                         this.setData({
-                            img:result.data.url
+                            'detail.avatar':result.data.url
                         });
 
                         //do something
@@ -51,5 +82,54 @@ Page({
                 // })
             }
         })
+    },
+    updateUserInfo(){
+        var message=null;
+        if(!this.data.detail.nick_name){
+            message="请填写用户昵称";
+        }
+        if(message){
+            wx.showModal({
+              title: '提示',
+              content: message
+            });
+            return
+        }
+
+
+         wx.request({
+             url: config.GLOBAL.baseUrl +'api/users/update/info',
+             header:{
+                 Authorization:wx.getStorageSync('user_token')
+             },
+             method:"POST",
+             data:{
+                 nick_name:this.data.detail.nick_name,
+                 sex:this.data.list[this.data.selectedIndex],
+                 avatar:this.data.detail.avatar
+             },
+             success:res=>{
+                 console.log(res);
+                 if(res.statusCode==200){
+                     wx.showToast({
+                         title:res.data.message,
+                         duration: 1500,
+                         success:()=>{
+                             setTimeout(()=>{
+                                 wx.redirectTo({
+                                     url: '/pages/user/personal/personal'
+                                 })
+                             },1500);
+                         }
+                     })
+                 }
+                 else{
+                     wx.showModal({
+                         title:"提示",
+                         content:"修改失败",
+                     });
+                 }
+             }
+         })
     }
 })

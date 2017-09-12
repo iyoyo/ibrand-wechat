@@ -1,5 +1,4 @@
-var app = getApp();
-
+import {is} from '../../../lib/myapp.js';
 Page({
     data:{
         code:{
@@ -14,13 +13,6 @@ Page({
         orginUrl:"",
         showLoading: false,
         message:""
-    },
-    submit() {
-        wx.chooseImage({
-            success: res => {
-                console.log(res);
-            }
-        })
     },
     changeChecked(e){
         // console.log(e);
@@ -84,9 +76,9 @@ Page({
     },
     getLoginCode(resolve,reject){
         var message =null;
-        if(!this.data.tellphone){
+        if(!is.has(this.data.tellphone)){
             message = "请输入您的手机号";
-        } else if(!/(^(13\d|14[57]|15[^4\D]|17[135678]|18\d)\d{8}|170[^346\D]\d{7})$/.test(this.data.tellphone)){
+        } else if(!is.mobile(this.data.tellphone)){
             message = '手机号格式不正确，请重新输入';
         }
         if(message){
@@ -122,13 +114,13 @@ Page({
     },
     submit(){
         var message=null;
-        if(!this.data.tellphone){
+        if(!is.has(this.data.tellphone)){
             message = "请输入您的手机号";
-        } else if(!/(^(13\d|14[57]|15[^4\D]|17[135678]|18\d)\d{8}|170[^346\D]\d{7})$/.test(this.data.tellphone)){
+        } else if(!is.mobile(this.data.tellphone)){
             message = '手机号格式不正确，请重新输入';
-        } else if(!this.data.identifyingcode){
+        } else if(!is.has(this.data.identifyingcode)){
             message="请填写验证码";
-        } else if(!this.data.checked){
+        } else if(!is.has(this.data.checked)){
             message="请同意此协议";
         }
         if(message){
@@ -146,11 +138,6 @@ Page({
             showLoading: true
         })
          this.quickLogin();
-        // wx.login({
-        //     success:res=>{
-        //         console.log(res);
-        //     }
-        // })
     },
     quickLogin(){
         var that=this;

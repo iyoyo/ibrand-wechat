@@ -87,7 +87,6 @@ Page({
          }
          var reason =this.data.cancelReason;
          var refund_no=this.data.detail.data.refund_no;
-         var that=this;
         this.setData({
             showReason:false,
             cancelReason:""
@@ -110,7 +109,7 @@ Page({
                          duration: 1500,
                          success:()=>{
                              setTimeout(()=>{
-                                 wx.navigateTo({
+                                 wx.redirectTo({
                                      url: '/pages/afterSales/index/index'
                                  })
                              },1500);

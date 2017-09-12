@@ -125,5 +125,6 @@ function pageLogin(url,callback){
 }
 module.exports = {
 	getUrl: getCurrentPageUrlWithArgs,
-	pageLogin:pageLogin
+	pageLogin:pageLogin,
+	is:is
 }

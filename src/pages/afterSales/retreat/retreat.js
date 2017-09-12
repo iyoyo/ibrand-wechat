@@ -86,7 +86,7 @@ Page({
                         duration: 1500,
                         success:()=>{
                             setTimeout(()=>{
-                                wx.navigateTo({
+                                wx.redirectTo({
                                     url: '/pages/afterSales/index/index'
                                 })
                             },1500);
