@@ -7,42 +7,51 @@
                 </span>
             </view>
             <view class="sidebar-right">
-                <view class="right-seek iconfont icon-sousuo">
+                <view class="right-seek iconfont icon-sousuo" bindtap="search">
 
                 </view>
-                <view class="right-cart iconfont icon-gouwuche">
+                <view class="right-cart iconfont icon-gouwuche" bindtap="cart">
 
                 </view>
             </view>
         </view>
         <view class="filter-box">
-            <view class="filter-item mx-1px-right">
-                最新
+            <view class="filter-item mx-1px-right" data-type="updated_at" bindtap="changeOrderBy">
+                <view class="left {{ orderBy === 'updated_at' ? 'active' : ''}}">最新</view>
+                <view class="right {{(orderBy === 'updated_at' && sort === 'asc') ? 'asc' : ''}} {{(orderBy === 'updated_at' && sort === 'desc') ? 'desc' : ''}}"></view>
             </view>
-            <view class="filter-item mx-1px-right">
-                价格
+            <view class="filter-item mx-1px-right" data-type="sell_price" bindtap="changeOrderBy">
+                <view class="left {{ orderBy === 'sell_price' ? 'active' : ''}}">价格</view>
+                <view class="right {{(orderBy === 'sell_price' && sort === 'asc') ? 'asc' : ''}} {{(orderBy === 'sell_price' && sort === 'desc') ? 'desc' : ''}}"></view>
             </view>
-            <view class="filter-item mx-1px-right">
-                销量
+            <view class="filter-item mx-1px-right" data-type="sale" bindtap="changeOrderBy">
+                <view class="left {{ orderBy === 'sale' ? 'active' : ''}}">销量</view>
+                <view class="right {{(orderBy === 'sale' && sort === 'asc') ? 'asc' : ''}} {{(orderBy === 'sale' && sort === 'desc') ? 'desc' : ''}}"></view>
             </view>
-            <view class="filter-item">
+            <view class="filter-item big-filter">
                 筛选
             </view>
         </view>
     </view>
     <view class="commodity-bottom">
-        <view class="commodity-out" data-id="{{item.id}}" wx:for="{{storeList.data}}" bindtap="jump">
-            <view class="commodity-box">
-                <view class="commodity-img">
-                    <image mode="widthFix" src="{{item.img}}" />
-                </view>
-                <view class="commodity-name">
-                    {{item.name}}
-                </view>
-                <view class="commodity-money">
-                    {{item.sell_price}}
+        <view wx:for="{{storeList}}" wx:for-index="idx">
+            <view class="commodity-out" data-id="{{item.id}}" wx:for="{{storeList[idx]}}" bindtap="jump">
+                <view class="commodity-box">
+                    <view class="commodity-img">
+                        <image mode="widthFix" src="{{item.img}}" />
+                    </view>
+                    <view class="commodity-name">
+                        {{item.name}}
+                    </view>
+                    <view class="commodity-money">
+                        {{item.sell_price}}
+                    </view>
                 </view>
             </view>
+        </view>
+
+        <view class="loadingbox" hidden="{{!show}}">
+            正在加载下一页数据
         </view>
     </view>
 </view>

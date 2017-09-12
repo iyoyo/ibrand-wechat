@@ -15,7 +15,7 @@
         </view>
         <!--<view class="basic-middle">-->
             <!--<view class="tag-box">-->
-                <!--<text class="tag" wx:for="{{detailData.data.tags}}">{{item}}</text>-->
+                <!--<span class="tag" wx:for="{{detailData.data.tags}}">{{item}}</span>-->
             <!--</view>-->
             <!--<view class="rater-box">-->
                 <!--五星好评-->
@@ -33,7 +33,7 @@
 
 
         <!--商品参数-->
-        <view>
+        <view wx:if="attributesList.top.length">
             <view class="title mx-1px-bottom" data-type="parameter" bindtap="change">
                 <view class="title-text">
                     商品参数
@@ -114,17 +114,17 @@
     <!--</view>-->
 
     <view class="tabbar">
-        <view class="tabbar-item item_0">
+        <view class="tabbar-item item_0" data-type="shop" bindtap="jump">
             <i class="iconfont icon-shangcheng"></i>
             <text>商城</text>
         </view>
-        <view class="tabbar-item item_1">
+        <view class="tabbar-item item_1" data-type="cart" bindtap="jump">
             <i class="iconfont icon-gouwuche"></i>
             <text>购物车</text>
         </view>
-        <view class="tabbar-item item_2">
+        <view class="tabbar-item item_2 {{is_Fav ? 'favorite' : ''}}" bindtap="changeStatus">
             <i class="iconfont icon-favor"></i>
-            <text>收藏</text>
+            <span>{{is_Fav ? '已收藏' : '收藏'}}</span>
         </view>
         <view class="tabbar-item item_3 bgcolor" bindtap="showSelect">
             加入购物车

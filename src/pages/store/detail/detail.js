@@ -1,10 +1,11 @@
 
 var Wxparse = require('../../../component/wxParse/wxParse');
 var app = getApp();
-import {config,weapp} from '../../../lib/myapp.js'
 const {request} = weapp(wx)
 
 import {
+    config,getUrl,weapp,
+
     connect,
     bindActionCreators,
     store,
@@ -15,12 +16,12 @@ import Animation from '../../../utils/animation.js'
 
 let args = {
     data: {
-        id:'',
-        skuTable:{},
-        price:0,
-        commodity:{},
-        detailData:{},
-        specs:[],
+        id: '',
+        skuTable: {},
+        price: 0,
+        commodity: {},
+        detailData: {},
+        specs: [],
         detail: '',
         attributesList: {
             top: [],
@@ -38,15 +39,47 @@ let args = {
         showToTop: false,
         show_select: true, //选尺寸
         select_product: {}, //当前选中商品
-        store_count:0,
-        select_count:1,
-        is_login:true,
+        store_count: 0,
+        select_count: 1,
+        is_login: true,
 
-        canBuy:false,
-        query:{},
-        animationSelect:{}
+        canBuy: false,
+        query: {},
+        animationSelect: {}
     },
 
+    onLoad(e){
+        wx.showLoading({
+            title: "加载中",
+            mask: true
+        })
+        this.setData({
+            id: e.id,
+            query: e
+        });
+        this.getGoodsDetail(e.id);
+        this.queryCommodityStore(e.id)
+        this.queryFavoriteStatus(e.id, 'goods');
+    },
+    changeStatus() {
+        var token = wx.getStorageSync('user_token');
+        if (token) {
+            this.changeFavorite(this.data.id, 'goods');
+        } else {
+            var url = getUrl();
+            wx.showModal({
+                title: '',
+                content: '请先登录',
+                success: res => {
+                    if (res.confirm) {
+                        wx.navigateTo({
+                            url: '/pages/user/register/register?url=' + url
+                        })
+                    }
+                }
+            })
+        }
+    },
 
     onStateChange(nextState){
         console.log(sandBox)
@@ -57,8 +90,8 @@ let args = {
                 title: nextState.detailData.data.name
             })
             this.setData({
-                detailData:nextState.detailData,
-                commodity:nextState.detailData.data
+                detailData: nextState.detailData,
+                commodity: nextState.detailData.data
             })
             wx.hideLoading()
         }
@@ -77,24 +110,9 @@ let args = {
         // }
 
     },
-    onLoad(e){
-        console.log(e.id)
-        this.setData({
-            query:e
-        })
-        wx.showLoading({
-            title: "加载中",
-            mask: true
-        })
 
-		this.getGoodsDetail(e.id)
-        this.queryCommodityStore(e.id)
-
-
-
-    },
     change(e) {
-        var  expands = this.data.expands[e.currentTarget.dataset.type];
+        var expands = this.data.expands[e.currentTarget.dataset.type];
         this.setData({
             [`expands.${e.currentTarget.dataset.type}`]: !expands
         })
@@ -103,7 +121,7 @@ let args = {
 
     showSelect(e){
         this.setData({
-            show_select:false
+            show_select: false
         })
 
         var animation = new Animation('show');
@@ -112,14 +130,12 @@ let args = {
     closeSelect(){
 
 
-
         var animation = new Animation('show');
         animation.up().then(() => {
             this.setData({
-                show_select:true
+                show_select: true
             })
         })
-
 
 
     },
@@ -140,18 +156,18 @@ let args = {
         }
 
         this.setData({
-            select_count:val
+            select_count: val
         })
 
     },
     selectSpec(e){
 
         var spec = {
-            key:e.currentTarget.dataset.key,
-            index:e.currentTarget.dataset.index,
-            disabled:Number(e.currentTarget.dataset.disabled),
-            active:Number(e.currentTarget.dataset.active),
-            id:Number(e.currentTarget.dataset.id)
+            key: e.currentTarget.dataset.key,
+            index: e.currentTarget.dataset.index,
+            disabled: Number(e.currentTarget.dataset.disabled),
+            active: Number(e.currentTarget.dataset.active),
+            id: Number(e.currentTarget.dataset.id)
         };
 
         if (spec.disabled) return;
@@ -165,13 +181,13 @@ let args = {
             }
         }
 
-        specs[spec.index].values[spec.key].active =  !specs[spec.index].values[spec.key].active
+        specs[spec.index].values[spec.key].active = !specs[spec.index].values[spec.key].active
         spec.active = !spec.active;
         specs[spec.index].select = spec.active ? spec.id : '';
 
 
         this.setData({
-            specs:specs
+            specs: specs
         })
         var id = this.data.query.id;
         this.queryCommodityStore(id, spec.index);
@@ -191,8 +207,8 @@ let args = {
 
 
             this.setData({
-                specs:specs,
-                skuTable:result.table
+                specs: specs,
+                skuTable: result.table
             })
 
             specs.forEach(spec => {
@@ -206,9 +222,9 @@ let args = {
                             v.active = true;
                             spec.select = v.id;
                             this.setData({
-                                specs:specs
+                                specs: specs
                             })
-                            this.specStore(result,v.index)
+                            this.specStore(result, v.index)
 
                             return;
                         }
@@ -221,10 +237,10 @@ let args = {
                             v.active = true;
                             spec.select = v.id;
                             this.setData({
-                                specs:specs
+                                specs: specs
                             })
                             // this.$emit('specStore', result, v.index);
-                            this.specStore(result,v.index)
+                            this.specStore(result, v.index)
 
                             return;
                         }
@@ -258,7 +274,7 @@ let args = {
         } else {
 
             this.setData({
-                store_count:this.data.commodity.store
+                store_count: this.data.commodity.store
             })
 
 
@@ -272,7 +288,7 @@ let args = {
 
                 if (s.select) {
                     this.setData({
-                        store_count:data[s.select].count
+                        store_count: data[s.select].count
                     })
 
                 }
@@ -281,16 +297,16 @@ let args = {
 
         if (this.data.select_count > this.data.store_count) {
             this.setData({
-                select_count:String(this.data.store_count)
+                select_count: String(this.data.store_count)
             })
 
         } else if (this.data.select_count === 0) {
             this.setData({
-                select_count:'1'
+                select_count: '1'
             })
         }
         this.setData({
-            specs:specs,
+            specs: specs,
         })
 
 
@@ -298,7 +314,7 @@ let args = {
 
         console.error(this.data.select_product)
         this.setData({
-            canBuy:canBuy
+            canBuy: canBuy
         })
     },
 
@@ -407,12 +423,12 @@ let args = {
             return !this.data.store_count;
         }
 
-        var ids = [], select_product = {} ,specs = this.data.specs;
+        var ids = [], select_product = {}, specs = this.data.specs;
         for (let spec of specs) {
             if (!spec.select) {
                 this.setData({
-                    price:this.data.commodity.sell_price,
-                    select_product:null
+                    price: this.data.commodity.sell_price,
+                    select_product: null
                 })
                 return true;
             }
@@ -440,8 +456,8 @@ let args = {
         }
 
         this.setData({
-            price:select_product.price,
-            select_product:select_product
+            price: select_product.price,
+            select_product: select_product
         })
 
         return false;
@@ -467,9 +483,20 @@ let args = {
         })
     },
     jump(e) {
-        wx.navigateTo({
-            url: '/pages/store/detail/detail?id=' + e.currentTarget.dataset.id
-        })
+        if (e.currentTarget.dataset.type == 'shop') {
+            wx.navigateTo({
+                url: '/pages/store/list/list'
+            })
+        } else if (e.currentTarget.dataset.type == 'cart') {
+            wx.navigateTo({
+                url: '/pages/store/cart/cart'
+            })
+        } else {
+            wx.navigateTo({
+                url: '/pages/store/detail/detail?id=' + e.currentTarget.dataset.id
+            })
+        }
+
     },
     bigImg(e) {
         var srcList = [];
@@ -485,9 +512,41 @@ let args = {
         }
 
     },
+
+
+    // 查询是否收藏改商品
+    queryFavoriteStatus(id, type) {
+        var token = wx.getStorageSync('user_token');
+        if (!token) return;
+
+        wx.request({
+            url: config.GLOBAL.baseUrl + 'api/favorite/isfav',
+            header: {
+                Authorization: token
+            },
+            data: {
+                favoriteable_id: id,
+                favoriteable_type: type
+            },
+            success: res => {
+                res = res.data;
+
+                if (res.status) {
+                    this.setData({
+                        is_Fav: !!res.data.is_Fav
+                    })
+                } else {
+                    wx.showToast({
+                        image: '../../../assets/image/error.png',
+                        title: res.message
+                    });
+                }
+            }
+        })
+    },
     queryCommodityStore(id, key){
         var that = this;
-        sandBox.get({api:`api/store/detail/${id}/stock`})
+        sandBox.get({api: `api/store/detail/${id}/stock`})
             .then(res => {
 
                 res = res.data
@@ -513,9 +572,10 @@ let args = {
                         });
 
                     that.setData({
-                        specs:specs
+                        specs: specs
                     })
                 }
+
 
                 if (res.data.stores) {
                     let data = {};
@@ -540,7 +600,7 @@ let args = {
                     var result = {data, table: res.data.stores};
 
 
-                    that.specStore(result,key)
+                    that.specStore(result, key)
                     // this.$emit('specStore', result, key);
                 }
 
@@ -552,13 +612,13 @@ let args = {
     queryShoppingCount(){
 
         wx.request({
-            url:`${config.GLOBAL.baseUrl}api/shopping/cart/count`,
-            header:{Authorization:'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjQzNzM0ZTI5ZWRhZTM4MDNiY2FmZTNlNjhlMTUyOWNkYjJkYjVlZTViYzQyYzk0ZWRhZTEzY2JjMDhiZTE3NmFkOGY1NWIzZDFmODIwOWUxIn0.eyJhdWQiOiIxIiwianRpIjoiNDM3MzRlMjllZGFlMzgwM2JjYWZlM2U2OGUxNTI5Y2RiMmRiNWVlNWJjNDJjOTRlZGFlMTNjYmMwOGJlMTc2YWQ4ZjU1YjNkMWY4MjA5ZTEiLCJpYXQiOjE1MDM2MzkwNDcsIm5iZiI6MTUwMzYzOTA0NywiZXhwIjoxODE5MTcxODQ3LCJzdWIiOiI0OTUiLCJzY29wZXMiOltdfQ.j6JptbhqAheBqwZC4k4Fm9bd93oCCnGZDvwiHvFssvsIM-GIsKKIPA3gmeDoQaQRY2JeI3Tff1tz5uF1mwqbW_uexuPn80jicfvbGSljlrOkiU9s_rB1o20lLuZTc149it2x6IPAkDLSXIW3IZVOr7WQpyeM2gDgGBXeoV6OIjOggSpc1wKE25hEX2xhfQ7AyYrCihLbeCHqgSDxXEnS5MwY0XgV1vjd9yM6MyGaOFs05WDOhdeqf6I8gVRTT21dYjwM020-tWZMaHSJd3B6zhWHu_4V5Ql8tb3kP1jPgrPkeJhJgdRYWf_6Thiea32BsvEyCK2aT1vK03nOsj1kE78-SY52d6dTIg5syrwQyOgtq-KrmFw_EDCb_fZN-RCEgsGzSfajt984tDiI81-rFrx6jx9FfhS2tNut9ZqjtSctGhVrHY59CgSGjwDf-uLrZD7Ee0pAG2VhC4EYA9iZnr8oyw6Jxx4UIlWfh_-z8LHaglex1oRr_8cwUGkCvSrFXRojxobcxGDtjXW8o_tIhbgmkw57hle7wzdPFnyEIlR1Ap12bPtUhH7OyMCH9UTGTWXzUaW18UuH_-vrb1XUsv-fIm6BHQ4ic8824uUNVTTj4kRUQr99PCZ2K_9itvrDeETlgKbKXCpMjgO3f_t5ujv1DEemctxn76v9OHJ9pHg'},
-            method:'GET',
-            success:function(res){
+            url: `${config.GLOBAL.baseUrl}api/shopping/cart/count`,
+            header: {Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjQzNzM0ZTI5ZWRhZTM4MDNiY2FmZTNlNjhlMTUyOWNkYjJkYjVlZTViYzQyYzk0ZWRhZTEzY2JjMDhiZTE3NmFkOGY1NWIzZDFmODIwOWUxIn0.eyJhdWQiOiIxIiwianRpIjoiNDM3MzRlMjllZGFlMzgwM2JjYWZlM2U2OGUxNTI5Y2RiMmRiNWVlNWJjNDJjOTRlZGFlMTNjYmMwOGJlMTc2YWQ4ZjU1YjNkMWY4MjA5ZTEiLCJpYXQiOjE1MDM2MzkwNDcsIm5iZiI6MTUwMzYzOTA0NywiZXhwIjoxODE5MTcxODQ3LCJzdWIiOiI0OTUiLCJzY29wZXMiOltdfQ.j6JptbhqAheBqwZC4k4Fm9bd93oCCnGZDvwiHvFssvsIM-GIsKKIPA3gmeDoQaQRY2JeI3Tff1tz5uF1mwqbW_uexuPn80jicfvbGSljlrOkiU9s_rB1o20lLuZTc149it2x6IPAkDLSXIW3IZVOr7WQpyeM2gDgGBXeoV6OIjOggSpc1wKE25hEX2xhfQ7AyYrCihLbeCHqgSDxXEnS5MwY0XgV1vjd9yM6MyGaOFs05WDOhdeqf6I8gVRTT21dYjwM020-tWZMaHSJd3B6zhWHu_4V5Ql8tb3kP1jPgrPkeJhJgdRYWf_6Thiea32BsvEyCK2aT1vK03nOsj1kE78-SY52d6dTIg5syrwQyOgtq-KrmFw_EDCb_fZN-RCEgsGzSfajt984tDiI81-rFrx6jx9FfhS2tNut9ZqjtSctGhVrHY59CgSGjwDf-uLrZD7Ee0pAG2VhC4EYA9iZnr8oyw6Jxx4UIlWfh_-z8LHaglex1oRr_8cwUGkCvSrFXRojxobcxGDtjXW8o_tIhbgmkw57hle7wzdPFnyEIlR1Ap12bPtUhH7OyMCH9UTGTWXzUaW18UuH_-vrb1XUsv-fIm6BHQ4ic8824uUNVTTj4kRUQr99PCZ2K_9itvrDeETlgKbKXCpMjgO3f_t5ujv1DEemctxn76v9OHJ9pHg'},
+            method: 'GET',
+            success: function (res) {
 
             },
-            fail: function(){
+            fail: function () {
 
             }
         })
@@ -574,19 +634,19 @@ let args = {
         data = json;
         var that = this;
         wx.request({
-            url:config.GLOBAL.baseUrl+'api/shopping/cart',
-            header:{Authorization:'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjQzNzM0ZTI5ZWRhZTM4MDNiY2FmZTNlNjhlMTUyOWNkYjJkYjVlZTViYzQyYzk0ZWRhZTEzY2JjMDhiZTE3NmFkOGY1NWIzZDFmODIwOWUxIn0.eyJhdWQiOiIxIiwianRpIjoiNDM3MzRlMjllZGFlMzgwM2JjYWZlM2U2OGUxNTI5Y2RiMmRiNWVlNWJjNDJjOTRlZGFlMTNjYmMwOGJlMTc2YWQ4ZjU1YjNkMWY4MjA5ZTEiLCJpYXQiOjE1MDM2MzkwNDcsIm5iZiI6MTUwMzYzOTA0NywiZXhwIjoxODE5MTcxODQ3LCJzdWIiOiI0OTUiLCJzY29wZXMiOltdfQ.j6JptbhqAheBqwZC4k4Fm9bd93oCCnGZDvwiHvFssvsIM-GIsKKIPA3gmeDoQaQRY2JeI3Tff1tz5uF1mwqbW_uexuPn80jicfvbGSljlrOkiU9s_rB1o20lLuZTc149it2x6IPAkDLSXIW3IZVOr7WQpyeM2gDgGBXeoV6OIjOggSpc1wKE25hEX2xhfQ7AyYrCihLbeCHqgSDxXEnS5MwY0XgV1vjd9yM6MyGaOFs05WDOhdeqf6I8gVRTT21dYjwM020-tWZMaHSJd3B6zhWHu_4V5Ql8tb3kP1jPgrPkeJhJgdRYWf_6Thiea32BsvEyCK2aT1vK03nOsj1kE78-SY52d6dTIg5syrwQyOgtq-KrmFw_EDCb_fZN-RCEgsGzSfajt984tDiI81-rFrx6jx9FfhS2tNut9ZqjtSctGhVrHY59CgSGjwDf-uLrZD7Ee0pAG2VhC4EYA9iZnr8oyw6Jxx4UIlWfh_-z8LHaglex1oRr_8cwUGkCvSrFXRojxobcxGDtjXW8o_tIhbgmkw57hle7wzdPFnyEIlR1Ap12bPtUhH7OyMCH9UTGTWXzUaW18UuH_-vrb1XUsv-fIm6BHQ4ic8824uUNVTTj4kRUQr99PCZ2K_9itvrDeETlgKbKXCpMjgO3f_t5ujv1DEemctxn76v9OHJ9pHg'},
-            method:'POST',
-            data:data,
-            success:function(res){
+            url: config.GLOBAL.baseUrl + 'api/shopping/cart',
+            header: {Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjQzNzM0ZTI5ZWRhZTM4MDNiY2FmZTNlNjhlMTUyOWNkYjJkYjVlZTViYzQyYzk0ZWRhZTEzY2JjMDhiZTE3NmFkOGY1NWIzZDFmODIwOWUxIn0.eyJhdWQiOiIxIiwianRpIjoiNDM3MzRlMjllZGFlMzgwM2JjYWZlM2U2OGUxNTI5Y2RiMmRiNWVlNWJjNDJjOTRlZGFlMTNjYmMwOGJlMTc2YWQ4ZjU1YjNkMWY4MjA5ZTEiLCJpYXQiOjE1MDM2MzkwNDcsIm5iZiI6MTUwMzYzOTA0NywiZXhwIjoxODE5MTcxODQ3LCJzdWIiOiI0OTUiLCJzY29wZXMiOltdfQ.j6JptbhqAheBqwZC4k4Fm9bd93oCCnGZDvwiHvFssvsIM-GIsKKIPA3gmeDoQaQRY2JeI3Tff1tz5uF1mwqbW_uexuPn80jicfvbGSljlrOkiU9s_rB1o20lLuZTc149it2x6IPAkDLSXIW3IZVOr7WQpyeM2gDgGBXeoV6OIjOggSpc1wKE25hEX2xhfQ7AyYrCihLbeCHqgSDxXEnS5MwY0XgV1vjd9yM6MyGaOFs05WDOhdeqf6I8gVRTT21dYjwM020-tWZMaHSJd3B6zhWHu_4V5Ql8tb3kP1jPgrPkeJhJgdRYWf_6Thiea32BsvEyCK2aT1vK03nOsj1kE78-SY52d6dTIg5syrwQyOgtq-KrmFw_EDCb_fZN-RCEgsGzSfajt984tDiI81-rFrx6jx9FfhS2tNut9ZqjtSctGhVrHY59CgSGjwDf-uLrZD7Ee0pAG2VhC4EYA9iZnr8oyw6Jxx4UIlWfh_-z8LHaglex1oRr_8cwUGkCvSrFXRojxobcxGDtjXW8o_tIhbgmkw57hle7wzdPFnyEIlR1Ap12bPtUhH7OyMCH9UTGTWXzUaW18UuH_-vrb1XUsv-fIm6BHQ4ic8824uUNVTTj4kRUQr99PCZ2K_9itvrDeETlgKbKXCpMjgO3f_t5ujv1DEemctxn76v9OHJ9pHg'},
+            method: 'POST',
+            data: data,
+            success: function (res) {
                 res = res.data
                 if (res.status) {
                     that.addCart(true);
                 } else {
-                    that.addCart(false,res.message)
+                    that.addCart(false, res.message)
                 }
             },
-            error:function(){
+            error: function () {
                 that.addCart(false)
             }
         })
@@ -596,20 +656,20 @@ let args = {
         if (success) {
             this.closeSelect()
             wx.showModal({
-                title:'提示',
-                content:'添加到购物车成功！',
-                cancelText:'继续购物',
-                confirmText:'购物车',
-                success:function (res){
+                title: '提示',
+                content: '添加到购物车成功！',
+                cancelText: '继续购物',
+                confirmText: '购物车',
+                success: function (res) {
                     if (res.confirm) {
                         wx.navigateTo({
-                            url:'/pages/store/order/order'
+                            url: '/pages/store/order/order'
                         })
                     } else if (res.cancel) {
                         console.log('用户点击取消')
                     }
                 },
-                fail:function(){
+                fail: function () {
 
                 }
             })
@@ -631,27 +691,50 @@ let args = {
         } else {
             if (message) {
                 wx.showToast({
-                    title:message,
+                    title: message,
                 })
             } else {
                 wx.showToast({
-                    title:'添加到购物车失败，请重试',
+                    title: '添加到购物车失败，请重试',
                 })
             }
         }
 
+    },
+
+
+    changeFavorite(id, type) {
+        var token = wx.getStorageSync('user_token');
+
+        wx.request({
+            url: config.GLOBAL.baseUrl + 'api/favorite/store',
+            method: 'POST',
+            header: {
+                Authorization: token
+            },
+            data: {
+                favoriteable_id: id,
+                favoriteable_type: type
+            },
+            success: res => {
+                res = res.data;
+
+                if (res.status) {
+                    this.setData({
+                        is_Fav: !this.data.is_Fav
+                    })
+                }
+            }
+        })
     }
+
 }
-
-
-
 const page = connect.Page(
     store(),
-    (state) => {return {detailData: state.goods_detail}} ,
+    (state) => {console.log(state);return {detailData: state.goods_detail}} ,
     (dispatch) => {
         return {
-            getGoodsDetail: bindActionCreators(actions.getGoodsDetail, dispatch,'GOODS_DETAIL'),
-            // queryCommodityStore: bindActionCreators(actions.queryCommodityStore, dispatch ,'COMMODITYSTORE','COMMODITYSPECS')
+            getGoodsDetail: bindActionCreators(actions.getGoodsDetail, dispatch,'GOODS_DETAIL')
         }
     }
 )

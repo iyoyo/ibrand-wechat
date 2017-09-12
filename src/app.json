@@ -1,6 +1,15 @@
 {
   "pages": [
     "pages/store/order/order",
+    "pages/store/list/list",
+    "pages/user/personal/personal",
+    "pages/user/register/register",
+    "pages/user/usersetting/usersetting",
+    "pages/afterSales/index/index",
+    "pages/afterSales/detail/detail",
+    "pages/afterSales/apply/apply",
+    "pages/user/out/out",
+    "pages/afterSales/retreat/retreat",
     "pages/store/search/search",
     "pages/order/detail/detail",
     "pages/order/index/index",
@@ -9,7 +18,6 @@
     "pages/address/list/list",
 
     "pages/store/payment/payment",
-    "pages/store/list/list",
     "pages/store/success/success",
     "pages/store/cart/cart",
     "pages/store/detail/detail",

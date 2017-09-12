@@ -8,6 +8,7 @@ import store from './store'
 import actions  from './actions'
 import config from './config'
 import {sandBox} from './sandBox'
+import {is,getUrl,pageLogin} from './utils';
 
 export {
     weapp,
@@ -16,5 +17,9 @@ export {
     store,
     actions,
     config,
-    sandBox
+    sandBox,
+    config,
+	is,
+	getUrl,
+    pageLogin
 }

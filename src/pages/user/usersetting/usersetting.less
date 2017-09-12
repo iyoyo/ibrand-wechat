@@ -1,0 +1,55 @@
+#user-setting{
+    view{
+      overflow: visible;
+    }
+   .headImg{
+     position: relative;
+     width: 90px;
+     height: 90px;
+     border: 1px solid #8d8d8d;
+     //background-color: red;
+     border-radius: 100%;
+     display: block;
+     margin: 20px auto;
+     &:after{
+       position: absolute;
+       content: "";
+       background: url("http://ovef29y3v.bkt.clouddn.com/ic_camer.png") no-repeat;
+       width: 23px;
+       height: 23px;
+       bottom: 0px;
+       right: 0px;
+       background-size:100% 100%;
+     }
+     image{
+       //width: 100%;
+       //height: 100%;
+       width: 90px;
+       height: 90px;
+       border-radius: 50%;
+     }
+   }
+   .user_setting{
+     background-color: #ffffff;
+     .code{
+       border-bottom: 1px solid #e5e5e5;
+       padding: 10px 0 10px 0;
+       display: flex;
+       align-items: center;
+       .detail{
+         padding-left: 10px;
+         padding-right: 16px;
+
+       }
+       input{
+         flex: 1;
+       }
+       picker{
+         flex: 1;
+       }
+     }
+   }
+   .submit{
+     margin-top: 20px;
+   }
+}

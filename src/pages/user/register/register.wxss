@@ -1,0 +1,61 @@
+#user-register {
+  font-size: 16px;
+}
+#user-register .tips {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 35px;
+  background-color: #e64340;
+  height: 35px;
+  color: #FFFFFF;
+}
+#user-register .register_input {
+  margin-top: 35px;
+  background-color: #ffffff;
+}
+#user-register .register_input .tellphone {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px 0 10px 0;
+  display: flex;
+  align-items: center;
+}
+#user-register .register_input .tellphone .detail {
+  width: 90px;
+  padding-left: 10px;
+  padding-right: 16px;
+}
+#user-register .register_input .tellphone input {
+  flex: 1;
+}
+#user-register .register_input .tellphone .getCode {
+  padding: 0 10px;
+  text-align: center;
+  color: #1aad19;
+  border-left: 1px solid #e5e5e5;
+}
+#user-register .register_input .code {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px 0 10px 0;
+  display: flex;
+  align-items: center;
+}
+#user-register .register_input .code .detail {
+  width: 90px;
+  padding-left: 10px;
+  padding-right: 16px;
+}
+#user-register .register_input .code input {
+  flex: 1;
+  padding-right: 10px;
+}
+#user-register .select {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+#user-register .submit {
+  margin: 20px;
+}

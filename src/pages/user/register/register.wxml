@@ -1,0 +1,24 @@
+<view id="user-register">
+    <view class="tips" hidden="{{!message}}">{{message}}</view>
+    <view class="register_input">
+        <view class="tellphone">
+            <view class="detail">手机号码</view>
+            <input type="text" placeholder="填写手机号码" bindinput="changeCode"/>
+            <view class="getCode" bindtap="getCode">{{code.codeText}}</view>
+
+        </view>
+        <view class="code">
+            <view class="detail">验证码</view>
+            <input type="text" placeholder="填写验证码" bindinput="changeIdentifyCode"/>
+        </view>
+    </view>
+    <view class="select">
+        <!--<checkbox-group bindchange="changeChecked">-->
+        <checkbox bindtap="changeChecked" checked="{{checked}}" /> <text> 已阅读并同意iBrand用户使用协议</text>
+        <!--</checkbox-group>-->
+
+    </view>
+    <view class="submit">
+        <button type="primary" bindtap="submit" disabled="{{showLoading}}" loading="{{showLoading}}">确定</button>
+    </view>
+</view>

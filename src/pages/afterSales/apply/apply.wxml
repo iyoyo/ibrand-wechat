@@ -1,0 +1,47 @@
+<view id="order-apply">
+    <text class="title">选择类型</text>
+    <view class="content">
+       <text>服务类型</text>
+        <picker value="{{selectedIndex}}" range="{{list}}" bindchange="change">
+            <!--<view class="picker">{{list[selectedIndex]}}</view>-->
+            <input type="text" placeholder="选择售后服务类型" disabled  value="{{list[selectedIndex]}}"/>
+        </picker>
+    </view>
+    <text class="title">退款信息</text>
+    <view class="list">
+         <view class="list-detail">
+             <text>申请数量</text>
+              <view class="num">
+                  <view class="subtraction">+</view>
+                  <view class="text-number">0</view>
+                  <view class="plus">-</view>
+              </view>
+             <!--<input type="range" />-->
+         </view>
+        <view class="list-detail">
+            <text>退款金额</text>
+            <text class="right">890.00</text>
+        </view>
+        <view class="list-detail">
+            <text>退还积分</text>
+            <text class="right">890积分</text>
+        </view>
+    </view>
+    <view class="title">
+         问题描述
+    </view>
+    <view class="text-area">
+        <textarea bindblur="getValue"></textarea>
+    </view>
+    <view class="title">
+        上传凭证
+    </view>
+    <view class="content">
+         <view class="append">
+               +
+         </view>
+    </view>
+    <view class="submit">
+        <button type="primary">提交</button>
+    </view>
+</view>

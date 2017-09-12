@@ -1,0 +1,83 @@
+<view id="personal">
+    <view class="banner">
+        <view class="title">
+            <image src="http://ovef29y3v.bkt.clouddn.com/seting.png" bindtap="jumpSetting"/>
+            <image src="http://ovef29y3v.bkt.clouddn.com/volume.png"></image>
+        </view>
+        <view class="adapter">
+            <view class="adapter-img" bindtap="jumpImg">
+                <image src="{{detail.avatar}}"></image>
+                <view class="justify">V{{detail.grade}}</view>
+            </view>
+            <text>{{detail.nick_name}}</text>
+        </view>
+    </view>
+    <view class="allOrder">
+        <view class="allOrderTitle" data-status="0" bindtap="jump">
+            <text>全部订单</text>
+            <i class="iconfont icon-Chevron"></i>
+        </view>
+        <view class="orderStatus">
+            <view class="status" data-status="1" bindtap="jump">
+                <view class="img">
+                    <i class="iconfont icon-pay"></i>
+                </view>
+                <text>
+                    待付款
+                </text>
+            </view>
+            <view class="status" data-status="2" bindtap="jump">
+                <view class="img">
+                    <i class="iconfont icon-shangcheng"></i>
+                </view>
+                <text>
+                    待发货
+                </text>
+            </view>
+            <view class="status" data-status="3" bindtap="jump">
+                <view class="img">
+                    <i class="iconfont icon-deliver"></i>
+                </view>
+                <text>
+                    待收货
+                </text>
+            </view>
+
+        </view>
+    </view>
+    <view class="menu_list">
+         <view class="menu_list_item">
+            <view class="text">
+                <view class="icon">
+                    <i class="iconfont icon-favor"></i>
+                </view>
+               <view>
+                   我的收藏
+               </view>
+            </view>
+             <i class="iconfont icon-Chevron"></i>
+         </view>
+        <view class="menu_list_item" bindtap="jumpAfterSales">
+            <view class="text">
+                <view class="icon">
+                    <i class="iconfont icon-service"></i>
+                </view>
+                <view>
+                    售后中心
+                </view>
+            </view>
+            <i class="iconfont icon-Chevron"></i>
+        </view>
+        <view class="menu_list_item">
+            <view class="text">
+                <view class="icon">
+                    <i class="iconfont icon-home"></i>
+                </view>
+                <view>
+                    收货地址
+                </view>
+            </view>
+            <i class="iconfont icon-Chevron"></i>
+        </view>
+    </view>
+</view>

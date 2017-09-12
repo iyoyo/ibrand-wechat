@@ -3,11 +3,11 @@
   overflow: auto;
   box-sizing: border-box;
 }
-.content .top-image swiper {
+.content .top-img swiper {
   height: 730rpx;
   background: #ffffff;
 }
-.content .top-image swiper .slide-image {
+.content .top-img swiper .slide-image {
   width: 100%;
   height: 100%;
 }
@@ -66,19 +66,19 @@
   width: 30px;
   height: 10px;
   margin-top: 3px;
-  background: url("https://www.jackwolfskin.cn/m/static/image/down.png") no-repeat center;
+  background: url("https://www.jackwolfskin.cn/m/static/img/down.png") no-repeat center;
   transform: rotate(180deg);
   background-size: 10px;
 }
 .content .detail-item-box .title .arrow-down {
   width: 20px;
-  background: url("https://www.jackwolfskin.cn/m/static/image/down.png") no-repeat center;
+  background: url("https://www.jackwolfskin.cn/m/static/img/down.png") no-repeat center;
   background-size: 10px;
   margin-right: 5px;
 }
 .content .detail-item-box .title .icon-right {
   width: 20px;
-  background: url("https://www.jackwolfskin.cn/m/static/image/right.png") no-repeat center;
+  background: url("https://www.jackwolfskin.cn/m/static/img/right.png") no-repeat center;
   background-size: 5px;
   margin-right: 5px;
 }
@@ -94,12 +94,12 @@
 .content .detail-item-box .content .argument-box .argument-top {
   line-height: 20px;
 }
-.content .detail-item-box .content .argument-box .argument-top text {
+.content .detail-item-box .content .argument-box .argument-top span {
   display: inline-block;
   font-size: 10px;
   width: 50%;
   box-sizing: border-box;
-  background: url("https://www.jackwolfskin.cn/m/static/image/goods-list.png") no-repeat left;
+  background: url("https://www.jackwolfskin.cn/m/static/img/goods-list.png") no-repeat left;
   padding-left: 15px;
 }
 .content .detail-item-box .content .argument-box .argument-bottom {
@@ -115,17 +115,17 @@
 }
 .content .detail-item-box .content .argument-box .argument-bottom .argument-item .index-box ul {
   display: flex;
-  background: url("https://www.jackwolfskin.cn/m/static/image/lvl-bg.png") repeat-x top;
+  background: url("https://www.jackwolfskin.cn/m/static/img/lvl-bg.png") repeat-x top;
 }
 .content .detail-item-box .content .argument-box .argument-bottom .argument-item .index-box ul .red-dot {
-  background: url("https://www.jackwolfskin.cn/m/static/image/red-dot.png") no-repeat top;
+  background: url("https://www.jackwolfskin.cn/m/static/img/red-dot.png") no-repeat top;
 }
 .content .detail-item-box .content .argument-box .argument-bottom .argument-item .index-box ul li {
   flex: 1;
   display: inline-block;
   text-align: center;
   padding-top: 15px;
-  background: url("https://www.jackwolfskin.cn/m/static/image/dot.png") no-repeat top;
+  background: url("https://www.jackwolfskin.cn/m/static/img/dot.png") no-repeat top;
 }
 .content .detail-item-box .content .small_title {
   padding: 10px 0;
@@ -138,7 +138,7 @@
   height: auto !important;
 }
 .content .detail-item-box .content .commodity_description table,
-.content .detail-item-box .content .commodity_description image {
+.content .detail-item-box .content .commodity_description img {
   width: 100% !important;
   height: auto !important;
 }
@@ -226,7 +226,7 @@
   text-overflow: ellipsis;
 }
 .content .detail-item-box .content .user_list .user_box .user_name_box .user-grade {
-  background: url("/static/image/TNF_v2_r2_c2.png") no-repeat center;
+  background: url("/static/img/TNF_v2_r2_c2.png") no-repeat center;
   display: inline-block;
   border-radius: 50%;
   width: 18px;
@@ -253,10 +253,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.content .detail-item-box .content .like_list .like_box .like_image {
+.content .detail-item-box .content .like_list .like_box .like_img {
   width: 100%;
 }
-.content .detail-item-box .content .like_list .like_box .like_image image {
+.content .detail-item-box .content .like_list .like_box .like_img image {
   height: 200rpx !important;
 }
 .content .detail-item-box .content .like_list .like_box .like_money {
@@ -307,6 +307,12 @@
   font-size: 18px;
   font-weight: bold;
   flex: 2;
+}
+.content .tabbar .tabbar-item.favorite {
+  color: #1aad19;
+}
+.content .tabbar .tabbar-item.favorite i {
+  color: #1aad19;
 }
 /*选取规格部分*/
 .select_goods_container {

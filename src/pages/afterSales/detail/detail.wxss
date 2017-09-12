@@ -1,0 +1,116 @@
+#order-detail .detail_title {
+  margin-top: 5px;
+  height: 71px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+#order-detail .detail_title icon {
+  margin-left: 10px;
+}
+#order-detail .detail_title text {
+  margin-left: 30px;
+  font-size: 20px;
+}
+#order-detail .detail_content {
+  background-color: #ffffff;
+  margin-top: 10px;
+  padding: 10px 10px 0 10px;
+}
+#order-detail .detail_content .store_title {
+  display: flex;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 10px;
+}
+#order-detail .detail_content .store_title .img {
+  width: 50px;
+  height: 50px;
+}
+#order-detail .detail_content .store_title .img image {
+  width: 50px;
+  height: 50px;
+}
+#order-detail .detail_content .store_title .name {
+  flex: 1;
+  margin-left: 20px;
+}
+#order-detail .detail_content .store_title .num {
+  color: #959595;
+  text-align: right;
+}
+#order-detail .detail_content .store_content .store_content_title {
+  color: #888888;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+#order-detail .status_content {
+  background-color: #3a3a3a;
+  padding: 12px 24px;
+  color: #ffffff;
+}
+#order-detail .status_content .status_title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ffffff;
+}
+#order-detail .status_content .content {
+  margin-top: 10px;
+}
+#order-detail .submit {
+  margin-top: 16px;
+}
+#order-detail .popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  background-color: rgba(1, 1, 1, 0.4);
+}
+#order-detail .popup .popup_alert {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  width: 80%;
+  height: 180px;
+}
+#order-detail .popup .popup_alert .title {
+  text-align: center;
+  line-height: 20px;
+  border: 1px solid #cccccc;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#order-detail .popup .popup_alert .buttom {
+  display: flex;
+  border-top: 1px solid #cccccc;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#order-detail .popup .popup_alert .buttom .cancel {
+  flex: 1;
+  color: #b3b3b3;
+  text-align: center;
+  border-right: 1px solid #cccccc;
+}
+#order-detail .popup .popup_alert .buttom .confirm {
+  color: red;
+  text-align: center;
+  flex: 1;
+}
+#order-detail .popup .popup_alert .content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#order-detail .popup .popup_alert .content input {
+  display: inline-block;
+  border: 1px solid black;
+  width: 80%;
+}
