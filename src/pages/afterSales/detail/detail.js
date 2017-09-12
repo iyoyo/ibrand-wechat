@@ -27,8 +27,7 @@ Page({
             '等待用户退货',
             '用户已退货',
             '等待商城发货'
-        ],
-        token: ''
+        ]
     },
     onLoad(e){
         var id=e.no;
@@ -46,7 +45,7 @@ Page({
     // 查询售后订单详情
     queryAfterSalesDetail(id){
         wx.request({
-            url:"http://api.dev.tnf.ibrand.cc/api/refund/show/"+id,
+            url:config.GLOBAL.baseUrl+"api/refund/show/"+id,
             header:{
                 Authorization:wx.getStorageSync('user_token')
             },
@@ -93,7 +92,7 @@ Page({
         });
          // 退款
         wx.request({
-            url:"http://api.dev.tnf.ibrand.cc/api/refund/user/close",
+            url:config.GLOBAL.baseUrl+"api/refund/user/close",
             header:{
                 Authorization:wx.getStorageSync('user_token')
             },

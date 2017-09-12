@@ -83,11 +83,11 @@ Page({
         });
         // this.orderList(0, this.data.activeIndex);
     },
-    jump(e) {
-        wx.navigateTo({
-            url: '/pages/order/detail/detail?no=' + e.currentTarget.dataset.no
-        })
-    },
+    // jump(e) {
+    //     wx.navigateTo({
+    //         url: '/pages/afterSales/apply/apply?no=' + e.currentTarget.dataset.no
+    //     })
+    // },
     tabClick(e) {
 
         var status = e.currentTarget.id;
@@ -108,6 +108,11 @@ Page({
             }
 
         }
+    },
+    viewRetreat(e){
+        wx.navigateTo({
+            url: '/pages/afterSales/apply/apply?no=' + e.currentTarget.dataset.no+'&id='+e.currentTarget.dataset.id
+        })
     },
     viewSales(e){
         var refund_no=e.currentTarget.dataset.no;
