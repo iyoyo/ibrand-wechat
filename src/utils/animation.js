@@ -54,11 +54,22 @@ export default class Animation {
 
     }
 
+	Pullleft(){
+		this.animate.translate3d(0,0,0).step();
+		this.setData({
+			[`${this.id}.${this.name}`] : this.animate.export()
+		})
+
+	}
+
+
     right(){
         this.animate.translate3d('100%',0,0).step();
         this.setData({
             [`${this.id}.${this.name}`] : this.animate.export()
         })
+
+	    return new Promise((resolve,reject) => {setTimeout(() => {resolve()},350)})
     }
 
 

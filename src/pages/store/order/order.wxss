@@ -143,6 +143,7 @@
   background: #FFFFFF;
   color: #000000;
   text-align: center;
+  z-index: 10;
 }
 #store-order .sbumit-order .back {
   flex: 1;
