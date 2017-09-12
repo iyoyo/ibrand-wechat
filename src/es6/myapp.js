@@ -16,7 +16,6 @@ export {
     bindActionCreators,
     store,
     actions,
-    config,
     sandBox,
     config,
 	is,

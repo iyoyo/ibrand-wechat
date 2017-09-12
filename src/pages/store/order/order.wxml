@@ -75,14 +75,12 @@
             <view class="title">
                 优惠券
             </view>
-            <view class="info" wx:if="{{!block.discounts || block.discounts.length == 0}}">
-                您暂无可用优惠
-            </view>
-            <view class="coupon info" bindtap="select" wx:else>
-                <view wx:if="{{form.coupon.id}}">
-                    {{form.coupon.discount.label}}
+
+            <view class="coupon info" bindtap="select">
+                <view wx:if="{{block.coupon.id}}">
+                    {{block.coupon.discount.title}}
                 </view>
-                <view class="coupon-num">
+                <view class="coupon-num" wx:else>
                     {{block.coupons.length || 0}}张可用
                 </view>
             </view>
@@ -94,14 +92,14 @@
             <view class="point info">
                 <view class="input-box mx-1px-bottom">
                     <view>
-                        <input placeholder="可使用积分{{block.orderPoint.pointCanUse}}" type="number" bindinput="modifyPoint" bindchange="saveForm" value="{{block.orderPoint.pointCanUse}}"/>
+                        <input placeholder="可使用积分{{block.orderPoint.pointCanUse}}" type="number" bindinput="modifyPoint" bindchange="saveForm" value="{{form.point !== 0 ? form.point : ''}}"/>
                     </view>
                     <view class="use-all" bindtap="usePoint">
                         全部使用
                     </view>
                 </view>
                 <view class="offset">
-                    抵扣￥{{-block.orderPoint.pointAmount / 100}}
+                    抵扣￥{{-paymentMoneys.discounts.point / 100}}
                 </view>
             </view>
         </view>
@@ -110,8 +108,8 @@
                 店内活动
             </view>
             <view class="activity info">
-                <view class="input-box mx-1px-bottom" wx:if="{{!block.discounts}}">
-                    暂无可使用优惠
+                <view class="info" wx:if="{{!block.discounts || block.discounts.length == 0}}">
+                    您暂无可用优惠
                 </view>
                 <block wx:else>
                     <radio-group bindchange="changeDiscounts">
@@ -119,15 +117,15 @@
                             <view>
                                 <label class="radio">
                                     <text>{{item.label}}</text>
-                                    <radio disabled="{{form.isDisabled}}"/>
+                                    <radio disabled="{{form.isDisabled}}" value="{{index}}" checked="{{formStates.discountsCheckIndex == index}}"/>
                                 </label>
                             </view>
                         </view>
                         <view class="input-box mx-1px-bottom">
                             <view>
-                                <label class="radio">
+                                <label class="radio" >
                                     <text>不使用优惠</text>
-                                    <radio/>
+                                    <radio value="-1" checked="{{formStates.discountsCheckIndex == -1}}"/>
                                 </label>
                             </view>
                         </view>
@@ -158,7 +156,7 @@
                     积分抵扣
                 </view>
                 <view class="item-right">
-                    -￥{{paymentMoneys.discounts.point / 100}}
+                    ￥{{paymentMoneys.discounts.point / 100}}
                 </view>
             </view>
             <view class="info-item">
@@ -166,7 +164,7 @@
                     优惠抵扣 ：
                 </view>
                 <view class="item-right">
-                    -￥{{paymentMoneys.discounts.total / 100}}
+                    ￥{{paymentMoneys.discounts.total / 100}}
                 </view>
             </view>
             <view class="info-item">
@@ -191,7 +189,7 @@
         <view class="back">
             返回购物车
         </view>
-        <view class="sbumit bgcolor">
+        <view class="sbumit bgcolor" bindtap="submitOrder">
             提交订单
         </view>
     </view>
@@ -199,10 +197,10 @@
 
 <view class="coupon-maks {{show ? 'cur' : ''}}">
     <view class="coupon-box">
-        <radio-group bindchange="change">
+        <radio-group bindchange="change" >
             <view class="coupon-item" wx:for="{{block.coupons}}">
-                <radio id="index-1" value="0" />
-                <label for="index-1">
+                <radio id="index-{{index}}" value="{{index}}" checked="{{item.checked}}"/>
+                <label for="index-{{index}}">
                     <view class="left">
                         <span class="label">
                             {{item.discount.label }}
@@ -214,14 +212,14 @@
                                 官网
                             </view>
                             <view class="name">
-                               {{item.discount.title}}
+                                {{item.discount.title}}
                             </view>
                         </view>
                         <view class="coupon-tiem">
                             {{item.discount.start_at}}至{{coupon.discount.ends_at}}
                         </view>
 
-                        <view class="select {{0 == checked ? 'activity' : ''}}">
+                        <view class="select {{ index == check ? 'activity' : ''}}">
 
                         </view>
                     </view>
@@ -231,7 +229,7 @@
         </radio-group>
     </view>
     <view class="button-box">
-        <button type="primary">确定</button>
+        <button type="primary" bindtap="sure">确定</button>
         <button type="default" bindtap="cancel">取消</button>
     </view>
 </view>
