@@ -1,0 +1,110 @@
+#coupon-index{
+  .coupon-box{
+    padding: 12px;
+
+    .convert-box{
+      display: flex;
+      padding-bottom: 10px;
+
+      input{
+        flex: 1;
+        display: block;
+        width: 100%;
+        height: 44px;
+        line-height: normal;
+        font-size: 16px;
+        background: #e3e3e3;
+        padding-left: 17px;
+      }
+      .button{
+        width: 90px;
+        height: 44px;
+        line-height: 44px;
+        background: #ff0000;
+        text-align: center;
+        font-size: 18px;
+        color: #ffffff;
+        margin-left: 20px;
+      }
+    }
+    .coupon-list {
+      .coupon-item{
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        .left{
+          width: 110px;
+          height: 110px;
+          background: url("http://ovef29y3v.bkt.clouddn.com/coupon-bg.png") no-repeat;
+          background-size: 100% 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &.off{
+            background: url("http://ovef29y3v.bkt.clouddn.com/off-coupon-bg.png") no-repeat;
+            background-size: 100% 100%;
+          }
+
+          .label{
+            color: #FFFFFF;
+            padding: 0 10px;
+          }
+        }
+        .right{
+          position: relative;
+          height: 110px;
+          flex: 1;
+          overflow: hidden;
+          background: #FFFFFF;
+          padding: 0 10px;
+          font-size: 14px;
+
+          .coupon-name{
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            .type{
+              color: #FFFFFF;
+              background: #fc5e3a;
+              border-radius: 10px;
+              padding: 1px 8px;
+              margin-right: 5px;
+
+              &.off-type{
+                background: #1aad19;
+              }
+            }
+
+            .name{
+              flex: 1;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+          }
+          .coupon-tiem{
+            font-size: 12px;
+            color: #b5b5b5;
+          }
+        }
+      }
+      .loadingbox{
+        margin-top: 10px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size:14px;
+      }
+    }
+    .examine{
+      width: 100%;
+      height: 44px;
+      line-height: 44px;
+      text-align: center;
+      font-size: 18px;
+      background: #FFFFFF;
+      color: #848484;
+    }
+  }
+}

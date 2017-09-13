@@ -193,6 +193,7 @@
 }
 .coupon-maks .coupon-box .coupon-item label .left .label {
   color: #FFFFFF;
+  padding: 0 10px;
 }
 .coupon-maks .coupon-box .coupon-item label .right {
   position: relative;

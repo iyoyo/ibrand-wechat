@@ -22,7 +22,11 @@
     "pages/store/invoice/invoice",
     "pages/address/add/add",
     "pages/address/list/list",
-
+    "pages/coupon/index/index",
+    "pages/coupon/over/over",
+    "pages/coupon/onDetail/onDetail",
+    "pages/coupon/offDetail/offDetail",
+    "pages/favorite/index/index",
     "pages/store/payment/payment",
     "pages/store/success/success",
 
