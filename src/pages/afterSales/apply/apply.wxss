@@ -2,12 +2,38 @@
   font-size: 14px;
   color: #888888;
   padding: 12px 21px;
+  overflow: visible;
 }
 #order-apply .content {
   background-color: #ffffff;
   padding: 13px 21px;
   display: flex;
   align-items: center;
+}
+#order-apply .content .imgContainer {
+  position: relative;
+  margin-right: 12px;
+  width: 57px;
+  height: 57px;
+  border: 1px solid #cccccc;
+  overflow: visible;
+}
+#order-apply .content .imgContainer image {
+  width: 55px;
+  height: 55px;
+}
+#order-apply .content .imgContainer .delete {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  font-size: 12px;
+  border-radius: 100%;
+  background-color: #6e6e6e;
+  color: #FFFFFF;
+  line-height: 14px;
+  text-align: center;
+  right: -6px;
+  top: -6px;
 }
 #order-apply .content picker {
   margin-left: 16px;
@@ -21,6 +47,7 @@
   font-size: 40px;
   color: #cccccc;
   border: 1px solid #cccccc;
+  overflow: visible;
 }
 #order-apply .list {
   background-color: #ffffff;
@@ -36,11 +63,13 @@
   text-align: right;
 }
 #order-apply .list .list-detail .num {
+  overflow: visible;
   flex: 1;
   display: flex;
   flex-direction: row-reverse;
 }
 #order-apply .list .list-detail .num view {
+  overflow: visible;
   width: 38px;
   height: 38px;
   text-align: center;
@@ -61,4 +90,7 @@
 }
 #order-apply .submit {
   margin-top: 16px;
+}
+#order-apply .submit button {
+  margin: 0 20px;
 }

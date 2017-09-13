@@ -24,7 +24,7 @@ Page({
     },
     showlogistics(){
         wx.request({
-            url:"http://api.dev.tnf.ibrand.cc/api/shipping/methods",
+            url:config.GLOBAL.baseUrl+"api/shipping/methods",
             header:{
                 Authorization:wx.getStorageSync('user_token')
             },
@@ -71,7 +71,7 @@ Page({
     },
     return(data){
         wx.request({
-            url:"http://api.dev.tnf.ibrand.cc/api/refund/user/return",
+            url:config.GLOBAL.baseUrl+"api/refund/user/return",
             header:{
                 Authorization:wx.getStorageSync('user_token')
             },

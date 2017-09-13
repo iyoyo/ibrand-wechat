@@ -25,6 +25,7 @@
 #order-detail .detail_content .store_title .img {
   width: 50px;
   height: 50px;
+  overflow: visible;
 }
 #order-detail .detail_content .store_title .img image {
   width: 50px;
@@ -99,7 +100,7 @@
   border-right: 1px solid #cccccc;
 }
 #order-detail .popup .popup_alert .buttom .confirm {
-  color: red;
+  color: green;
   text-align: center;
   flex: 1;
 }

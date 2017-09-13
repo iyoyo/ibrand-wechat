@@ -2,6 +2,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 10;
 }
 #store-list .commodity-top .sidebar {
   background: #FFFFFF;
@@ -113,4 +114,82 @@
   line-height: 40px;
   text-align: center;
   font-size: 14px;
+}
+.right-filter-box {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 6px;
+  background: #FFFFFF;
+  font-size: 14px;
+  z-index: 10;
+  transform: translateX(100%);
+}
+.right-filter-box .box {
+  height: 100%;
+}
+.right-filter-box .box .title {
+  padding: 10px 5px;
+}
+.right-filter-box .box .list {
+  font-size: 0;
+}
+.right-filter-box .box .list .list-block {
+  display: inline-block;
+  width: 33.33%;
+  font-size: 12px;
+  margin-bottom: 10px;
+  padding: 0 5px;
+}
+.right-filter-box .box .list .list-block .selected {
+  background-color: #fff;
+  border-color: #f9be00;
+}
+.right-filter-box .box .list .list-block view {
+  display: block;
+  height: 34px;
+  line-height: 30px;
+  text-align: center;
+  background: #ededed;
+  width: 100%;
+  border: 2px solid #ededed;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.right-filter-box .box .list .price-inputs {
+  padding: 0 5px;
+  display: flex;
+}
+.right-filter-box .box .list .price-inputs input {
+  display: block;
+  text-align: center;
+  width: 31%;
+  height: 35px;
+  outline: none;
+  background: #f8f8f8;
+}
+.right-filter-box .box .list .price-inputs .minus {
+  font-size: 12px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  padding: 0 5px;
+}
+.right-filter-box .box .button-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 15px;
+}
+.right-filter-box .box .button-box button {
+  width: 0%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  flex: 1;
+  margin: 0 8px;
 }

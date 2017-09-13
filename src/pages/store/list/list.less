@@ -3,6 +3,7 @@
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 10;
     .sidebar{
       background: #FFFFFF;
       font-size: 18px;
@@ -82,6 +83,7 @@
     }
   }
   .commodity-bottom{
+    //height: 100%;
     font-size: 0;
     box-sizing: border-box;
     padding: 90px 5px 20px 5px;
@@ -122,6 +124,91 @@
       line-height: 40px;
       text-align: center;
       font-size:14px;
+    }
+  }
+}
+
+.right-filter-box{
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 6px;
+  background: #FFFFFF;
+  font-size: 14px;
+  //overflow: hidden;
+  z-index: 10;
+  transform: translateX(100%);
+  .box{
+    height: 100%;
+    .title{
+      padding: 10px 5px;
+    }
+    .list{
+      font-size: 0;
+      .list-block{
+        display: inline-block;
+        width: 33.33%;
+        font-size: 12px;
+        margin-bottom: 10px;
+        padding: 0 5px;
+
+        .selected{
+          background-color: #fff;
+          border-color: #f9be00;
+        }
+
+        view{
+          display: block;
+          height: 34px;
+          line-height: 30px;
+          text-align: center;
+          background: #ededed;
+          width: 100%;
+          border: 2px solid #ededed;
+          box-sizing: border-box;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .price-inputs{
+        padding: 0 5px;
+        display: flex;
+
+        input{
+          display: block;
+          text-align: center;
+          width: 31%;
+          height: 35px;
+          outline: none;
+          background: #f8f8f8;
+        }
+        .minus{
+          font-size: 12px;
+          height: 35px;
+          line-height: 35px;
+          text-align: center;
+          padding: 0 5px;
+        }
+      }
+    }
+    .button-box{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-top: 15px;
+
+      button{
+        width: 0%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        flex: 1;
+        margin: 0 8px;
+      }
     }
   }
 }

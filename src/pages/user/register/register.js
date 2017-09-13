@@ -1,4 +1,4 @@
-import {is} from '../../../lib/myapp.js';
+import {is,config} from '../../../lib/myapp.js';
 Page({
     data:{
         code:{
@@ -94,7 +94,7 @@ Page({
             return
         }
         wx.request({
-            url:"http://api.dev.tnf.ibrand.cc/api/sms/verify-code",
+            url:config.GLOBAL.baseUrl+"api/sms/verify-code",
             method:"POST",
             data:{
                 mobile:this.data.tellphone,
@@ -149,7 +149,7 @@ Page({
             type:'direct'
         };
          wx.request({
-             url:"http://api.dev.tnf.ibrand.cc/api/oauth/sms",
+             url:config.GLOBAL.baseUrl+"api/oauth/sms",
              method:"POST",
              data:data,
              success:res=>{

@@ -12,7 +12,7 @@
         <view class="tab-content" hidden="{{activeIndex != 0}}">
             <view class="order-box">
                <view wx:for="dataList[0]" wx:for-index="idx">
-                   <view class="order-item" data-no="{{order.order_no}}" wx:for="{{dataList[0][idx]}}" wx:for-item="order" bindtap="jump">
+                   <view class="order-item" wx:if="{{order.can_refund}}" data-no="{{order.order_no}}" wx:for="{{dataList[0][idx]}}" wx:for-item="order">
                        <view class="item-top">
                            <view class="indent mx-1px-bottom">
                                <view class="order-num">
@@ -24,7 +24,7 @@
                            </view>
                        </view>
                        <view class="item-middle">
-                           <view class="middle-item mx-1px-bottom" v-show="!good.is_refunded" wx:for="{{order.items}}" wx:for-item="good">
+                           <view class="middle-item mx-1px-bottom" wx:if="{{!good.is_refunded}}" wx:for="{{order.items}}" wx:for-item="good">
                                <image src="{{good.item_meta.image}}" />
                                <view class="text">
                                    <view class="names">
@@ -39,7 +39,7 @@
                                        {{good.quantity}}件
                                    </view>
                                    <view>
-                                       <view class="button-box" wx:if="!good.is_refunded">
+                                       <view class="button-box" bindtap="viewRetreat" data-id="{{good.id}}" data-no="{{order.order_no}}" wx:if="{{!good.is_refunded}}">
                                            申请售后
                                        </view>
                                    </view>
