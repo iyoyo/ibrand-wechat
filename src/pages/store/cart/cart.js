@@ -1,5 +1,356 @@
 var app = getApp();
 
-Page({
+import {
+    config, getUrl, weapp,
 
-})
+    connect,
+    bindActionCreators,
+    store,
+    actions,
+    sandBox
+} from '../../../lib/myapp.js'
+var args = {
+    data: {
+        is_login: true,
+        list:[],
+        groupList:[],
+        select_products:{},
+        allCheck:true
+    },
+    onLoad () {
+        // var oauth = Cache.get(cache_keys.token);
+        // var locals = Cache.get(cache_keys.cart);
+        var oauth = this.data.is_login;
+        var locals = wx.getStorageSync('cart')
+        if (oauth && locals && locals.length) {
+            // 提交本地购物车
+            this.appendToCart(locals);
+        } else {
+            this.queryCartList();
+        }
+    },
+    select_product() {
+        var data = {
+            count:0,
+            total:0,
+            __ids:[]
+        }
+
+        this.data.list.forEach((v) => {
+            if (v.checked) {
+                data.count += parseInt(v.qty);
+                data.total += Number(v.total);
+                data.__ids.push(v.__raw_id || v.index);
+            } else {
+                this.setData({
+                    allCheck:false
+                })
+            }
+        })
+
+        this.setData({
+            select_products:data
+        })
+    },
+    addCart(success, message) {
+        // this.$refs.button.finish();
+
+        if (success) {
+            wx.removeStorageSync('cart')
+
+            // TODO
+            //this.$emit('readyCheckout');
+            this.queryCartList();
+
+        } else {
+
+            wx.showModal({
+                title:message || '保存本地购物车失败,请重试！'
+            })
+        }
+    },
+
+
+
+    queryCartList () {
+        var data = wx.getStorageSync('cart') || [];
+        // var oauth = Cache.get(cache_keys.token);
+        var oauth = this.data.is_login
+
+        if (!oauth) {
+            this.setData({
+                list:data
+            })
+
+            this.select_product()
+            this.groupList()
+        }
+        var that = this;
+        wx.request({
+            url:`${config.GLOBAL.baseUrl}api/shopping/cart`,
+            header: {Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjQzNzM0ZTI5ZWRhZTM4MDNiY2FmZTNlNjhlMTUyOWNkYjJkYjVlZTViYzQyYzk0ZWRhZTEzY2JjMDhiZTE3NmFkOGY1NWIzZDFmODIwOWUxIn0.eyJhdWQiOiIxIiwianRpIjoiNDM3MzRlMjllZGFlMzgwM2JjYWZlM2U2OGUxNTI5Y2RiMmRiNWVlNWJjNDJjOTRlZGFlMTNjYmMwOGJlMTc2YWQ4ZjU1YjNkMWY4MjA5ZTEiLCJpYXQiOjE1MDM2MzkwNDcsIm5iZiI6MTUwMzYzOTA0NywiZXhwIjoxODE5MTcxODQ3LCJzdWIiOiI0OTUiLCJzY29wZXMiOltdfQ.j6JptbhqAheBqwZC4k4Fm9bd93oCCnGZDvwiHvFssvsIM-GIsKKIPA3gmeDoQaQRY2JeI3Tff1tz5uF1mwqbW_uexuPn80jicfvbGSljlrOkiU9s_rB1o20lLuZTc149it2x6IPAkDLSXIW3IZVOr7WQpyeM2gDgGBXeoV6OIjOggSpc1wKE25hEX2xhfQ7AyYrCihLbeCHqgSDxXEnS5MwY0XgV1vjd9yM6MyGaOFs05WDOhdeqf6I8gVRTT21dYjwM020-tWZMaHSJd3B6zhWHu_4V5Ql8tb3kP1jPgrPkeJhJgdRYWf_6Thiea32BsvEyCK2aT1vK03nOsj1kE78-SY52d6dTIg5syrwQyOgtq-KrmFw_EDCb_fZN-RCEgsGzSfajt984tDiI81-rFrx6jx9FfhS2tNut9ZqjtSctGhVrHY59CgSGjwDf-uLrZD7Ee0pAG2VhC4EYA9iZnr8oyw6Jxx4UIlWfh_-z8LHaglex1oRr_8cwUGkCvSrFXRojxobcxGDtjXW8o_tIhbgmkw57hle7wzdPFnyEIlR1Ap12bPtUhH7OyMCH9UTGTWXzUaW18UuH_-vrb1XUsv-fIm6BHQ4ic8824uUNVTTj4kRUQr99PCZ2K_9itvrDeETlgKbKXCpMjgO3f_t5ujv1DEemctxn76v9OHJ9pHg'},
+            success:function (res) {
+                res = res.data
+                var data = []
+                if (res.status && res.data) {
+                    data = Object.keys(res.data).map(key => {
+                        res.data[key].checked = true;
+                        return res.data[key];
+                    }).concat(data);
+                }
+                that.setData ({
+                    list:data
+                })
+                that.select_product()
+
+                that.groupList()
+            }
+        })
+    },
+    updated(success,data,item,index){
+        if (success) {
+            item.qty = data.qty;
+            item.total = data.total;
+        } else {
+            // TODO;
+            item.qty = data.qty;
+            item.total = item.qty * Number(item.price);
+            wx.showToast({
+                title:'超过最大库存'
+            })
+        }
+        console.log(item)
+        var list = this.data.list
+        list[index] = item
+
+        this.setData({
+            list:list
+        })
+        this.select_product()
+
+        this.groupList()
+    },
+    change(item, data,index) {
+        console.log(item)
+        if (item.local) {
+            var locals = wx.getStorageSync('cart') || [];
+            locals[item.index].qty = data.qty;
+            locals[item.index].total = data.total;
+            // Cache.set(cache_keys.cart, locals, 0, null);
+            wx.setStorageSync('cart',locals)
+            // this.$emit('updated', true, data, item);
+            this.updated(true,data,item,index)
+        } else {
+            // clearTimeout(this.data.countTimer);
+            //
+            // this.countTimer = setTimeout(() => {
+            //     this.updateToCart(data, item);
+            // }, 200);
+            this.updateToCart(data, item,index);
+        }
+    },
+    updateToCart (attr ,data,index) {
+
+        var oauth = this.data.is_login;
+        var that = this;
+        wx.request({
+            url:`${config.GLOBAL.baseUrl}api/shopping/cart/${data.__raw_id}`,
+            data:{
+                attributes: {
+                    qty: attr.qty
+                }
+            },
+            method:'PUT',
+            header: {Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjQzNzM0ZTI5ZWRhZTM4MDNiY2FmZTNlNjhlMTUyOWNkYjJkYjVlZTViYzQyYzk0ZWRhZTEzY2JjMDhiZTE3NmFkOGY1NWIzZDFmODIwOWUxIn0.eyJhdWQiOiIxIiwianRpIjoiNDM3MzRlMjllZGFlMzgwM2JjYWZlM2U2OGUxNTI5Y2RiMmRiNWVlNWJjNDJjOTRlZGFlMTNjYmMwOGJlMTc2YWQ4ZjU1YjNkMWY4MjA5ZTEiLCJpYXQiOjE1MDM2MzkwNDcsIm5iZiI6MTUwMzYzOTA0NywiZXhwIjoxODE5MTcxODQ3LCJzdWIiOiI0OTUiLCJzY29wZXMiOltdfQ.j6JptbhqAheBqwZC4k4Fm9bd93oCCnGZDvwiHvFssvsIM-GIsKKIPA3gmeDoQaQRY2JeI3Tff1tz5uF1mwqbW_uexuPn80jicfvbGSljlrOkiU9s_rB1o20lLuZTc149it2x6IPAkDLSXIW3IZVOr7WQpyeM2gDgGBXeoV6OIjOggSpc1wKE25hEX2xhfQ7AyYrCihLbeCHqgSDxXEnS5MwY0XgV1vjd9yM6MyGaOFs05WDOhdeqf6I8gVRTT21dYjwM020-tWZMaHSJd3B6zhWHu_4V5Ql8tb3kP1jPgrPkeJhJgdRYWf_6Thiea32BsvEyCK2aT1vK03nOsj1kE78-SY52d6dTIg5syrwQyOgtq-KrmFw_EDCb_fZN-RCEgsGzSfajt984tDiI81-rFrx6jx9FfhS2tNut9ZqjtSctGhVrHY59CgSGjwDf-uLrZD7Ee0pAG2VhC4EYA9iZnr8oyw6Jxx4UIlWfh_-z8LHaglex1oRr_8cwUGkCvSrFXRojxobcxGDtjXW8o_tIhbgmkw57hle7wzdPFnyEIlR1Ap12bPtUhH7OyMCH9UTGTWXzUaW18UuH_-vrb1XUsv-fIm6BHQ4ic8824uUNVTTj4kRUQr99PCZ2K_9itvrDeETlgKbKXCpMjgO3f_t5ujv1DEemctxn76v9OHJ9pHg'},
+            success:function (res) {
+                res = res.data;
+                if (res.status !== false) {
+                    // this.$emit('updated', true, attr, data);
+                    that.updated(true,attr,data,index)
+                } else {
+                    // this.$emit('updated', false, { qty: res.data.stock_qty }, data);
+                    that.updated(false,{ qty: res.data.stock_qty }, data,index)
+                }
+            }
+        })
+    },
+    changeCount(e){
+        console.log(e)
+        var index = e.target.dataset.index,
+            change = e.target.dataset.change,
+            list = this.data.list,
+            val = (parseInt(list[index].qty) || 0) + (parseInt(change) ? 1 : -1),
+            store_count = list[index].store_count
+
+        if (store_count == undefined) {
+            if (val > 0 && val <= 99) {
+                var data = {
+                    qty: val,
+                    total: val * Number(list[index].price)
+                };
+                this.change(list[index], data,index);
+            }
+        } else {
+            if (val > 0 && val <= store_count) {
+                var data = {
+                    qty: val,
+                    total: val * Number(list[index].price)
+                };
+                this.change(list[index], data,index);
+            }  else {
+                wx.showToast({
+                    title:'超过最大库存'
+                })
+            }
+        }
+
+    },
+
+    groupList() {
+        if (this.data.list) {
+            var data = [];
+            var groups = {};
+
+            this.data.list.forEach((v, i) => {
+                let channel = v.channel || 'normal';
+                if (groups[channel] !== undefined) {
+                    data[groups[channel]].items.push(v);
+                    data[groups[channel]].index.push(i);
+                } else {
+                    groups[channel] = data.length;
+                    data.push({
+                        channel,
+                        items: [v],
+                        checked: [],
+                        index: [i]
+                    });
+                }
+            });
+        }
+
+        this.setData({
+            groupList:data
+        })
+    },
+
+    appendToCart (data) {
+        // var oauth = Cache.get(cache_keys.token);
+        var oauth = this.data.is_login
+        if (!oauth) return;
+
+        if (!Array.isArray(data)) {
+            data = [data];
+        }
+
+        var json = {};
+        data.forEach((v, i) => json[i] = v);
+        data = json;
+        var that = this;
+        wx.request({
+            url: `${config.GLOBAL.baseUrl}api/shopping/cart`,
+            data: data,
+            method:'POST',
+            header: {Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjQzNzM0ZTI5ZWRhZTM4MDNiY2FmZTNlNjhlMTUyOWNkYjJkYjVlZTViYzQyYzk0ZWRhZTEzY2JjMDhiZTE3NmFkOGY1NWIzZDFmODIwOWUxIn0.eyJhdWQiOiIxIiwianRpIjoiNDM3MzRlMjllZGFlMzgwM2JjYWZlM2U2OGUxNTI5Y2RiMmRiNWVlNWJjNDJjOTRlZGFlMTNjYmMwOGJlMTc2YWQ4ZjU1YjNkMWY4MjA5ZTEiLCJpYXQiOjE1MDM2MzkwNDcsIm5iZiI6MTUwMzYzOTA0NywiZXhwIjoxODE5MTcxODQ3LCJzdWIiOiI0OTUiLCJzY29wZXMiOltdfQ.j6JptbhqAheBqwZC4k4Fm9bd93oCCnGZDvwiHvFssvsIM-GIsKKIPA3gmeDoQaQRY2JeI3Tff1tz5uF1mwqbW_uexuPn80jicfvbGSljlrOkiU9s_rB1o20lLuZTc149it2x6IPAkDLSXIW3IZVOr7WQpyeM2gDgGBXeoV6OIjOggSpc1wKE25hEX2xhfQ7AyYrCihLbeCHqgSDxXEnS5MwY0XgV1vjd9yM6MyGaOFs05WDOhdeqf6I8gVRTT21dYjwM020-tWZMaHSJd3B6zhWHu_4V5Ql8tb3kP1jPgrPkeJhJgdRYWf_6Thiea32BsvEyCK2aT1vK03nOsj1kE78-SY52d6dTIg5syrwQyOgtq-KrmFw_EDCb_fZN-RCEgsGzSfajt984tDiI81-rFrx6jx9FfhS2tNut9ZqjtSctGhVrHY59CgSGjwDf-uLrZD7Ee0pAG2VhC4EYA9iZnr8oyw6Jxx4UIlWfh_-z8LHaglex1oRr_8cwUGkCvSrFXRojxobcxGDtjXW8o_tIhbgmkw57hle7wzdPFnyEIlR1Ap12bPtUhH7OyMCH9UTGTWXzUaW18UuH_-vrb1XUsv-fIm6BHQ4ic8824uUNVTTj4kRUQr99PCZ2K_9itvrDeETlgKbKXCpMjgO3f_t5ujv1DEemctxn76v9OHJ9pHg'},
+            success:function (res){
+                res = res.data;
+                if (res.status) {
+                    that.addCart(true)
+                } else {
+                    that.addCart(false,res.message)
+                }
+            },
+            fail:function (){
+                that.addCart(false)
+            }
+
+        })
+    },
+
+    removeFromCart(e){
+        var oauth = this.data.is_login;
+        var index = e.target.dataset.index;
+        var list = this.data.list;
+        var data = list[index]
+        var that = this;
+
+        wx.request({
+            url:`${config.GLOBAL.baseUrl}api/shopping/cart/${data.__raw_id}`,
+            header: {Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjQzNzM0ZTI5ZWRhZTM4MDNiY2FmZTNlNjhlMTUyOWNkYjJkYjVlZTViYzQyYzk0ZWRhZTEzY2JjMDhiZTE3NmFkOGY1NWIzZDFmODIwOWUxIn0.eyJhdWQiOiIxIiwianRpIjoiNDM3MzRlMjllZGFlMzgwM2JjYWZlM2U2OGUxNTI5Y2RiMmRiNWVlNWJjNDJjOTRlZGFlMTNjYmMwOGJlMTc2YWQ4ZjU1YjNkMWY4MjA5ZTEiLCJpYXQiOjE1MDM2MzkwNDcsIm5iZiI6MTUwMzYzOTA0NywiZXhwIjoxODE5MTcxODQ3LCJzdWIiOiI0OTUiLCJzY29wZXMiOltdfQ.j6JptbhqAheBqwZC4k4Fm9bd93oCCnGZDvwiHvFssvsIM-GIsKKIPA3gmeDoQaQRY2JeI3Tff1tz5uF1mwqbW_uexuPn80jicfvbGSljlrOkiU9s_rB1o20lLuZTc149it2x6IPAkDLSXIW3IZVOr7WQpyeM2gDgGBXeoV6OIjOggSpc1wKE25hEX2xhfQ7AyYrCihLbeCHqgSDxXEnS5MwY0XgV1vjd9yM6MyGaOFs05WDOhdeqf6I8gVRTT21dYjwM020-tWZMaHSJd3B6zhWHu_4V5Ql8tb3kP1jPgrPkeJhJgdRYWf_6Thiea32BsvEyCK2aT1vK03nOsj1kE78-SY52d6dTIg5syrwQyOgtq-KrmFw_EDCb_fZN-RCEgsGzSfajt984tDiI81-rFrx6jx9FfhS2tNut9ZqjtSctGhVrHY59CgSGjwDf-uLrZD7Ee0pAG2VhC4EYA9iZnr8oyw6Jxx4UIlWfh_-z8LHaglex1oRr_8cwUGkCvSrFXRojxobcxGDtjXW8o_tIhbgmkw57hle7wzdPFnyEIlR1Ap12bPtUhH7OyMCH9UTGTWXzUaW18UuH_-vrb1XUsv-fIm6BHQ4ic8824uUNVTTj4kRUQr99PCZ2K_9itvrDeETlgKbKXCpMjgO3f_t5ujv1DEemctxn76v9OHJ9pHg'},
+            method:'DELETE',
+            success:function (res) {
+                res = res.data;
+
+                that.removed(true,index)
+            },
+            fail:function () {
+                that.removed(false)
+            }
+        })
+    },
+
+    removed (success,index){
+        if (success) {
+
+            var list = this.data.list
+            var product = list.splice(index, 1)[0];
+            this.setData({
+                list:list
+            })
+            this.select_product()
+            this.groupList();
+
+        } else {
+            wx.showToast({
+                title:'删除购物车商品失败！'
+            })
+        }
+    },
+    changeCheck (e) {
+        var ids = e.detail.value;
+        var list = this.data.list;
+
+        list.forEach((item)=>{
+            item.checked = false;
+        })
+
+        ids.forEach((item)=>{
+            list[item].checked = true
+        })
+
+        this.setData({
+            list:list
+        })
+
+        this.select_product();
+        this.groupList()
+    },
+    selectAll(e){
+        var allCheck = this.data.allCheck
+        var list = this.data.list
+        this.setData({
+            allCheck:!allCheck
+        })
+
+        list.forEach((item)=> {item.checked = this.data.allCheck ? true : false})
+
+
+        this.setData({
+            list:list
+        })
+        this.select_product();
+        this.groupList()
+    }
+
+}
+
+
+const page = connect.Page(
+    store(),
+    (state) => {
+    },
+    (dispatch) => {
+        return {}
+    }
+)
+
+Page(page(args))

@@ -1,7 +1,13 @@
 {
   "pages": [
-    "pages/store/order/order",
+    "pages/store/cart/cart",
     "pages/store/list/list",
+
+
+    "pages/store/detail/detail",
+
+    "pages/store/order/order",
+
     "pages/user/personal/personal",
     "pages/user/register/register",
     "pages/user/usersetting/usersetting",
@@ -16,11 +22,15 @@
     "pages/store/invoice/invoice",
     "pages/address/add/add",
     "pages/address/list/list",
-
+    "pages/coupon/index/index",
+    "pages/coupon/over/over",
+    "pages/coupon/onDetail/onDetail",
+    "pages/coupon/offDetail/offDetail",
+    "pages/favorite/index/index",
     "pages/store/payment/payment",
     "pages/store/success/success",
-    "pages/store/cart/cart",
-    "pages/store/detail/detail",
+
+
     "pages/index/index"
   ],
   "window": {

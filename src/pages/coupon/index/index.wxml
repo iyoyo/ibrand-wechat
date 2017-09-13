@@ -1,0 +1,44 @@
+<view id="coupon-index">
+    <view class="coupon-box">
+        <view class="convert-box">
+            <input type="text" value="{{code}}" bindinput="input" placeholder="请输入兑换码" />
+            <view class="button" bindtap="convert">
+                兑换
+            </view>
+        </view>
+
+        <view class="coupon-list">
+            <view wx:for="{{list}}" wx:for-index="idx">
+                <view class="coupon-item" data-info="{{item}}" wx:for="{{list[idx]}}" bindtap="viewDetail">
+                    <view class="left {{item.discount.type == 1 ? 'off' : ''}}">
+                        <span class="label">
+                            {{item.discount.label}}
+                        </span>
+                    </view>
+                    <view class="right">
+                        <view class="coupon-name">
+                            <view class="type" wx:if="{{item.discount.type === 0}}">
+                                官网
+                            </view>
+                            <view class="type off-type" wx:if="{{item.discount.type === 1}}">
+                                线下
+                            </view>
+                            <view class="name">
+                                {{ item.discount.title }}
+                            </view>
+                        </view>
+                        <view class="coupon-tiem">
+                            {{item.discount.starts_at}} 至 {{item.discount.ends_at}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="loadingbox" hidden="{{!show}}">
+                正在加载下一页数据
+            </view>
+        </view>
+        <view class="examine" bindtap="jumpOff">
+            查看过期的优惠券
+        </view>
+    </view>
+</view>

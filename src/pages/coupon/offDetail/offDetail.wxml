@@ -1,0 +1,14 @@
+<view id="off-detail">
+    <view class="top">
+        <view>线下优惠专享券</view>
+        <view>{{detail.discount.starts_at}} 至 {{detail.discount.ends_at}}</view>
+    </view>
+    <view class="middle">
+        <image src="{{barcode.base64}}" />
+        <view>{{detail.code}}</view>
+    </view>
+    <view class="tips">
+        <view>使用规则：</view>
+        <view>{{detail.discount.intro}}</view>
+    </view>
+</view>

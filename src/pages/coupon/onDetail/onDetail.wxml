@@ -1,0 +1,13 @@
+<view id="on-detail">
+    <view class="top">
+        <view>{{detail.discount.title}}</view>
+        <view>{{detail.discount.starts_at}} 至 {{detail.discount.ends_at}}</view>
+    </view>
+    <view class="code">
+        {{detail.code}}
+    </view>
+    <view class="tips">
+        <view>使用条件 : {{detail.discount.label}}</view>
+        <view>使用规则 : {{detail.discount.intro}}</view>
+    </view>
+</view>

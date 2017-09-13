@@ -49,6 +49,7 @@ export const sandBox = {
 
                     sandBox.get(obj)
                         .then(res => {
+                            console.error(action)
                             return action.dispatch({
                                 type: action.action_type,
                                 payload: res.data
