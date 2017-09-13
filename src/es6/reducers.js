@@ -17,6 +17,7 @@ const goods_detail = (state = {}, action) => {
 
     switch (action.type) {
         case GOODS_DETAIL:
+            console.log(state,action)
             return Object.assign({}, state, action.payload)
     }
 

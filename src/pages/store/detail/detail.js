@@ -40,6 +40,7 @@ let args = {
         show_select: true, //选尺寸
         select_product: {}, //当前选中商品
         store_count: 0,
+        store_num:0,
         select_count: 1,
         is_login: true,
 
@@ -57,7 +58,17 @@ let args = {
             id: e.id,
             query: e
         });
-        this.getGoodsDetail(e.id);
+        this.getGoodsDetail({api:`api/store/detail/${e.id}`,data:{include: 'photos,products,oneComment,guessYouLike,whoLike,point'}}).then(() => {
+            Wxparse.wxParse('detailI', 'html', this.data.detailData.data.content, this, 0);
+            this.attributesList(this.data.detailData.meta);
+            wx.setNavigationBarTitle({
+                title: this.data.detailData.data.name
+            })
+            this.setData({
+                commodity: this.data.detailData.data
+            })
+            wx.hideLoading()
+        })
         this.queryCommodityStore(e.id)
         this.queryFavoriteStatus(e.id, 'goods');
     },
@@ -81,35 +92,35 @@ let args = {
         }
     },
 
-    onStateChange(nextState){
-        console.log(sandBox)
-        if (!app.isEmptyObject(nextState.detailData)) {
-            Wxparse.wxParse('detailI', 'html', nextState.detailData.data.content, this, 0);
-            this.attributesList(nextState.detailData.meta);
-            wx.setNavigationBarTitle({
-                title: nextState.detailData.data.name
-            })
-            this.setData({
-                detailData: nextState.detailData,
-                commodity: nextState.detailData.data
-            })
-            wx.hideLoading()
-        }
-
-        // if (nextState.commoditySpec.length > 0 ) {
-        //
-        //     this.setData({
-        //         specs:nextState.commoditySpec
-        //     })
-        // }
-        //
-        // if (!app.isEmptyObject(nextState.resultStore)) {
-        //     this.specStore(nextState.resultStore,nextState.resultStore.key)
-        //
-
-        // }
-
-    },
+    // onStateChange(nextState){
+    //     console.log(nextState)
+    //     if (!app.isEmptyObject(nextState.detailData)) {
+    //         Wxparse.wxParse('detailI', 'html', nextState.detailData.data.content, this, 0);
+    //         this.attributesList(nextState.detailData.meta);
+    //         wx.setNavigationBarTitle({
+    //             title: nextState.detailData.data.name
+    //         })
+    //         this.setData({
+    //             detailData: nextState.detailData,
+    //             commodity: nextState.detailData.data
+    //         })
+    //         wx.hideLoading()
+    //     }
+    //
+    //     // if (nextState.commoditySpec.length > 0 ) {
+    //     //
+    //     //     this.setData({
+    //     //         specs:nextState.commoditySpec
+    //     //     })
+    //     // }
+    //     //
+    //     // if (!app.isEmptyObject(nextState.resultStore)) {
+    //     //     this.specStore(nextState.resultStore,nextState.resultStore.key)
+    //     //
+    //
+    //     // }
+    //
+    // },
 
     change(e) {
         var expands = this.data.expands[e.currentTarget.dataset.type];
@@ -357,7 +368,7 @@ let args = {
         // var is_login = !!Cache.get(cache_keys.token);
         if (this.data.is_login) {
             this.appendToCart(data);
-            // this.addStoreNum();
+            this.addStoreNum();
         } else {
             data.local = true;
             data.total = Number(data.qty) * Number(data.price);
@@ -397,7 +408,9 @@ let args = {
 
             wx.setStorageSync('cart', save);
 
-            this.store_num = 0;
+            this.setData({
+                store_num:0
+            })
             this.addStoreNum();
             this.addCart(true)
         }
@@ -407,13 +420,19 @@ let args = {
         // 判断是否登录
         // var is_login = !!Cache.get(cache_keys.token);
         // var cache_store_num = Cache.get(cache_keys.cart);
+        var cache_store_num = wx.getStorageSync('cart')
         if (this.data.is_login) {
             this.queryShoppingCount();
         } else {
             if (cache_store_num && cache_store_num.length) {
-
+                var store_num = this.data.store_num;
                 cache_store_num.forEach(v => {
-                    this.store_num += v.qty;
+
+                    store_num += v.qty;
+                })
+
+                this.setData({
+                    store_num:store_num
                 })
             }
         }
@@ -663,7 +682,7 @@ let args = {
                 success: function (res) {
                     if (res.confirm) {
                         wx.navigateTo({
-                            url: '/pages/store/order/order'
+                            url: '/pages/store/cart/cart'
                         })
                     } else if (res.cancel) {
                         console.log('用户点击取消')
@@ -726,15 +745,32 @@ let args = {
                 }
             }
         })
+    },
+    getGoodsDetail (obj) {
+        var that = this;
+
+
+        return new Promise((resolve,reject) => {
+            sandBox.get(obj)
+                .then(res => {
+                    res = res.data;
+                    that.setData({
+                        detailData:res
+                    })
+                    resolve()
+                })
+                .catch(err => {console.log(err);reject()})
+        })
+
     }
 
 }
 const page = connect.Page(
     store(),
-    (state) => {console.log(state);return {detailData: state.goods_detail}} ,
+    (state) => {} ,
     (dispatch) => {
         return {
-            getGoodsDetail: bindActionCreators(actions.getGoodsDetail, dispatch,'GOODS_DETAIL')
+
         }
     }
 )
