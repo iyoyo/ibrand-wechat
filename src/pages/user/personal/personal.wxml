@@ -4,12 +4,15 @@
             <image src="http://ovef29y3v.bkt.clouddn.com/seting.png" bindtap="jumpSetting"/>
             <image src="http://ovef29y3v.bkt.clouddn.com/volume.png"></image>
         </view>
-        <view class="adapter">
+        <view class="adapter" wx:if="{{token}}">
             <view class="adapter-img" bindtap="jumpImg">
                 <image src="{{detail.avatar}}"></image>
                 <view class="justify">V{{detail.grade}}</view>
             </view>
             <text>{{detail.nick_name}}</text>
+        </view>
+        <view class="adapter" wx:if="{{!token}}" bindtap="jumpLogin">
+            <view class="text">登录/注册</view>
         </view>
     </view>
     <view class="allOrder">
@@ -68,7 +71,7 @@
             </view>
             <i class="iconfont icon-Chevron"></i>
         </view>
-        <view class="menu_list_item">
+        <view class="menu_list_item" bindtap="jumpAddress">
             <view class="text">
                 <view class="icon">
                     <i class="iconfont icon-home"></i>

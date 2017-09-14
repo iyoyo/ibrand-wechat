@@ -10,7 +10,7 @@ export default  {
         cache: ''
     },
     GLOBAL: {
-        baseUrl: process.env.NODE_ENV === 'development' ? 'http://api.dev.tnf.ibrand.cc/' : 'http://example.com/', // 运行时自动替换变量
+        baseUrl: process.env.NODE_ENV === 'development' ? 'http://admin.dev.tnf.ibrand.cc/' : 'http://example.com/', // 运行时自动替换变量
         client_id: '2',
         client_secret: 'sL8ybYt3DpoxfilP5I45goZ0bsLHEcKFHF9bbnVY',
     },

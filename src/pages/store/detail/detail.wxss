@@ -524,9 +524,10 @@
 }
 .detail-popup {
   width: 100%;
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
+  transform: translate3d(0, 100, 0);
   /*选取规格部分*/
 }
 .detail-popup .select_spec {
