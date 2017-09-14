@@ -46,33 +46,46 @@ Page({
 			},
 			method: 'POST',
 			data: {
-				type: type
+				type: type,
+				app_type: 'wechat_app'
 			},
 			success: res => {
-				res = res.data;
+				if (res.statusCode == 200) {
+					res = res.data;
 
-				if (res.status) {
-					var data = wx.getStorageSync('order_form');
-					if (!data) {
-						return wx.showToast({
-							title: '非法操作',
-							image: '../../../assets/image/error.png',
-							complete: err => {
-								setTimeout(() => {
-									wx.navigateBack();
-								},1600)
-							}
-						})
-					}
+					if (res.status) {
+						var data = wx.getStorageSync('order_form');
+						if (!data) {
+							return wx.showToast({
+								title: '非法操作',
+								image: '../../../assets/image/error.png',
+								complete: err => {
+									setTimeout(() => {
+										wx.navigateBack();
+									},1600)
+								}
+							})
+						}
 
-					var order_no = this.data.order_no;
-					if (order_no && data.order_no === order_no) {
-						data.invoice = res.data;
-						wx.setStorageSync('order_form', data);
-						wx.navigateBack();
+						var order_no = this.data.order_no;
+						if (order_no && data.order_no === order_no) {
+							data.invoice = res.data;
+							wx.setStorageSync('order_form', data);
+							wx.navigateBack();
+						} else {
+							return wx.showToast({
+								title: '非法操作',
+								image: '../../../assets/image/error.png',
+								complete: err => {
+									setTimeout(() => {
+										wx.navigateBack();
+									},1600)
+								}
+							})
+						}
 					} else {
-						return wx.showToast({
-							title: '非法操作',
+						wx.showToast({
+							title: res.messages,
 							image: '../../../assets/image/error.png',
 							complete: err => {
 								setTimeout(() => {
@@ -83,7 +96,7 @@ Page({
 					}
 				} else {
 					wx.showToast({
-						title: res.messages,
+						title: '请求失败',
 						image: '../../../assets/image/error.png',
 						complete: err => {
 							setTimeout(() => {
@@ -92,19 +105,7 @@ Page({
 						}
 					})
 				}
-			},
-			complete: err => {
-				if (err.statusCode != 200) {
-					wx.showToast({
-						title: '网络错误',
-						image: '../../../assets/image/error.png',
-						complete: err => {
-							setTimeout(() => {
-								wx.navigateBack();
-							},1600)
-						}
-					})
-				}
+
 			}
 		})
 	}
