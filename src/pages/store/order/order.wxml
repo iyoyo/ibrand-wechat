@@ -4,7 +4,7 @@
             <view class="title">
                 收货信息
             </view>
-            <view class="address info">
+            <view class="address info" bindtap="selectAddress">
                 <view class="name" wx:if="{{form.address}}">
                     <text>{{form.address.accept_name}}</text>
                     <text>{{form.address.mobile}}</text>
@@ -18,8 +18,8 @@
             <view class="title">
                 发票信息
             </view>
-            <view class="invoice info">
-                <view wx:if="{{form.invoice.id}}">
+            <view class="invoice info" bindtap="addInvoice">
+                <view wx:if="{{form.invoice.id}}" >
                     {{form.invoice.title}}
                 </view>
                 <view wx:else>

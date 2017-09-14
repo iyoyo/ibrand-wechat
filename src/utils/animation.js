@@ -32,7 +32,7 @@ export default class Animation {
 
 
     positionInit () {
-        this.animate.translate3d(0,0,0).step();
+        this.animate.translate3d(0,'-55px',0).step();
         this.setData({
             [`${this.id}.${this.name}`] : this.animate.export()
         })

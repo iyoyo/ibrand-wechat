@@ -2,12 +2,15 @@ import {config,pageLogin,getUrl} from '../../../lib/myapp.js';
 Page({
 	data: {
 		list: [],
-		order_no: ''
+		order_no: '',
+		url:''
 	},
 	onLoad(e) {
+		console.log(e)
 		pageLogin(getUrl());
 		this.setData({
-			order_no: e.order_no
+			order_no: e.order_no,
+			url:e.url
 		})
 	},
 	onShow() {
@@ -21,11 +24,13 @@ Page({
 		}
 
 
-		var order_no = this.dta.order_no;
+		var order_no = this.data.order_no;
 		if (order_no && data.order_no === order_no) {
 			data.address  = from;
 			wx.setStorageSync('order_form', data);
-			wx.navigateBack();
+			wx.redirectTo({
+				url:'/'+this.data.url
+			});
 		} else {
 			return this.view(from.id);
 		}
