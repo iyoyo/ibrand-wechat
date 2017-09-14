@@ -45,6 +45,9 @@
   display: flex;
   justify-content: space-between;
 }
+#order-detail .detail_content .store_content .store_content_title .refund_reason {
+  width: 81%;
+}
 #order-detail .status_content {
   background-color: #3a3a3a;
   padding: 12px 24px;

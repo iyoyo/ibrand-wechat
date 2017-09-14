@@ -35,7 +35,7 @@
                 <view>￥{{detail.data.amount/100}}</view>
             </view>
             <view class="store_content_title">
-                <view>退款原因</view>
+                <view class="refund_reason">退款原因</view>
                 <view>{{detail.data.content}}</view>
             </view>
         </view>
