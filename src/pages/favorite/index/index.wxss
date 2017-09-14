@@ -1,0 +1,75 @@
+#favorite-index .num-box {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+  padding: 0 10px;
+  font-size: 15px;
+  z-index: 10;
+  background: #eeeeee;
+}
+#favorite-index .num-box .goods {
+  color: #959595;
+  flex: 1;
+}
+#favorite-index .num-box .goods .num {
+  color: #d0021b;
+}
+#favorite-index .num-box .operation {
+  color: #0479ff;
+}
+#favorite-index .goods-list {
+  padding: 45px 0 55px 0;
+}
+#favorite-index .goods-list .goods-item {
+  display: flex;
+  padding: 10px;
+  background: #FFFFFF;
+  align-items: inherit;
+}
+#favorite-index .goods-list .goods-item .img-box {
+  display: flex;
+  align-items: center;
+}
+#favorite-index .goods-list .goods-item .img-box image {
+  width: 74px;
+  height: 74px;
+  border: 1px solid #e5e5e5;
+  display: block;
+}
+#favorite-index .goods-list .goods-item .text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  padding-left: 10px;
+  font-size: 12px;
+}
+#favorite-index .goods-list .goods-item .text .money {
+  color: #ff4931;
+}
+#favorite-index .cancel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  background: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 20;
+}
+#favorite-index .cancel .checkbox {
+  margin-left: 10px;
+}
+#favorite-index .cancel .cancel-button {
+  height: 50px;
+  line-height: 50px;
+  width: 110px;
+  text-align: center;
+  color: #FFFFFF;
+  background: #1aad19;
+}
