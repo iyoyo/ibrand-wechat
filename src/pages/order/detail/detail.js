@@ -14,17 +14,40 @@ Page({
 			'已作废',
 			'已删除'
 		],
+		refundStatus:[
+            '待审核',
+			'审核通过',
+			'拒绝申请',
+			'已完成',
+			'已关闭',
+			'等待买家退货',
+			'买家已退货',
+			'等待商城发货'
+		],
 		norder_no: '',
 	},
+	onShow(){
+        wx.showLoading({
+            title: "加载中",
+            mask: true
+        });
+        this.queryOrderDetail(this.data.norder_no);
+	},
 	onLoad(e) {
-		wx.showLoading({
-			title: "加载中",
-			mask: true
-		});
 		this.setData({
 			norder_no: e.no
 		})
-		this.queryOrderDetail(e.no);
+	},
+    applyRetreat(e){
+        wx.navigateTo({
+            url: '/pages/afterSales/apply/apply?no=' + e.currentTarget.dataset.no+'&id='+e.currentTarget.dataset.id
+        })
+	},
+    jumpRetreat(e){
+        var refund_no=e.currentTarget.dataset.no;
+        wx.navigateTo({
+            url: '/pages/afterSales/detail/detail?no='+refund_no
+        })
 	},
 	cancel() {
 		wx.showModal({
