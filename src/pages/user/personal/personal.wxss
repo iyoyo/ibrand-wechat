@@ -14,6 +14,11 @@
 #personal .banner .adapter {
   text-align: center;
 }
+#personal .banner .adapter .text {
+  font-size: 25px;
+  color: #FFFFFF;
+  line-height: 80px;
+}
 #personal .banner .adapter .adapter-img {
   position: relative;
   width: 84px;
