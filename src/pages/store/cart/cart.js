@@ -16,14 +16,16 @@ var args = {
         groupList:[],
         select_products:{},
         allCheck:true,
-        channel:'normal'
+        channel:'normal',
+        loading:false
     },
     onShow () {
         // var oauth = Cache.get(cache_keys.token);
         // var locals = Cache.get(cache_keys.cart);
         var is_login = wx.getStorageSync('user_token');
         this.setData({
-            is_login:is_login
+            is_login:is_login,
+            loading:false
         })
         var oauth = this.data.is_login;
         var locals = wx.getStorageSync('cart')
@@ -59,8 +61,11 @@ var args = {
     },
     addCart(success, message) {
         // this.$refs.button.finish();
-
+        this.setData({
+            loading:false
+        })
         if (success) {
+
             wx.removeStorageSync('cart')
 
             // TODO
@@ -81,7 +86,9 @@ var args = {
             // this.$refs.button.finish();
             return
         };
-
+        this.setData({
+            loading:true
+        })
         var oauth = this.data.is_login
         if (!oauth) {
             // 滚去登录

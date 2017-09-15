@@ -189,9 +189,9 @@
         <view class="back">
             返回购物车
         </view>
-        <view class="sbumit bgcolor" bindtap="submitOrder">
+        <button class="sbumit bgcolor" bindtap="submitOrder" loading="{{loading}}">
             提交订单
-        </view>
+        </button>
     </view>
 </view>
 

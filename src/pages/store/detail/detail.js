@@ -46,7 +46,8 @@ let args = {
 
         canBuy: false,
         query: {},
-        animationSelect: {}
+        animationSelect: {},
+        loading:false
     },
 
     onLoad(e){
@@ -361,7 +362,9 @@ let args = {
 
         if (this.disallow_cart()) return;
 
-
+        this.setData({
+            loading:true
+        })
         var select_product = this.data.select_product;
         var select_count = parseInt(this.data.select_count)
         var data = this.data.specs.length ? {
@@ -700,7 +703,11 @@ let args = {
     },
     addCart(success, message) {
         // this.$refs.button.finish();
+        this.setData({
+            loading:false
+        })
         if (success) {
+
             this.closeSelect()
             wx.showModal({
                 title: '提示',
@@ -717,7 +724,10 @@ let args = {
                     }
                 },
                 fail: function () {
-
+                    wx.showToast({
+                        title:'添加失败',
+                        image: '../../../assets/image/error.png',
+                    })
                 }
             })
 

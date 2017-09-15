@@ -6,19 +6,22 @@ Page({
             order:{},
             order_no:'',
             channel:'wx_pub',
-            amount:0
+            amount:0,
+            loading:false
         },
         onLoad(e){
 
             this.setData(
                 {
-                    order_no:e.order_no
+                    order_no:e.order_no,
+                    loading:false
                 }
             )
 
 
         },
         onShow(){
+
             this.queryOrderDetail(this.data.order_no)
         },
         queryOrderDetail (order_no) {

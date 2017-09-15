@@ -48,8 +48,8 @@
         <view class="money-box">
             商品总计：<text>￥{{select_products.total}}</text>
         </view>
-        <view class="num-box bgcolor" bindtap="order">
-            结算<text>{{select_products.count}}</text>
-        </view>
+        <button class="num-box bgcolor" bindtap="order" loading="{{loading}}">
+            结算<text>{{'('+ select_products.count + ')'}}</text>
+        </button>
     </view>
 </view>

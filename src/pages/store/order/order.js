@@ -10,6 +10,7 @@ import {
 
 var args = {
     data: {
+        loading:false,
         show: false,
         block: {
             order: {
@@ -480,7 +481,8 @@ var args = {
         var form = wx.getStorageSync('order_form');
         var is_login = wx.getStorageSync('user_token')
         this.setData({
-            is_login:is_login
+            is_login:is_login,
+            loading:false
         })
         if (block) {
             if (!form || form.order_no !== block.order.order_no) {
@@ -560,6 +562,9 @@ var args = {
 
     },
     submitOrder() {
+        this.setData({
+            loading:true
+        })
         var data = {
             order_no: this.data.form.order_no,   // 订单编号
             note: this.data.form.note            // 用户留言
@@ -568,6 +573,9 @@ var args = {
         if (this.data.form.address && this.data.form.address.id) {
             data.address_id = this.data.form.address.id;
         } else {
+            this.setData({
+                loading:false
+            })
             wx.showModal({
                 title:'请填写收货地址',
                 success:function (res) {
@@ -620,7 +628,11 @@ var args = {
         })
     },
     confirm(success,data) {
+
         if (success) {
+            this.setData({
+                loading:false
+            })
             // this.$refs.button.finish();
 
             var registration = this.data.block.registration_id;
@@ -651,7 +663,9 @@ var args = {
                 })
             }
         } else {
-
+            this.setData({
+                loading:false
+            })
             wx.showModal({
                 title:'提交订单失败',
                 success:function (res){

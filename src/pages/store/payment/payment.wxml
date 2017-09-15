@@ -1,3 +1,4 @@
+
 <view id="store-payment">
     <view class="order-item" wx:if="{{order.status === 1}}">
         <view class="title">
@@ -50,5 +51,5 @@
         </view>
     </view>
 
-    <button type="primary" bindtap="jump">立即支付</button>
+    <button type="primary" bindtap="jump" loading="{{loading}}">立即支付</button>
 </view>
