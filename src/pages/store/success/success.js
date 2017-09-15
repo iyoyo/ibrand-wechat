@@ -7,7 +7,9 @@ Page({
 	},
 	onLoad(e) {
 		this.setData({
-			order_no: e.order_no
+			order_no: e.order_no,
+			amount:e.amount,
+			channel:e.channel
 		});
 		pageLogin(getUrl(), () => {
 			this.queryOrderType(e.order_no);
@@ -28,8 +30,8 @@ Page({
 			},
 			data: {
 				order_no: no,
-				amount: 3000,
-				channel: "alipay_wap"
+				amount: this.data.amount,
+				channel: this.data.channel
 			},
 			success: res => {
 				if (res.statusCode == 200) {

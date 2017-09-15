@@ -1,4 +1,7 @@
 export const is = {
+	env() {
+		return process.env.NODE_ENV
+	},
 	has(val) {
 		return !!val;
 	},

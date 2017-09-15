@@ -18,7 +18,7 @@ var args = {
         allCheck:true,
         channel:'normal'
     },
-    onLoad () {
+    onShow () {
         // var oauth = Cache.get(cache_keys.token);
         // var locals = Cache.get(cache_keys.cart);
         var is_login = wx.getStorageSync('user_token');

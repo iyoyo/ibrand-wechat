@@ -22,7 +22,7 @@
                             {{item.item_meta.specs_text}}
                         </view>
                         <view>
-                            ${{item.total / 100}}
+                            ￥{{item.total / 100}}
                         </view>
                     </view>
                 </view>
