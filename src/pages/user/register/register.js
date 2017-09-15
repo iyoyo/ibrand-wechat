@@ -220,41 +220,29 @@ Page({
             success: res => {
                 if (res.statusCode == 200) {
                     res = res.data;
-                    if (res.status) {
-	                    // 没能自动登录会返回open_id
-	                    if (res.data.open_id) {
-		                    this.setData({
-			                    open_id: res.data.open_id
-		                    })
-	                    } else {
-	                        if (res.access_token) {
-		                        var access_token = res.token_type + '' + res.access_token;
-		                        wx.setStorageSync("user_token",access_token);
-		                        wx.switchTab({
-			                        url: '/pages/user/personal/personal'
-		                         })
-                            } else {
-
-		                        wx.showToast({
-			                        title: '获取用户信息失败',
-			                        image: '../../../assets/image/error.png'
-		                        })
-                            }
-
-	                    }
+                    if (res.data && res.data.open_id) {
+	                    this.setData({
+		                    open_id: res.data.open_id
+	                    })
                     } else {
-	                    wx.showToast({
-		                    title: res.message,
-		                    image: '../../../assets/image/error.png'
+	                    var access_token = res.token_type + ' ' + res.access_token;
+	                    wx.setStorageSync("user_token",access_token);
+	                    wx.switchTab({
+		                    url: '/pages/user/personal/personal'
 	                    })
                     }
-
                 } else {
 	                wx.showToast({
 		                title: '获取信息失败',
 		                image: '../../../assets/image/error.png'
 	                })
                 }
+            },
+	        fail: err => {
+		        wx.showToast({
+			        title: '请求接口',
+			        image: '../../../assets/image/error.png'
+		        })
             }
         })
     }
