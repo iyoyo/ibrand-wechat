@@ -170,7 +170,7 @@ Page({
                                    url:"/"+this.data.orginUrl
                                })
                            } else {
-                               wx.redirectTo({
+                               wx.switchTab({
                                        url: '/pages/user/personal/personal'
                                })
                            }
