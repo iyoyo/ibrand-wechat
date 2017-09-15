@@ -234,6 +234,7 @@ Page({
 			                        url: '/pages/user/personal/personal'
 		                         })
                             } else {
+
 		                        wx.showToast({
 			                        title: '获取用户信息失败',
 			                        image: '../../../assets/image/error.png'
