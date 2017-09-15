@@ -37,7 +37,7 @@ Page({
     onLoad(e){
          this.setData({
              orginUrl:decodeURIComponent(e.url)
-         })
+         });
     },
     getCode(){
         if(this.data.sending) return;

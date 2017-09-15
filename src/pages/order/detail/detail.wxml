@@ -26,7 +26,7 @@
                                 {{item.quantity}}件
                             </view>
                             <view>
-                                ￥{{item.units_total}}
+                                ￥{{item.units_total_yuan}}
                             </view>
                             <!--<view class="retreat-box" data-no="{{item.refund_no}}" bindtap="jumpRetreat" wx:if="{{(item.total != 0 && order.can_refund) || (item.total != 0 && item.is_refunded)}}">-->
                                 <!--申请售后-->
@@ -42,7 +42,7 @@
                 </view>
                 <view class="item-bottom">
                     <view class="all-money">
-                        {{order.count}}件, 共计 ￥{{order.items_total}}
+                        {{order.count}}件, 共计 ￥{{order.items_total_yuan}}
                     </view>
                 </view>
             </view>
@@ -163,7 +163,7 @@
                     商品金额：
                 </view>
                 <view class="num">
-                    ￥{{order.items_total}}
+                    ￥{{order.items_total_yuan}}
                 </view>
             </view>
             <view class="item">
@@ -179,7 +179,7 @@
                     优惠抵扣：
                 </view>
                 <view class="num">
-                    {{order.adjustments_total}}
+                    {{order.adjustments_total_yuan}}
                 </view>
             </view>
             <view class="item">
@@ -195,7 +195,7 @@
                     实付金额：
                 </view>
                 <view class="num big-money">
-                    ￥{{order.total}}
+                    ￥{{order.total_yuan}}
                 </view>
             </view>
         </view>

@@ -39,5 +39,26 @@
     "navigationBarTitleText": "商城首页",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#000000"
+  },
+  "tabBar": {
+    "backgroundColor": "#2e2e2e",
+    "color": "#5e5e5e",
+    "selectedColor": "#f03121",
+    "list": [
+      {
+        "pagePath": "pages/store/list/list",
+        "text": "商城",
+        "iconPath": "assets/image/shop.png",
+        "selectedIconPath": "assets/image/shop-red.png"
+
+      },
+      {
+        "pagePath": "pages/user/personal/personal",
+        "text": "我",
+        "iconPath": "assets/image/user.png",
+        "selectedIconPath": "assets/image/user-red.png"
+      }
+    ]
+
   }
 }

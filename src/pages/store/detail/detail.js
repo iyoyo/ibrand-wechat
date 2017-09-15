@@ -50,7 +50,11 @@ let args = {
     },
 
     onLoad(e){
-
+        wx.login({
+            success: res => {
+                console.log(res.code)
+            }
+        })
         wx.showLoading({
             title: "加载中",
             mask: true

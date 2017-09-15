@@ -2,7 +2,8 @@ import {config,pageLogin,getUrl} from '../../../lib/myapp.js'
 Page({
 	data: {
 		info: {},
-		order_no: ''
+		order_no: '',
+		isOK: true
 	},
 	onLoad(e) {
 		this.setData({
@@ -31,11 +32,31 @@ Page({
 				channel: "alipay_wap"
 			},
 			success: res => {
-				res = res.data;
+				if (res.statusCode == 200) {
+					res = res.data;
 
-				if (res.status) {
+					if (res.status) {
+						this.setData({
+							info: res.data
+						})
+					} else {
+						this.setData({
+							isOK: false
+						})
+						wx.showModal({
+							title: '',
+							content: res.message,
+							showCancel: false
+						})
+					}
+				} else {
 					this.setData({
-						info: res.data
+						isOK: false
+					})
+					wx.showModal({
+						title: '',
+						content: "请求失败",
+						showCancel: false
 					})
 				}
 			}

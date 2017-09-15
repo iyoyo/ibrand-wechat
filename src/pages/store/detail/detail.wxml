@@ -2,7 +2,7 @@
 
 
 <view class="content">
-    <view class="top-img">
+    <view class="top-image">
         <swiper indicator-dots="true" autoplay="true" circular="true">
             <swiper-item wx:for="{{detailData.data.photos}}">
                 <image src="{{item.url}}"  data-url="{{item.url}}" class="slide-image" bindtap="bigImg"/>
@@ -45,9 +45,9 @@
             <view class="content" wx:if="{{expands.parameter}}">
                 <view class="argument-box">
                     <view class="argument-top">
-                       <text wx:for="{{attributesList.top}}" wx:for-item="top">
+                       <span wx:for="{{attributesList.top}}" wx:for-item="top">
                            {{top.name}} : {{top.attribute_value}}
-                       </text>
+                       </span>
                     </view>
                     <view class="argument-bottom" wx:if="{{attributesList.bottom.length}}">
                         <view class="argument-item" wx:for="{{attributesList.bottom}}" wx:for-item="bottom">
@@ -94,7 +94,7 @@
                 <view class="like_list">
                     <view class="like_box" data-id="{{item.id}}" wx:for="{{detailData.data.guessYouLike}}" bindtap="jump">
                         <view>
-                            <view class="like_img">
+                            <view class="like_image">
                                 <image class="responsive" src="{{item.img}}" alt="" />
                             </view>
                             <view class="like_name">
@@ -172,16 +172,18 @@
                 <view class="num_value">
                     <text bindtap="changeCount">-</text>
                     <view class="none_border">
-                        <input bindinput="modifyCount" focus  type="text" confirm-type="done"/>
+                        <input bindinput="modifyCount" value="1"  type="number" confirm-type="done"/>
                     </view>
                     <text bindinput="changeCount">+</text>
 
                 </view>
             </view>
 
-            <view  class="button {{ canBuy ? 'disabled' : '' }}" bindtap="confirm">
-                <!--<submit-button v-ref:button bindsubmit="confirm" :status="disallow_cart ? 'disabled' : 'normal'">确定</submit-button>-->
-            </view>
+            <button class="button {{ canBuy ? 'disabled' : '' }}" type="primary" loading="{{loading}}" bindtap="confirm">确定</button>
+            <!--<view  class="button {{ canBuy ? 'disabled' : '' }}" bindtap="confirm">-->
+
+                <!--&lt;!&ndash;<submit-button v-ref:button bindsubmit="confirm" :status="disallow_cart ? 'disabled' : 'normal'">确定</submit-button>&ndash;&gt;-->
+            <!--</view>-->
         </view>
     </view>
 </view>

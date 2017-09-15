@@ -46,7 +46,7 @@ Page({
 			},
 			method: 'POST',
 			data: {
-				type: type,
+				title: type,
 				app_type: 'wechat_app'
 			},
 			success: res => {

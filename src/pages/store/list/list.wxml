@@ -2,9 +2,9 @@
     <view class="commodity-top">
         <view class="sidebar mx-1px-bottom">
             <view class="sidebar-left">
-                <span class="iconfont icon-fenzu">
+                <!--<span class="iconfont icon-fenzu">-->
 
-                </span>
+                <!--</span>-->
             </view>
             <view class="sidebar-right">
                 <view class="right-seek iconfont icon-sousuo" bindtap="search">
@@ -28,8 +28,8 @@
                 <view class="left {{ orderBy === 'sale' ? 'active' : ''}}">销量</view>
                 <view class="right {{(orderBy === 'sale' && sort === 'asc') ? 'asc' : ''}} {{(orderBy === 'sale' && sort === 'desc') ? 'desc' : ''}}"></view>
             </view>
-            <view class="filter-item big-filter" bindtap="showFilter">
-                筛选
+            <view class="filter-item big-filter {{c_id ? '' : 'dis'}}" bindtap="showFilter">
+                筛选 ▼
             </view>
         </view>
     </view>

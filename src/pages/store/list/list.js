@@ -261,18 +261,15 @@ Page({
 	},
 	showFilter() {
 
-		this.setData({
-			showFilter: true
-		})
+		if (this.data.c_id) {
+			this.setData({
+				showFilter: true
+			})
 
-		var animation = new Animation('show');
-		animation.Pullleft();
-		// var animation = new Animation("show");
-		// animation.left().then(() => {
-		// 	this.setData({
-		// 		showFilter: true
-		// 	})
-		// })
+			var animation = new Animation('show');
+			animation.Pullleft();
+		}
+
 	},
 	move(e) {
 		console.log(e);
