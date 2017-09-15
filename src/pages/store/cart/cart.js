@@ -141,7 +141,8 @@ var args = {
         } else {
             // this.$Alert(message || '结算失败，请重试!');
             wx.showToast({
-                title:message || '结算失败,请重试！'
+                title:message || '结算失败,请重试！',
+                image: '../../../assets/image/error.png'
             })
         }
     },
@@ -189,7 +190,8 @@ var args = {
             item.qty = data.qty;
             item.total = item.qty * Number(item.price);
             wx.showToast({
-                title:'超过最大库存'
+                title:'超过最大库存',
+                image: '../../../assets/image/error.png'
             })
         }
         console.log(item)
@@ -272,7 +274,8 @@ var args = {
                 this.change(list[index], data,index);
             }  else {
                 wx.showToast({
-                    title:'超过最大库存'
+                    title:'超过最大库存',
+                    image: '../../../assets/image/error.png'
                 })
             }
         }
@@ -374,7 +377,8 @@ var args = {
 
         } else {
             wx.showToast({
-                title:'删除购物车商品失败！'
+                title:'删除购物车商品失败！',
+                image: '../../../assets/image/error.png'
             })
         }
     },

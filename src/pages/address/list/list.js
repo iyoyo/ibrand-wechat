@@ -28,7 +28,7 @@ Page({
 		if (order_no && data.order_no === order_no) {
 			data.address  = from;
 			wx.setStorageSync('order_form', data);
-			wx.redirectTo({
+			wx.navigateBack({
 				url:'/'+this.data.url
 			});
 		} else {

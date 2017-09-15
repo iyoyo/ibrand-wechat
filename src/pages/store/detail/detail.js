@@ -165,7 +165,7 @@ let args = {
         var index = e.target.dataset.index
         var val = select_count + (parseInt(index) ? 1 : -1)
 
-        if (val > 0 && val <= this.data.store_count) {
+        if (val > 0 && val <= parseInt(this.data.store_count)) {
             this.setData ({
                 select_count:val
             })
@@ -173,7 +173,8 @@ let args = {
 
         } else {
             wx.showToast({
-                title:'超出最大库存'
+                title:'超出最大库存',
+                image: '../../../assets/image/error.png'
             })
         }
     },

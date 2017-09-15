@@ -132,7 +132,7 @@
     </view>
 </view>
 
-<view class="detail-popup" hidden="{{show_select}}"  animation="{{show.animation}}">
+<view class="detail-popup" hidden="{{show_select}}"  animation="{{show.animation}}" >
     <view class="select_goods_container">
         <!--关闭按钮-->
         <view class="select_goods_cloese" bindtap="closeSelect"></view>
@@ -170,11 +170,11 @@
             <view class="spec_line">
                 <view class="num_title">数量</view>
                 <view class="num_value">
-                    <text bindtap="changeCount">-</text>
+                    <text bindtap="changeCount" data-index="0">-</text>
                     <view class="none_border">
-                        <input bindinput="modifyCount" value="1"  type="number" confirm-type="done"/>
+                        <input bindinput="modifyCount" value="{{select_count}}"  type="number" confirm-type="done"/>
                     </view>
-                    <text bindinput="changeCount">+</text>
+                    <text bindtap="changeCount" data-index="1">+</text>
 
                 </view>
             </view>

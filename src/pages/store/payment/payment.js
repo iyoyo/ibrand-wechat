@@ -26,5 +26,11 @@ Page({
                     })
                 }
             })
+        },
+        jump() {
+            wx.navigateTo({
+                url:'/pages/store/success/success'
+            })
         }
+
 })

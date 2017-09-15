@@ -138,7 +138,7 @@ var args = {
         })
     },
 
-    onLoad() {
+    onShow() {
 
         this.initData()
 

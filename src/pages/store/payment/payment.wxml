@@ -22,7 +22,7 @@
                             {{item.item_meta.specs_text}}
                         </view>
                         <view>
-                            ${{item.total}}
+                            ${{item.total / 100}}
                         </view>
                     </view>
                 </view>
@@ -36,7 +36,7 @@
         </view>
         <view class="type info">
             <label class="radio">
-                <radio checked="true"/>
+                <radio checked="true" />
                 <text>微信支付</text>
             </label>
         </view>
@@ -46,9 +46,9 @@
             支付金额
         </view>
         <view class="money info">
-            ￥{{order.total}}
+            ￥{{order.total / 100}}
         </view>
     </view>
 
-    <button type="primary">立即支付</button>
+    <button type="primary" bindtap="jump">立即支付</button>
 </view>
