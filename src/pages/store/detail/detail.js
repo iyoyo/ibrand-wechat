@@ -154,8 +154,28 @@ let args = {
 
     },
 
+    changeCount(e){
+
+        var select_count = parseInt(this.data.select_count)
+
+        var index = e.target.dataset.index
+        var val = select_count + (parseInt(index) ? 1 : -1)
+
+        if (val > 0 && val <= this.data.store_count) {
+            this.setData ({
+                select_count:val
+            })
+
+
+        } else {
+            wx.showToast({
+                title:'超出最大库存'
+            })
+        }
+    },
+
     modifyCount(){
-        var val = this.data.select_count;
+        var val = parseInt(this.data.select_count);
         if (!val) {
             val = 1;
         } else if (!/^[1-9]\d*$/.test(val)) {
@@ -309,12 +329,12 @@ let args = {
             }
         }
 
-        if (this.data.select_count > this.data.store_count) {
+        if (parseInt(this.data.select_count) > this.data.store_count) {
             this.setData({
                 select_count: String(this.data.store_count)
             })
 
-        } else if (this.data.select_count === 0) {
+        } else if (parseInt(this.data.select_count) === 0) {
             this.setData({
                 select_count: '1'
             })
@@ -338,11 +358,11 @@ let args = {
 
 
         var select_product = this.data.select_product;
-
+        var select_count = parseInt(this.data.select_count)
         var data = this.data.specs.length ? {
             id: select_product.id,
             name: this.data.commodity.name,
-            qty: 1,
+            qty: select_count,
             store_count: this.data.store_count,
             price: select_product.price,
             attributes: {
@@ -354,7 +374,7 @@ let args = {
         } : {
             id: this.data.commodity.id,
             name: this.data.commodity.name,
-            qty: this.data.select_count,
+            qty: select_count,
             store_count: this.data.store_count,
             price: this.data.commodity.price,
             attributes: {

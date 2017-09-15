@@ -1,78 +1,28 @@
 <view id="store-payment">
-    <view class="order-item">
+    <view class="order-item" wx:if="{{order.status === 1}}">
         <view class="title">
             商品清单
         </view>
-        <view class="goods info mx-1px-bottom">
+        <view class="goods info mx-1px-bottom"  wx:for="{{order.items}}">
             <view class="goods-item">
                 <view class="item-left">
-                    <image  src="https://uto-admin.ibrand.cc/uploads/phGtmoGjOp.jpg" />
+                    <image  src="{{item.item_meta.image}}" />
                 </view>
                 <view class="item-right">
                     <view class="goods-name item">
                         <view class="name">
-                            悠途运动止汗头带
+                           {{item.item_name}}
                         </view>
                         <view>
-                            2件
+                            {{item.quantity}}件
                         </view>
                     </view>
                     <view class="goods-money item">
                         <view>
-                            黑色 M
+                            {{item.item_meta.specs_text}}
                         </view>
                         <view>
-                            $43.00
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="goods info mx-1px-bottom">
-            <view class="goods-item">
-                <view class="item-left">
-                    <image  src="https://uto-admin.ibrand.cc/uploads/phGtmoGjOp.jpg" />
-                </view>
-                <view class="item-right">
-                    <view class="goods-name item">
-                        <view class="name">
-                            悠途运动止汗头带
-                        </view>
-                        <view>
-                            2件
-                        </view>
-                    </view>
-                    <view class="goods-money item">
-                        <view>
-                            黑色 M
-                        </view>
-                        <view>
-                            $43.00
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="goods info mx-1px-bottom">
-            <view class="goods-item">
-                <view class="item-left">
-                    <image  src="https://uto-admin.ibrand.cc/uploads/phGtmoGjOp.jpg" />
-                </view>
-                <view class="item-right">
-                    <view class="goods-name item">
-                        <view class="name">
-                            悠途运动止汗头带
-                        </view>
-                        <view>
-                            2件
-                        </view>
-                    </view>
-                    <view class="goods-money item">
-                        <view>
-                            黑色 M
-                        </view>
-                        <view>
-                            $43.00
+                            ${{item.total}}
                         </view>
                     </view>
                 </view>
@@ -96,7 +46,7 @@
             支付金额
         </view>
         <view class="money info">
-            ￥999.99
+            ￥{{order.total}}
         </view>
     </view>
 

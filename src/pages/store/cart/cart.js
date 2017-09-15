@@ -16,7 +16,7 @@ var args = {
         groupList:[],
         select_products:{},
         allCheck:true,
-        channel:''
+        channel:'normal'
     },
     onLoad () {
         // var oauth = Cache.get(cache_keys.token);
@@ -248,7 +248,7 @@ var args = {
         })
     },
     changeCount(e){
-        console.log(e)
+
         var index = e.target.dataset.index,
             change = e.target.dataset.change,
             list = this.data.list,

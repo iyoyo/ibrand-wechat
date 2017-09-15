@@ -9,6 +9,7 @@ import actions  from './actions'
 import config from './config'
 import {sandBox} from './sandBox'
 import {is,getUrl,pageLogin} from './utils';
+import pingpp from 'pingpp-js'
 
 export {
     weapp,
@@ -20,5 +21,6 @@ export {
     config,
 	is,
 	getUrl,
-    pageLogin
+    pageLogin,
+    pingpp
 }

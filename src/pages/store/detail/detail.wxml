@@ -1,11 +1,11 @@
-<import src="../../../component/wxParse/wxParse.wxml" />
+<import src="../../../component/wxParse/wxParse.wxml"/>
 
 
 <view class="content">
     <view class="top-img">
         <swiper indicator-dots="true" autoplay="true" circular="true">
             <swiper-item wx:for="{{detailData.data.photos}}">
-                <image src="{{item.url}}"  data-url="{{item.url}}" class="slide-image" bindtap="bigImg"/>
+                <image src="{{item.url}}" data-url="{{item.url}}" class="slide-image" bindtap="bigImg"/>
             </swiper-item>
         </swiper>
     </view>
@@ -14,19 +14,19 @@
             {{detailData.data.name}}
         </view>
         <!--<view class="basic-middle">-->
-            <!--<view class="tag-box">-->
-                <!--<span class="tag" wx:for="{{detailData.data.tags}}">{{item}}</span>-->
-            <!--</view>-->
-            <!--<view class="rater-box">-->
-                <!--五星好评-->
-            <!--</view>-->
+        <!--<view class="tag-box">-->
+        <!--<span class="tag" wx:for="{{detailData.data.tags}}">{{item}}</span>-->
+        <!--</view>-->
+        <!--<view class="rater-box">-->
+        <!--五星好评-->
+        <!--</view>-->
         <!--</view>-->
         <view class="basic-bottom">
             <text class="price">￥{{detailData.data.sell_price}}</text>
             <text>官网售价</text>
         </view>
         <!--<view class="old-box mx-1px-top">-->
-            <!--价格 ￥{{detailData.data.market_price}}-->
+        <!--价格 ￥{{detailData.data.market_price}}-->
         <!--</view>-->
     </view>
     <view class="detail-item-box">
@@ -45,16 +45,17 @@
             <view class="content" wx:if="{{expands.parameter}}">
                 <view class="argument-box">
                     <view class="argument-top">
-                       <text wx:for="{{attributesList.top}}" wx:for-item="top">
-                           {{top.name}} : {{top.attribute_value}}
-                       </text>
+                        <text wx:for="{{attributesList.top}}" wx:for-item="top">
+                            {{top.name}} : {{top.attribute_value}}
+                        </text>
                     </view>
                     <view class="argument-bottom" wx:if="{{attributesList.bottom.length}}">
                         <view class="argument-item" wx:for="{{attributesList.bottom}}" wx:for-item="bottom">
                             <view class="index-title">{{bottom.name}} ：</view>
                             <view class="index-box">
                                 <ul>
-                                    <li class="{{bottom.attribute_value_id == list.id ? 'red-dot' : ''}}" wx:for="{{bottom.values}}" wx:for-item="list">
+                                    <li class="{{bottom.attribute_value_id == list.id ? 'red-dot' : ''}}"
+                                        wx:for="{{bottom.values}}" wx:for-item="list">
                                         {{list.name}}
                                     </li>
                                 </ul>
@@ -92,10 +93,11 @@
             </view>
             <view class="content" wx:if="{{expands.like}}">
                 <view class="like_list">
-                    <view class="like_box" data-id="{{item.id}}" wx:for="{{detailData.data.guessYouLike}}" bindtap="jump">
+                    <view class="like_box" data-id="{{item.id}}" wx:for="{{detailData.data.guessYouLike}}"
+                          bindtap="jump">
                         <view>
                             <view class="like_img">
-                                <image class="responsive" src="{{item.img}}" alt="" />
+                                <image class="responsive" src="{{item.img}}" alt=""/>
                             </view>
                             <view class="like_name">
                                 {{item.name}}
@@ -110,7 +112,7 @@
         </view>
     </view>
     <!--<view class="to-top" hidden="{{!showToTop}}" bindtap="goTop">-->
-        <!--<i class="iconfont icon-xiangshang"></i>-->
+    <!--<i class="iconfont icon-xiangshang"></i>-->
     <!--</view>-->
 
     <view class="tabbar">
@@ -132,18 +134,19 @@
     </view>
 </view>
 
-<view class="detail-popup" hidden="{{show_select}}"  animation="{{show.animation}}">
+<view class="detail-popup" hidden="{{show_select}}" animation="{{show.animation}}">
     <view class="select_goods_container">
         <!--关闭按钮-->
         <view class="select_goods_cloese" bindtap="closeSelect"></view>
-        <view class="select_goods_header" >
+        <view class="select_goods_header">
 
             <view class="img_box">
 
                 <image wx:if="{{select_product}}" src="{{select_product.img}}" alt="{{select_product.sku}}"></image>
-                    <image wx:else src="{{photos[0].image}}" alt=""></image>
+                <image wx:else src="{{photos[0].image}}" alt=""></image>
             </view>
-            <view class="img_box" :style="{ backgroundColor: select_product.color }"  wx:if="{{!select_product.img && !!select_product.color}}"></view>
+            <view class="img_box" :style="{ backgroundColor: select_product.color }"
+                  wx:if="{{!select_product.img && !!select_product.color}}"></view>
             <view class="price_item">
                 <text wx:if="{{select_product}}">{{select_product.price}}</text>
                 <text wx:else>{{ detailData.data.sell_price }}</text>
@@ -156,11 +159,15 @@
             <view class="spec_line" wx:for="{{specs}}" wx:for-item="spec">
                 <view class="spec_title">{{spec.label}}</view>
                 <view class="spec_value">
-                    <view  class="spec_block {{ !!item.active ? 'active' : '' }} {{ !!item.disabled ? 'disabled' : '' }}" wx:for="{{spec.values}}" data-key="{{index}}" data-index="{{item.index}}" data-disabled="{{item.disabled ? 1 : 0}}" data-id="{{item.id}}" data-active="{{item.active ? 1 : 0}}" bindtap="selectSpec">
-                                <view class="spec_icon spec_text" wx:if="{{item.spec_img}}">
-                                    <image src="{{item.spec_img}}" data-alt="{{item.alias || item.value}}"></image>
-                                </view>
-                        <text class="spec_icon" style="background-color:{{item.color}}" wx:if="{{!item.spec_img && item.color}}"></text>
+                    <view class="spec_block {{ !!item.active ? 'active' : '' }} {{ !!item.disabled ? 'disabled' : '' }}"
+                          wx:for="{{spec.values}}" data-key="{{index}}" data-index="{{item.index}}"
+                          data-disabled="{{item.disabled ? 1 : 0}}" data-id="{{item.id}}"
+                          data-active="{{item.active ? 1 : 0}}" bindtap="selectSpec">
+                        <view class="spec_icon spec_text" wx:if="{{item.spec_img}}">
+                            <image src="{{item.spec_img}}" data-alt="{{item.alias || item.value}}"></image>
+                        </view>
+                        <text class="spec_icon" style="background-color:{{item.color}}"
+                              wx:if="{{!item.spec_img && item.color}}"></text>
                         <text wx:if="{{!item.spec_img && !item.color}}">{{item.alias || item.value}}</text>
                     </view>
                     <view class="spec_list" wx:if="{{spec.id != 2}}">尺码表</view>
@@ -170,19 +177,19 @@
             <view class="spec_line">
                 <view class="num_title">数量</view>
                 <view class="num_value">
-                    <text bindtap="changeCount">-</text>
+                    <text bindtap="changeCount" data-index="0">-</text>
                     <view class="none_border">
-                        <input bindinput="modifyCount" focus  type="text" confirm-type="done"/>
+                        <input bindinput="modifyCount" value="{{select_count}}" type="text" confirm-type="done"/>
                     </view>
-                    <text bindinput="changeCount">+</text>
+                    <text bindtap="changeCount" data-index="1">+</text>
 
                 </view>
             </view>
 
-            <view  class="button {{ canBuy ? 'disabled' : '' }}" bindtap="confirm">
-                <!--<submit-button v-ref:button bindsubmit="confirm" :status="disallow_cart ? 'disabled' : 'normal'">确定</submit-button>-->
-            </view>
-        </view>
+            <view class="button {{ canBuy ? 'disabled' : '' }}" bindtap="confirm">
+        确定
+    </view>
+</view>
     </view>
 </view>
 
