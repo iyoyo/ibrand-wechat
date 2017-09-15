@@ -39,6 +39,7 @@
   padding-right: 16px;
 }
 #user-setting .user_setting .code input {
+  color: black;
   flex: 1;
 }
 #user-setting .user_setting .code picker {
