@@ -12,7 +12,8 @@ Page({
         checked:false,
         orginUrl:"",
         showLoading: false,
-        message:""
+        message:"",
+	    open_id: ''
     },
     changeChecked(e){
         // console.log(e);
@@ -38,6 +39,20 @@ Page({
          this.setData({
              orginUrl:decodeURIComponent(e.url)
          });
+    },
+    onShow() {
+        wx.login({
+	        success: res => {
+	            if (res.code) {
+	                this.autoLogin(res.code);
+                } else {
+		            wx.showToast({
+			            title: '获取code失败',
+			            image: '../../../assets/image/error.png'
+		            })
+                }
+            }
+        })
     },
     getCode(){
         if(this.data.sending) return;
@@ -146,7 +161,8 @@ Page({
             access_token:that.data.code.access_token,
             mobile:that.data.tellphone,
             code:that.data.identifyingcode,
-            type:'direct'
+            type:'miniprogram',
+            open_id: this.data.open_id
         };
          wx.request({
              url:config.GLOBAL.baseUrl+"api/oauth/sms",
@@ -193,5 +209,52 @@ Page({
 	             })
              }
          })
+    },
+    autoLogin(code) {
+        wx.request({
+            url: config.GLOBAL.baseUrl + 'api/mini/program/login',
+	        method: "POST",
+	        data: {
+                code: code
+            },
+            success: res => {
+                if (res.statusCode == 200) {
+                    res = res.data;
+                    if (res.status) {
+	                    // 没能自动登录会返回open_id
+	                    if (res.data.open_id) {
+		                    this.setData({
+			                    open_id: res.data.open_id
+		                    })
+	                    } else {
+	                        if (res.access_token) {
+		                        var access_token = res.token_type + '' + res.access_token;
+		                        wx.setStorageSync("user_token",access_token);
+		                        wx.switchTab({
+			                        url: '/pages/user/personal/personal'
+		                         })
+                            } else {
+		                        wx.showToast({
+			                        title: '获取用户信息失败',
+			                        image: '../../../assets/image/error.png'
+		                        })
+                            }
+
+	                    }
+                    } else {
+	                    wx.showToast({
+		                    title: res.message,
+		                    image: '../../../assets/image/error.png'
+	                    })
+                    }
+
+                } else {
+	                wx.showToast({
+		                title: '获取信息失败',
+		                image: '../../../assets/image/error.png'
+	                })
+                }
+            }
+        })
     }
 });
