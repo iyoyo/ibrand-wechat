@@ -21,6 +21,11 @@ Page({
             url: '/pages/user/register/register'
         })
     },
+    jumpFavor(){
+        wx.navigateTo({
+            url: '/pages/favorite/index/index'
+        })
+    },
     gitUserInfo() {
         wx.request({
             url: config.GLOBAL.baseUrl + 'api/me',

@@ -49,7 +49,7 @@
         </view>
     </view>
     <view class="menu_list">
-         <view class="menu_list_item">
+         <view class="menu_list_item" bindtap="jumpFavor">
             <view class="text">
                 <view class="icon">
                     <i class="iconfont icon-favor"></i>
