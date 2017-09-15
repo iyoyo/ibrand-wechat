@@ -60,6 +60,9 @@
 #store-list .commodity-top .filter-box .filter-item .left.active {
   color: #099FFF;
 }
+#store-list .commodity-top .filter-box .filter-item.dis {
+  color: #eeeeee;
+}
 #store-list .commodity-top .filter-box .filter-item .right {
   width: 20px;
   height: 100%;

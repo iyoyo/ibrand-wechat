@@ -24,6 +24,9 @@
 }
 #store-cart .goods-box .goods-item .item-info .name {
   padding-bottom: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 #store-cart .goods-box .goods-item .item-info .money-box {
   display: flex;

@@ -54,10 +54,25 @@ Page({
 				Authorization: token
 			},
 			success: res => {
-				res = res.data;
-				this.setData({
-					list: res.data
-				})
+				if (res.statusCode == 200) {
+					res = res.data;
+					if (res.status) {
+						this.setData({
+							list: res.data
+						})
+					} else {
+						wx.showToast({
+							title: res.message,
+							image: '../../../assets/image/error.png'
+						})
+					}
+
+				} else {
+					wx.showToast({
+						title: '获取信息失败',
+						image: '../../../assets/image/error.png'
+					})
+				}
 			}
 		})
 	}

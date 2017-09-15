@@ -22,7 +22,7 @@ Page({
 			});
 
 			var page = this.data.meta.pagination.current_page + 1;
-			this.queryFavoriteList(page);
+			this.queryFavoriteList(0,page);
 		} else {
 			wx.showToast({
 				image: '../../../assets/image/error.png',
@@ -37,68 +37,72 @@ Page({
 	},
 	select(e) {
 		var value = e.detail.value;
-		var newList = this.data.dataList;
+		var newList = [];
 		if (value.length == this.data.total) {
-			// this.setData({
-			// 	allCheck: true
-			// })
+			this.setData({
+				allCheck: true
+			})
+		} else {
+			this.setData({
+				allCheck: false
+			})
+		}
+
+		value.forEach(v => {
+			v=parseInt(v);
+			newList.push(v);
+		})
+		this.setData({
+			checkList: newList
+		})
+	},
+	click() {
+		var newList = this.data.dataList;
+		if (this.data.allCheck) {
+			newList.forEach(v => {
+				v.forEach(i => {
+					i.isCheck =false
+				})
+			});
+			this.setData({
+				checkList: []
+			})
+		} else {
+			var checkList = [];
 			newList.forEach(v => {
 				v.forEach(i => {
 					i.isCheck =true
 				})
 			});
-			console.log(newList);
-		} else {
-			// var f = false
-			// this.setData({
-			// 	allCheck: f
-			// })
+			newList.forEach(v => {
+				v.forEach(i => {
+					checkList.push(i.favoriteable_id)
+				})
+			});
+			this.setData({
+				checkList: checkList
+			})
 		}
-		// return value
-		// console.log(value)
-	},
-	click() {
-		// this.setData({
-		// 	allCheck: !this.data.allCheck
-		// })
-		// var newList = this.data.dataList;
-		// newList.forEach(v => {
-		// 	v.forEach(i => {
-		// 		i.isCheck =true
-		// 	})
-		// });
-		// this.setData({
-		// 	dataList: newList
-		// })
+		this.setData({
+			dataList: newList,
+			allCheck: !this.data.allCheck
+		})
 
 	},
-	// click(e) {
-	// 	var index = e.currentTarget.dataset.index;
-	// 	var value = e.currentTarget.dataset.value;
-	// 	var fIndex = e.currentTarget.dataset.findex;
-	// 	var isCheck = e.currentTarget.dataset.ischecked;
-	// 	var list = `dataList[${fIndex}]`;
-	// 	if (!isCheck) {
-	// 		this.checkList().push(value)
-	// 		// this.setData({
-	// 		// 	checkList: this.data.checkList.push(value)
-	// 		// })
-	// 	} else {
-	// 		this.checkList().splice(index,1)
-	// 		// this.setData({
-	// 		// 	checkList: this.data.checkList.splice(index,1)
-	// 		// })
-	// 	}
-	// 	console.log(this.checkList())
-	// 	this.setData({
-	// 		[`${list}[${index}].isCheck`]: !this.data.dataList[fIndex][index].isCheck
-	// 	})
-	// },
+	fClick(e) {
+		var index = e.currentTarget.dataset.index;
+		var value = e.currentTarget.dataset.value;
+		var fIndex = e.currentTarget.dataset.findex;
+		var isCheck = e.currentTarget.dataset.ischecked;
+		var list = `dataList[${fIndex}]`;
+		this.setData({
+			[`${list}[${index}].isCheck`]: !this.data.dataList[fIndex][index].isCheck
+		})
+	},
 	cancel() {
 		var data = {
-			array: this.data.checkList,
-			dataList: this.data.dataList,
-			checkList: this.data.checkList
+			checkList: this.data.checkList,
+			dataList: this.data.dataList
 		}
 		if (this.data.checkList.length === 0) {
 			wx.showModal({
@@ -124,7 +128,7 @@ Page({
 		wx.request({
 			url: config.GLOBAL.baseUrl + 'api/favorite',
 			header: {
-				Authorization: this.data.token
+				Authorization: token
 			},
 			data: {
 				page: page
@@ -134,8 +138,6 @@ Page({
 					res = res.data;
 					if (res.status) {
 						var pages = res.meta.pagination;
-						var current_page = pages.current_page;
-						var total_pages = pages.total_pages;
 						var total = res.meta.pagination.total;
 						res.data.forEach(v => {
 							v.remove = false;
@@ -160,6 +162,11 @@ Page({
 						showCancel: false
 					})
 				}
+			},
+			complete: err => {
+				this.setData({
+					show: false
+				})
 			}
 		})
 	},
@@ -171,7 +178,7 @@ Page({
 			url: config.GLOBAL.baseUrl + 'api/favorite/delFavs',
 			method: 'POST',
 			data: {
-				favoriteable_id: data.array,
+				favoriteable_id: data.checkList,
 				favoriteable_type: 'goods'
 			},
 			header: {
@@ -180,17 +187,17 @@ Page({
 			success: res => {
 				if (res.statusCode == 200) {
 					res = res.data;
-					var dataList = data.dataList;
-					var checkList = data.checkList;
 					if (res.status) {
-						for (let item of dataList) {
-							if (checkList.indexOf(item.favoriteable_id) != -1) {
-								item.remove = true
-							}
-						}
-						this.setData({
-							total: this.data.total -= this.checkList.length,
-							checkList: []
+						var dataList = data.dataList;
+						var checkList = data.checkList;
+						dataList.forEach((v, idx) => {
+							v.forEach((i, index) => {
+								if (checkList.indexOf(i.favoriteable_id) != -1) {
+									this.setData({
+										[`dataList[${idx}][${index}].remove`]: true
+									})
+								}
+							})
 						})
 					} else {
 						wx.showModal({

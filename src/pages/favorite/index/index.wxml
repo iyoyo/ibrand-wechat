@@ -8,7 +8,7 @@
             <view wx:for="{{dataList}}" wx:for-index="idx">
                 <view class="goods-item mx-1px-bottom" wx:if="{{!item.remove}}" wx:for="{{dataList[idx]}}">
                     <view class="img-box">
-                        <checkbox  checked="{{item.isCheck}}" data-ischecked="{{item.isCheck}}" data-findex="{{idx}}" data-index="{{index}}" data-value="{{item.favoriteable_id}}" value="{{item.favoriteable_id}}" />
+                        <checkbox hidden="{{!edit}}"  bindtap="fClick" checked="{{item.isCheck}}" data-ischecked="{{item.isCheck}}" data-findex="{{idx}}" data-index="{{index}}" data-value="{{item.favoriteable_id}}" value="{{item.favoriteable_id}}" />
                         <image src="{{item.favoriteable.img}}" />
                     </view>
                     <view class="text">
@@ -17,9 +17,12 @@
                     </view>
                 </view>
             </view>
+        <view class="loadingbox" hidden="{{!show}}">
+            正在加载下一页数据
+        </view>
     </view>
     </checkbox-group>
-    <view class="cancel mx-1px-top">
+    <view class="cancel mx-1px-top" wx:if="{{edit}}">
         <view class="checkbox">
             <label>
                 <checkbox bindtap="click" checked="{{allCheck}}" /> 全选
