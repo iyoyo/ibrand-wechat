@@ -165,6 +165,8 @@ var args = {
 
             this.select_product()
             this.groupList()
+
+            return
         }
         var that = this;
         wx.request({
