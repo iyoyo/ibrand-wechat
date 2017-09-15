@@ -224,11 +224,18 @@ Page({
 	                    this.setData({
 		                    open_id: res.data.open_id
 	                    })
-                    } else {
+                    }
+                    if (res.access_token) {
 	                    var access_token = res.token_type + ' ' + res.access_token;
 	                    wx.setStorageSync("user_token",access_token);
 	                    wx.switchTab({
 		                    url: '/pages/user/personal/personal'
+	                    })
+                    }
+                    if (!res.status) {
+	                    wx.showToast({
+		                    title: res.message,
+		                    image: '../../../assets/image/error.png'
 	                    })
                     }
                 } else {
