@@ -216,7 +216,7 @@
                             </view>
                         </view>
                         <view class="coupon-tiem">
-                            {{item.discount.start_at}}至{{coupon.discount.ends_at}}
+                            {{item.discount.starts_at}}至{{item.discount.ends_at}}
                         </view>
 
                         <view class="select {{ index == check ? 'activity' : ''}}">

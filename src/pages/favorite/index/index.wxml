@@ -9,9 +9,9 @@
                 <view class="goods-item mx-1px-bottom" wx:if="{{!item.remove}}" wx:for="{{dataList[idx]}}">
                     <view class="img-box">
                         <checkbox hidden="{{!edit}}"  bindtap="fClick" checked="{{item.isCheck}}" data-ischecked="{{item.isCheck}}" data-findex="{{idx}}" data-index="{{index}}" data-value="{{item.favoriteable_id}}" value="{{item.favoriteable_id}}" />
-                        <image src="{{item.favoriteable.img}}" />
+                        <image src="{{item.favoriteable.img}}" data-id="{{item.id}}" bindtap="jump" />
                     </view>
-                    <view class="text">
+                    <view class="text" data-id="{{item.favoriteable.id}}" bindtap="jump">
                         <view class="names">{{item.favoriteable.name}}</view>
                         <view class="money">¥{{item.favoriteable.sell_price}}</view>
                     </view>

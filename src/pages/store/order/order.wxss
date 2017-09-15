@@ -156,6 +156,7 @@
   width: 0%;
   height: 100%;
   color: #FFFFFF;
+  border-radius: 0;
 }
 .coupon-maks {
   position: fixed;

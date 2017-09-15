@@ -49,6 +49,12 @@ Page({
             url: '/pages/afterSales/detail/detail?no='+refund_no
         })
 	},
+	pay(e) {
+		var order_no = e.currentTarget.dataset.no;
+		wx.navigateTo({
+			url: '/pages/store/payment/payment?order_no=' + order_no
+		})
+	},
 	cancel() {
 		wx.showModal({
 		  title: '',

@@ -95,7 +95,7 @@
                                     {{good.quantity}}件
                                 </view>
                                 <view>
-                                    ￥{{good.total}}
+                                    ￥{{good.total_yuan}}
                                 </view>
                             </view>
                         </view>
@@ -151,7 +151,7 @@
                                         {{good.quantity}}件
                                     </view>
                                     <view>
-                                        ￥{{good.total}}
+                                        ￥{{good.total_yuan}}
                                     </view>
                                 </view>
                             </view>
@@ -207,7 +207,7 @@
                                         {{good.quantity}}件
                                     </view>
                                     <view>
-                                        ￥{{good.total}}
+                                        ￥{{good.total_yuan}}
                                     </view>
                                 </view>
                             </view>

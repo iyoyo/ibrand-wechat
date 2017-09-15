@@ -205,7 +205,7 @@
             <view class="cancel" bindtap="cancel">
                 取消订单
             </view>
-            <view class="submit">
+            <view class="submit" data-no="{{order.order_no}}" bindtap="pay">
                 立即付款
             </view>
         </view>

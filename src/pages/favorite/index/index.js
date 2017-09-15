@@ -11,7 +11,7 @@ Page({
 		allCheck: false,
 		token: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRkMGFhNTM1MzU3ZDExOTc2NDA5Njg0ZTA3ZjdlODRjM2EzODRlYmVlNDc0OTYxMmNiMjgxOWFjOTkyMWQzYmZiMWUzNmU2M2M4YTU1OWMyIn0.eyJhdWQiOiIxIiwianRpIjoiNGQwYWE1MzUzNTdkMTE5NzY0MDk2ODRlMDdmN2U4NGMzYTM4NGViZWU0NzQ5NjEyY2IyODE5YWM5OTIxZDNiZmIxZTM2ZTYzYzhhNTU5YzIiLCJpYXQiOjE1MDUyMTE4OTYsIm5iZiI6MTUwNTIxMTg5NiwiZXhwIjoxODIwNzQ0Njk2LCJzdWIiOiI0OTUiLCJzY29wZXMiOltdfQ.Hsvxv48y8f6HaxGCk7wUvAvXsYPNSRZLF4oBGvLKjo015FY59fPw_BSli5xeMKMsqG97ST1bjsKz9jA2HlnnikPZCDHrCxVwMrHtug2k2Pdr343iYH98wYxwhKIeCwlT8TpzM2c3CDEPLUcvd8Mdxgndekpm-5Y9bG5lcaW7lM1iRaUzzxM2vghpc2xPLDbj6K-SEk6YHkw0UYEcpHJnE1qXom59SOeigJbTDUozRpz9wYLyhB5L3WcU1hs1NDC68B16X32oVWCYVKAV2wpGfgEv8mZt2TtS6eo45GoRvrHMfFI7CnZZAXDAYJus1kQlGaCoA1mc6YnJgENFbHDFDET3uzVWbtg6Kc2bm-lqbo8jF4NOxVMbm2MhkROQ9fKL3E8Ker41KhNJxLmR1wEPr2aWpIhgBKk77vblWDlnuRyh4ZN5GOTAUh5PqXMJ8qbvORzExvdeyx5lwbjCWUqRy8XTuB2dZh7bIzqh-d_-qGdEwaOxeGFJ_TCGGCo9tmqgUhavw39iJ3KWF6abUZtBgV6iEVJuP3uFtzY94Yr5h5aE_zJjPeCZELB-b_k07V-Ytn3SzirsFT9AntcE0YAA0MFyJJMBQ4B0XIf21wyUc6ITzj_xjZeX1pOhl3-Qfu_CK0dqc0gcG9nZSLAiDHHC-n6nA-LTjiHOptiiZ_b3lg0'
 	},
-	onLoad() {
+	onShow() {
 		this.queryFavoriteList();
 	},
 	onReachBottom() {
@@ -122,6 +122,12 @@ Page({
 			})
 		}
 	},
+	jump(e) {
+		var id = e.currentTarget.dataset.id;
+		wx.navigateTo({
+		  url: '/pages/store/detail/detail?id=' + id
+		})
+	},
 	// 查询收藏列表
 	queryFavoriteList(status = 0, page = 1) {
 		var token = wx.getStorageSync('user_token');
@@ -198,6 +204,10 @@ Page({
 									})
 								}
 							})
+						});
+						this.queryFavoriteList();
+						this.setData({
+							checkList: []
 						})
 					} else {
 						wx.showModal({

@@ -271,8 +271,8 @@ Page({
 		}
 
 	},
-	move(e) {
-		console.log(e);
+	move() {
+
 	},
 	loadMore() {
 		wx.request({

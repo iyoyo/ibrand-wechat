@@ -94,7 +94,9 @@
   flex: 1;
 }
 #store-cart .buy-box .num-box {
+  height: 100%;
   width: 110px;
   text-align: center;
   color: #FFFFFF;
+  border-radius: 0;
 }

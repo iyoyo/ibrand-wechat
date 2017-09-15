@@ -99,6 +99,12 @@ Page({
 			this.orderList(0, status);
 		}
 	},
+	pay(e) {
+		var order_no = e.currentTarget.dataset.no;
+		wx.navigateTo({
+		  url: '/pages/store/payment/payment?order_no=' + order_no
+		})
+	},
 	delete(e) {
 		wx.showModal({
 			title: '',
